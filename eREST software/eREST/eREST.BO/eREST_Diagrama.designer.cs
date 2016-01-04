@@ -23,7 +23,7 @@ namespace eREST.BO
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="eREST_BD")]
-	public partial class eREST_DigramaDataContext : System.Data.Linq.DataContext
+	public partial class eREST_DiagramaDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -110,31 +110,31 @@ namespace eREST.BO
     partial void DeleteeREST_USUARIO(eREST_USUARIO instance);
     #endregion
 		
-		public eREST_DigramaDataContext() : 
+		public eREST_DiagramaDataContext() : 
 				base(global::eREST.BO.Properties.Settings.Default.eREST_BDConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public eREST_DigramaDataContext(string connection) : 
+		public eREST_DiagramaDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public eREST_DigramaDataContext(System.Data.IDbConnection connection) : 
+		public eREST_DiagramaDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public eREST_DigramaDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public eREST_DiagramaDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public eREST_DigramaDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public eREST_DiagramaDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -3784,6 +3784,8 @@ namespace eREST.BO
 		
 		private bool _PRO_ESTADO;
 		
+		private string _PRO_RUTAIMAGEN;
+		
 		private EntitySet<eREST_DETALLEORDEN> _eREST_DETALLEORDENs;
 		
 		private EntitySet<eREST_DETSUBBODEGA> _eREST_DETSUBBODEGAs;
@@ -3812,6 +3814,8 @@ namespace eREST.BO
     partial void OnPRO_PK_PRODUCTOChanged();
     partial void OnPRO_ESTADOChanging(bool value);
     partial void OnPRO_ESTADOChanged();
+    partial void OnPRO_RUTAIMAGENChanging(string value);
+    partial void OnPRO_RUTAIMAGENChanged();
     #endregion
 		
 		public eREST_PRODUCTO()
@@ -3987,6 +3991,26 @@ namespace eREST.BO
 					this._PRO_ESTADO = value;
 					this.SendPropertyChanged("PRO_ESTADO");
 					this.OnPRO_ESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_RUTAIMAGEN", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string PRO_RUTAIMAGEN
+		{
+			get
+			{
+				return this._PRO_RUTAIMAGEN;
+			}
+			set
+			{
+				if ((this._PRO_RUTAIMAGEN != value))
+				{
+					this.OnPRO_RUTAIMAGENChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_RUTAIMAGEN = value;
+					this.SendPropertyChanged("PRO_RUTAIMAGEN");
+					this.OnPRO_RUTAIMAGENChanged();
 				}
 			}
 		}

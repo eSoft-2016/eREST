@@ -64,7 +64,6 @@ namespace eREST
         /// <summary>
         /// Crea los botones en pantalla. 
         /// </summary>
-        private void addButton(){
             //for (int i = 0; i < 6; i++ )
             //    {
             //        Button btn = new Button();
@@ -76,6 +75,25 @@ namespace eREST
             //        btn.Tag="Pages/Productos.xaml";
             //    else
             //        btn.Tag = "Pages/Usuarios.xaml";
+        private void addButton(){ 
+            //for (int i = 0; i < 6; i++ )
+            //    {
+            //        Button btn = new Button();
+            //        btn.Width = 300;
+            //        btn.Height = 38;
+            //        btn.Style = Application.Current.Resources["stMenuButton"] as Style;
+            //        btn.Content = "Opcion #" + i; 
+            //    if(i==1 )
+            //        btn.Tag="Pages/Productos.xaml";
+            //    else if (i == 2)
+            //        btn.Tag = "Pages/ConfiguracionLocal.xaml";
+            //    else
+            //        btn.Tag = "Pages/Usuarios.xaml";
+
+            //        btn.Click += btn_Click;
+            //        stkButtons.Children.Add(btn);
+            //    }
+           
 
             //        btn.Click += btn_Click;
             //        stkButtons.Children.Add(btn);

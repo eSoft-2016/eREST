@@ -40,10 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="eREST_Digrama.designer.cs">
+    <Compile Include="eREST_Diagrama.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>eREST_Digrama.dbml</DependentUpon>
+      <DependentUpon>eREST_Diagrama.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -54,9 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="eREST_Digrama.dbml">
+    <None Include="eREST_Diagrama.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>eREST_Digrama.designer.cs</LastGenOutput>
+      <LastGenOutput>eREST_Diagrama.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -68,8 +68,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="eREST_Digrama.dbml.layout">
-      <DependentUpon>eREST_Digrama.dbml</DependentUpon>
+    <None Include="eREST_Diagrama.dbml.layout">
+      <DependentUpon>eREST_Diagrama.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

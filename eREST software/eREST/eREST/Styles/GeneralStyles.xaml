@@ -308,6 +308,30 @@
         </Setter>
     </Style>
 
+    <!--**************************************************Estilo del boton de muebles******************************************-->
+
+    <Style x:Key="stCompenentBar" TargetType="{x:Type local:ccComponentBar}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ccComponentBar}">
+                    <Grid HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="51" Margin="0,0,-1,-1">
+                        <Rectangle HorizontalAlignment="Stretch" Height="Auto" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="Auto" Margin="0,4,0,10">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="{Binding Image, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <TextBlock HorizontalAlignment="Stretch" FontSize="12" FontFamily="Segoe UI" TextWrapping="Wrap" Text="{Binding Identify, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Stretch" Height="Auto" Width="Auto" Margin="13,14,12,20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                        <Rectangle HorizontalAlignment="Stretch" Height="Auto" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="Auto" Margin="31,31,0,0">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="{Binding IsInvalidePosition, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--******************************************************Estilo del checkbox***************************************************************************-->
 
     <Style x:Key="CheckBoxFocusVisual">

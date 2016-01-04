@@ -6,7 +6,8 @@
       xmlns:CustomControls="clr-namespace:eREST.CustomControls"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="ConfiguracionLocal">
+	Title="ConfiguracionLocal"
+       Height="598" Width="1092">
     <Page.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard>

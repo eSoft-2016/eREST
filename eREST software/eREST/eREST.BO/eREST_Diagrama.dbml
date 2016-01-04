@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="eREST_BD" Class="eREST_DigramaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="eREST_BD" Class="eREST_DiagramaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=Luis-PC\SQLEXPRESS;Initial Catalog=eREST_BD;User ID=sa" SettingsObjectName="eREST.BO.Properties.Settings" SettingsPropertyName="eREST_BDConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.eREST_BODEGAS" Member="eREST_BODEGAs">
     <Type Name="eREST_BODEGA">
@@ -173,6 +173,7 @@
       <Column Name="PRO_FK_RECETA" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PRO_PK_PRODUCTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="PRO_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_RUTAIMAGEN" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
       <Association Name="eREST_PRODUCTO_eREST_DETALLEORDEN" Member="eREST_DETALLEORDENs" ThisKey="PRO_PK_PRODUCTO" OtherKey="DOR_FK_PRODUCTO" Type="eREST_DETALLEORDEN" />
       <Association Name="eREST_PRODUCTO_eREST_DETSUBBODEGA" Member="eREST_DETSUBBODEGAs" ThisKey="PRO_PK_PRODUCTO" OtherKey="DSB_FK_PRODUCTO" Type="eREST_DETSUBBODEGA" />
       <Association Name="eREST_RECETA_eREST_PRODUCTO" Member="eREST_RECETA" ThisKey="PRO_FK_RECETA" OtherKey="REC_PK_RECETA" Type="eREST_RECETA" IsForeignKey="true" />
