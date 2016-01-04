@@ -35,8 +35,6 @@ namespace eREST.Pages
 
         double positionLeft, positionRight, positionTop, positionBottom; //Posiciones del componente arrastrado
         double limitLeftRg1, limitRightRg1, limitTopRg1, limitBottomRg1; //Posiciones limite del rectangulo 1
-        double limitLeftRg2, limitRightRg2, limitTopRg2, limitBottomRg2; //Posiciones limite del rectangulo 2
-
 
         List<ccComponentBar> lsComponents = new List<ccComponentBar>();
 
@@ -62,13 +60,7 @@ namespace eREST.Pages
             limitBottomRg1 = limitTopRg1 + rgLimitSquare.Height;
             #endregion
 
-            #region Limits Rectangle Two
-            limitLeftRg2 = Canvas.GetLeft(rgLimitSquare1); //Inicio los limites del rectangulo 1 donde se
-            limitRightRg2 = limitLeftRg2 + rgLimitSquare1.Width; //Admite posicionar objetos. 
-
-            limitTopRg2 = Canvas.GetTop(rgLimitSquare1);
-            limitBottomRg2 = limitTopRg2 + rgLimitSquare1.Height;
-            #endregion
+            
         }
         #endregion
 
@@ -96,8 +88,7 @@ namespace eREST.Pages
             {
                 if (nwComponent != null)
                 {
-                    if (((limitLeftRg1 < positionLeft) && (limitRightRg1 > positionRight) && (limitTopRg1 < positionTop) && (limitBottomRg1 > positionBottom))
-                        || ((limitLeftRg2 < positionLeft) && (limitRightRg2 > positionRight) && (limitTopRg2 < positionTop) && (limitBottomRg2 > positionBottom)))
+                    if ((limitLeftRg1 < positionLeft) && (limitRightRg1 > positionRight) && (limitTopRg1 < positionTop) && (limitBottomRg1 > positionBottom))
                     { // No permite que se suele el mouse si no se esta en una posicion adecuada. 
 
                         nwComponent.IsInvalidePosition = String.Empty;
@@ -146,23 +137,22 @@ namespace eREST.Pages
                     positionTop = Canvas.GetTop(nwComponent);
                     positionBottom = positionTop + nwComponent.ActualHeight;
 
-                    if (((limitLeftRg1 < positionLeft) && (limitRightRg1 > positionRight) && (limitTopRg1 < positionTop) && (limitBottomRg1 > positionBottom))
-                        || ((limitLeftRg2 < positionLeft) && (limitRightRg2 > positionRight) && (limitTopRg2 < positionTop) && (limitBottomRg2 > positionBottom)))
+                    if ((limitLeftRg1 < positionLeft) && (limitRightRg1 > positionRight) && (limitTopRg1 < positionTop) && (limitBottomRg1 > positionBottom))
                     {
-                        //foreach (ccComponentBar item in lsComponents)
-                        //{
-                        //    //    if (nwComponent.PositionX + nwComponent.Height == item.PositionX && nwComponent.PositionY + Width == item.PositionY)
-                        //    nwComponent.IsInvalidePosition = OthersResoures.DeniedPosition;
-                        //    //   else
-                        //    nwComponent.IsInvalidePosition = OthersResoures.ApprovedPosition;
-                        //}
+                        foreach (ccComponentBar item in lsComponents)
+                        {
+                            if (nwComponent.PositionX + nwComponent.Height == item.PositionX && nwComponent.PositionY + Width == item.PositionY)
+                                nwComponent.IsInvalidePosition = OthersResoures.DeniedPosition;
+                            else
+                                nwComponent.IsInvalidePosition = OthersResoures.ApprovedPosition;
+                        }
                     }
                     else
                     {
                         nwComponent.IsInvalidePosition = OthersResoures.DeniedPosition;
                     }
 
-                    if (e.GetPosition(cnvParent).X > -30 && e.GetPosition(cnvParent).X < 1060 && e.GetPosition(cnvParent).Y > 0 && e.GetPosition(cnvParent).Y < 560)
+                    if (e.GetPosition(cnvParent).X > -30 && e.GetPosition(cnvParent).X < 1072 && e.GetPosition(cnvParent).Y > 0 && e.GetPosition(cnvParent).Y < 515)
                     {
                         Canvas.SetLeft(nwComponent, e.GetPosition(cnvParent).X);  //Posiciona el elemento en el lugar que se encuentre el mouse 
                         Canvas.SetTop(nwComponent, e.GetPosition(cnvParent).Y);   //dentro del canvas. 
