@@ -59,6 +59,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Resources\OthersResoures.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OthersResoures.resx</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +72,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CustomControls\ccComponentBar.cs" />
     <Compile Include="CustomControls\ccMaintenanceButton.cs" />
     <Compile Include="CustomControls\ccWindowButtons.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -82,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModalWindows\MaintenanceWindows\wmUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ConfiguracionLocal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,6 +122,9 @@
     <Compile Include="ModalWindows\MaintenanceWindows\wmUsuario.xaml.cs">
       <DependentUpon>wmUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ConfiguracionLocal.xaml.cs">
+      <DependentUpon>ConfiguracionLocal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
     </Compile>
@@ -135,6 +148,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\OthersResoures.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OthersResoures.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -145,7 +162,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <Folder Include="UserControls\" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +196,16 @@
     <Resource Include="Icons\Window\cancel.png" />
     <Resource Include="Icons\Window\message.png" />
     <Resource Include="Icons\Window\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ComponentsBar\B.png" />
+    <Resource Include="Images\ComponentsBar\Bathroom.png" />
+    <Resource Include="Images\ComponentsBar\M4.png" />
+    <Resource Include="Images\ComponentsBar\M6.png" />
+    <Resource Include="Images\ComponentsBar\P.png" />
+    <Resource Include="Images\ComponentsBar\pass.png" />
+    <Resource Include="Images\ComponentsBar\PrincipalBig.png" />
+    <Resource Include="Images\ComponentsBar\Principalsmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

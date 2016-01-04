@@ -9,21 +9,23 @@
     Height="730" Width="1366" Background="#7FFFFFFF" AllowsTransparency="True"
     WindowStyle="None" WindowStartupLocation="CenterScreen">
 
-    <Grid Height="422" Width="300" Background="White" Opacity="1">
+    <Grid Height="500" Width="800" Background="White" Opacity="1">
 
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="8" BlurRadius="3" RenderingBias="Quality" Opacity="0.5"/>
-        </Grid.Effect> 
-        <Rectangle Stroke="{StaticResource ResourceKey=DarkColor}" StrokeThickness=".5"/>
-        <CustomControls:ccMaintenanceButton x:Name="btnSave" HorizontalAlignment="Left" Margin="213,380,0,0" Width="40" Icon="/eREST;component/Icons/Maintenance/save.png" Style="{DynamicResource stMaintenanceButton}"  Height="40" VerticalAlignment="Top"  Command="New"/>
-        <CustomControls:ccMaintenanceButton x:Name="btnCancel" HorizontalAlignment="Left" Height="40" Margin="253,380,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/cancel.png" Style="{DynamicResource stMaintenanceButton}" Click="btnCancel_Click" />
+        </Grid.Effect>
+        <Rectangle Stroke="{StaticResource MediumColor}" StrokeThickness="1.5"/>
 
-        <Rectangle Fill="{StaticResource LightColor}" HorizontalAlignment="Left" Height="1" Margin="10,38,0,0" VerticalAlignment="Top" Width="280"/>
-        <Rectangle Fill="{StaticResource LightColor}" HorizontalAlignment="Left" Height="1" Margin="10,378,0,0" VerticalAlignment="Top" Width="280"/>
+        <Rectangle Stroke="{StaticResource ResourceKey=DarkColor}" StrokeThickness=".5" Margin="354,139,268,80"/>
+        <CustomControls:ccMaintenanceButton x:Name="btnSave" HorizontalAlignment="Left" Margin="706,450,0,0" Width="40" Icon="/eREST;component/Icons/Maintenance/save.png" Style="{DynamicResource stMaintenanceButton}"  Height="40" VerticalAlignment="Top"  Command="New"/>
+        <CustomControls:ccMaintenanceButton x:Name="btnCancel" HorizontalAlignment="Left" Height="40" Margin="746,450,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/cancel.png" Style="{DynamicResource stMaintenanceButton}" Click="btnCancel_Click" />
+
+        <Rectangle Fill="{StaticResource LightColor}" HorizontalAlignment="Left" Height="1" Margin="10,38,0,0" VerticalAlignment="Top" Width="286"/>
+        <Rectangle Fill="{StaticResource LightColor}" HorizontalAlignment="Left" Height="1" Margin="10,450,0,0" VerticalAlignment="Top" Width="776"/>
 
 
         <TextBlock HorizontalAlignment="Left" Margin="10,3,0,0" TextWrapping="Wrap" Text="Mantenimiento de Productos" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="22" Foreground="{StaticResource DarkColor}"/>
-        <Grid x:Name="gProduct"  HorizontalAlignment="Left" Margin="18,44,0,0" VerticalAlignment="Top" Height="331" Width="272" Opacity="1">
+        <Grid x:Name="gProduct"  HorizontalAlignment="Left" Margin="18,44,0,0" VerticalAlignment="Top" Height="401" Width="317" Opacity="1">
 
 
             <Grid.ColumnDefinitions>
@@ -48,37 +50,46 @@
             </CheckBox>
             <Label Content="Categoría:" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="4" VerticalAlignment="Center"/>
 
-            <Label Content="Impuesto:" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="3" VerticalAlignment="Center"/>
-            <CheckBox x:Name="impuestoCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="3,11,0,11" Grid.Row="3" VerticalAlignment="Center" IsChecked="True">
+            <Label Content="Impuesto:" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="5" VerticalAlignment="Center"/>
+            <CheckBox x:Name="impuestoCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="3,11,0,11" Grid.Row="5" VerticalAlignment="Center" IsChecked="True">
 
             </CheckBox>
 
             <Label Content="Nombre:"  Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,4" Grid.Row="0" VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" FontWeight="Bold"/>
 
-            <Label Content="Otros Cobros:" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="5" VerticalAlignment="Center" FontWeight="Bold"/>
-
             <Label Content="Precio:"  FontWeight="Bold" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center"/>
             <Label Content="Imagen" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,12,0,9" Grid.Row="7" VerticalAlignment="Center" Height="33" Width="70"/>
-            <CustomControls:ccMaintenanceButton x:Name="btnImage" HorizontalAlignment="Left" Height="44" Margin="65,0,0,0" Grid.Row="7" VerticalAlignment="Top" Width="40" Icon="/Asterisk;component/Icons/Maintenance/parent.png" Style="{DynamicResource stMaintenanceButton}"  />
-            <Image Name="imgProduct" Source="/eREST;component/Images/Others/Border.png" Stretch="Fill" Grid.Column="1" HorizontalAlignment="Left" Height="53" Margin="45,1,0,0" Grid.Row="7" VerticalAlignment="Top" Width="53"/>
-            <TextBox x:Name="otrosCobrosTextBox" Foreground="{StaticResource TextColor}" BorderBrush="{StaticResource LightColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="3" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,7,0,7" Grid.Row="5" 
-                 VerticalAlignment="Center" Width="120">
-
-            </TextBox>
-            <ComboBox x:Name="cbCategory" BorderBrush="{StaticResource LightColor}" Grid.Column="1" HorizontalAlignment="Left" Margin="3,8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="120" Style="{DynamicResource stComboBox}" >
+            <CustomControls:ccMaintenanceButton x:Name="btnImage" HorizontalAlignment="Left" Height="44" Margin="67,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/parent.png" Style="{DynamicResource stMaintenanceButton}"  />
+            <Image Name="imgProduct" Source="/eREST;component/Images/Others/Border.png" Stretch="Fill" Grid.Column="1" HorizontalAlignment="Left" Height="101" Margin="24,0,0,-46" Grid.Row="7" VerticalAlignment="Top" Width="106"/>
+            <ComboBox x:Name="cbCategory" BorderBrush="{StaticResource LightColor}" Grid.Column="1" HorizontalAlignment="Left" Margin="3,8,-29,0" Grid.Row="4" VerticalAlignment="Top" Width="159" Style="{DynamicResource stComboBox}" >
 
 
             </ComboBox>
-            <TextBox x:Name="descripcionTextBox" Foreground="{StaticResource TextColor}" BorderBrush="{StaticResource LightColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="40" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="3,4,0,3" Grid.Row="2"  
-                    VerticalAlignment="Center" Width="127" />
-
-
-            <TextBox x:Name="precioTextBox" BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="7" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,7,0,7" Grid.Row="1"
-                        VerticalAlignment="Center" Width="127" />
-            <TextBox x:Name="nombreTextBox" BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="20" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="3,8,0,8" Grid.Row="0" 
-                      VerticalAlignment="Center" Width="127" />
+            <TextBox x:Name="descripcionTextBox" Foreground="{StaticResource TextColor}" BorderBrush="{StaticResource LightColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="40" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="3,4,-31,3" Grid.Row="2"  
+                    VerticalAlignment="Center" Width="159" />
+            <TextBox x:Name="precioTextBox" BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="7" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,7,-31,7" Grid.Row="1"
+                        VerticalAlignment="Center" Width="159" />
+            <TextBox x:Name="nombreTextBox" BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="20" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="3,9,-31,9" Grid.Row="0" 
+                      VerticalAlignment="Center" Width="159" />
+            <Label Content="Otros Cobros:" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,6,0,6" Grid.Row="3" VerticalAlignment="Center" FontWeight="Bold" Width="105"/>
+            <TextBox x:Name="otrosCobrosTextBox_Copy" Foreground="{StaticResource TextColor}" BorderBrush="{StaticResource LightColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="3" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,10,-23,10" Grid.Row="3" 
+            	VerticalAlignment="Center" Width="158"/>
 
         </Grid>
+        <TextBlock  FontFamily="Segoe UI Light" FontSize="16"  HorizontalAlignment="Left" Margin="354,53,0,0" TextWrapping="Wrap" Text="Categoría:" VerticalAlignment="Top" Width="84" Foreground="{StaticResource MediumColor}"/>
+        <ComboBox Name="cbCategori" SelectedItem="{Binding clCategories}" ItemsSource="{Binding clCategories}" DisplayMemberPath="Descripcion"   HorizontalAlignment="Left" Margin="354,90,0,0" VerticalAlignment="Top" Width="144" Style="{DynamicResource stComboBox}" Height="24"/>
+
+        <Rectangle Stroke="{StaticResource MediumColor}" StrokeThickness="1.5" Margin="570,139,14,80"/>
+
+
+        <Rectangle Fill="{StaticResource LightColor}"  HorizontalAlignment="Left" Height="1" Margin="354,38,0,0" VerticalAlignment="Top" Width="432"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Ingredientes" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="22" Foreground="{StaticResource DarkColor}" Margin="354,3,287,0"  Height="27" Width="159" FontWeight="Normal"/>
+
+        <ListBox x:Name="lstDrag" BorderBrush="{StaticResource LightColor}"   HorizontalAlignment="Left" Height="281" Margin="354,139,0,0" VerticalAlignment="Top" Width="178"/>
+        <ListBox x:Name="lstDrop" BorderBrush="{StaticResource LightColor}"  AllowDrop="True" HorizontalAlignment="Left" Height="281" Margin="570,139,0,0" VerticalAlignment="Top" Width="216"/>
+
+
 
     </Grid>
 </Window>
