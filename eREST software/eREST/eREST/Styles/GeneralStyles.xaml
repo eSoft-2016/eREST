@@ -314,8 +314,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ccComponentBar}">
-                    <Grid HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="51" Margin="0,0,-1,-1">
-                        <Rectangle HorizontalAlignment="Stretch" Height="Auto" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="Auto" Margin="0,4,0,10">
+                    <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Top" Width="Auto" Height="Auto"  Margin="0,0,-1,-1">
+                        <Rectangle  Height="Auto" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="Auto" Margin="0,4,0,10">
                             <Rectangle.Fill>
                                 <ImageBrush ImageSource="{Binding Image, RelativeSource={RelativeSource TemplatedParent}}"/>
                             </Rectangle.Fill>
