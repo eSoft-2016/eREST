@@ -1,0 +1,67 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:CustomControls="clr-namespace:eREST.CustomControls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+     mc:Ignorable="d" x:Class="eREST.ModalWindows.MaintenanceWindows.wmUsuario"
+         Height="730" Width="1366" Background="#7FFFFFFF" AllowsTransparency="True"
+           WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+
+    </Window.Resources>
+
+    <Grid Height="290" Width="300" Background="White">
+
+
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="8" BlurRadius="3" RenderingBias="Quality" Opacity="0.5"/>
+        </Grid.Effect>
+
+        <Grid.CommandBindings>
+            <CommandBinding Command="New" CanExecute="CommandBinding_CanExecute"/>
+        </Grid.CommandBindings>
+
+
+        <Rectangle Stroke="{StaticResource MediumColor}" StrokeThickness="1.5"/>
+
+        <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="0.7" Margin="10,38,0,0" VerticalAlignment="Top" Width="280"/>
+        <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="1" Margin="10,245,0,0" VerticalAlignment="Top" Width="280"/>
+
+        <CustomControls:ccMaintenanceButton x:Name="btnSave" HorizontalAlignment="Left" Height="40" Margin="210,249,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/save.png" Style="{DynamicResource stMaintenanceButton}" Click="btnSave_Click" Command="New"/>
+        <CustomControls:ccMaintenanceButton x:Name="btnCancel" HorizontalAlignment="Left" Height="40" Margin="250,249,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/cancel.png" Style="{DynamicResource stMaintenanceButton}" Click="btnCancel_Click"/>
+
+        <TextBlock  Foreground="{StaticResource TextColor}"  HorizontalAlignment="Left" Margin="10,3,0,0" TextWrapping="Wrap" Text="Mantenimiento de Usuarios" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="22" />
+      
+        <ComboBox x:Name="cbEmpleado" HorizontalAlignment="Left" Margin="135,55,0,0" VerticalAlignment="Top" Width="127" Style="{DynamicResource stComboBox}"/>
+
+        <Grid x:Name="gridUser" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}"  Content="Clave:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="claveTextBox1" Foreground="{StaticResource TextColor}" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="2" Grid.Row="2" 
+             BorderBrush="{StaticResource LightColor}" VerticalAlignment="Center" Width="127" />
+            <Label FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}"  Content="Estado:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <CheckBox x:Name="estadoCheckBox1" Content="" Grid.Column="1" HorizontalAlignment="Left"  Margin="3,10,0,6" Grid.Row="4" VerticalAlignment="Center"/>
+            <Label FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Content="Rol:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,24,0,-18" Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold"/>
+            <Label FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Content="Empleado:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,-320,0,-26" Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold"/>
+            <Label FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}"  Content="Nombre:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="nombreTextBox1" Foreground="{StaticResource TextColor}" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,4.5,0,4.5" Grid.Row="1"  
+            	 BorderBrush="{StaticResource LightColor}" VerticalAlignment="Center" Width="127" />
+            <Label FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}"  Content="Usuario:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="usuarioTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,4.5,0,4.5" Grid.Row="0" 
+            	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="127" />
+        </Grid>
+        <ComboBox x:Name="cbRol" HorizontalAlignment="Left" Margin="134,222,0,0" VerticalAlignment="Top" Width="127" Style="{DynamicResource stComboBox}"/>
+
+    </Grid>
+</Window>

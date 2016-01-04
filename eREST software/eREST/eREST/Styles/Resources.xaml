@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--********************************************Paleta de colores del local*********************************************-->
+ 
+    <SolidColorBrush x:Key="DarkColor"
+                     Color="#551f11"/>
+    <SolidColorBrush x:Key="LightColor"
+                     Color="#2b0a01"/>
+    <SolidColorBrush x:Key="MediumColor"
+                     Color="#5e1d08"/>
+    <SolidColorBrush x:Key="TextColor"
+                     Color="#2e0b02"/>
+</ResourceDictionary>
