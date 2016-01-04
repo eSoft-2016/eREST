@@ -72,8 +72,10 @@ namespace eREST
                     btn.Height = 38;
                     btn.Style = Application.Current.Resources["stMenuButton"] as Style;
                     btn.Content = "Opcion #" + i; 
-                if(i==1 || i==2)
+                if(i==1 )
                     btn.Tag="Pages/Productos.xaml";
+                else if (i == 2)
+                    btn.Tag = "Pages/ConfiguracionLocal.xaml";
                 else
                     btn.Tag = "Pages/Usuarios.xaml";
 
