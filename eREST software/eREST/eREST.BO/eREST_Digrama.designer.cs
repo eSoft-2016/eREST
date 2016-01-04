@@ -57,6 +57,9 @@ namespace eREST.BO
     partial void InserteREST_DISTRITO(eREST_DISTRITO instance);
     partial void UpdateeREST_DISTRITO(eREST_DISTRITO instance);
     partial void DeleteeREST_DISTRITO(eREST_DISTRITO instance);
+    partial void InserteREST_EMPLEADO(eREST_EMPLEADO instance);
+    partial void UpdateeREST_EMPLEADO(eREST_EMPLEADO instance);
+    partial void DeleteeREST_EMPLEADO(eREST_EMPLEADO instance);
     partial void InserteREST_EMPRESA(eREST_EMPRESA instance);
     partial void UpdateeREST_EMPRESA(eREST_EMPRESA instance);
     partial void DeleteeREST_EMPRESA(eREST_EMPRESA instance);
@@ -96,6 +99,9 @@ namespace eREST.BO
     partial void InserteREST_TIPOCONTACTO(eREST_TIPOCONTACTO instance);
     partial void UpdateeREST_TIPOCONTACTO(eREST_TIPOCONTACTO instance);
     partial void DeleteeREST_TIPOCONTACTO(eREST_TIPOCONTACTO instance);
+    partial void InserteREST_TIPOEMPLEADO(eREST_TIPOEMPLEADO instance);
+    partial void UpdateeREST_TIPOEMPLEADO(eREST_TIPOEMPLEADO instance);
+    partial void DeleteeREST_TIPOEMPLEADO(eREST_TIPOEMPLEADO instance);
     partial void InserteREST_TIPOMOBILIARIO(eREST_TIPOMOBILIARIO instance);
     partial void UpdateeREST_TIPOMOBILIARIO(eREST_TIPOMOBILIARIO instance);
     partial void DeleteeREST_TIPOMOBILIARIO(eREST_TIPOMOBILIARIO instance);
@@ -105,7 +111,7 @@ namespace eREST.BO
     #endregion
 		
 		public eREST_DigramaDataContext() : 
-				base(global::eREST.BO.Properties.Settings.Default.eREST_BDConnectionString, mappingSource)
+				base(global::eREST.BO.Properties.Settings.Default.eREST_BDConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -203,6 +209,14 @@ namespace eREST.BO
 			get
 			{
 				return this.GetTable<eREST_DISTRITO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<eREST_EMPLEADO> eREST_EMPLEADOs
+		{
+			get
+			{
+				return this.GetTable<eREST_EMPLEADO>();
 			}
 		}
 		
@@ -307,6 +321,14 @@ namespace eREST.BO
 			get
 			{
 				return this.GetTable<eREST_TIPOCONTACTO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<eREST_TIPOEMPLEADO> eREST_TIPOEMPLEADOs
+		{
+			get
+			{
+				return this.GetTable<eREST_TIPOEMPLEADO>();
 			}
 		}
 		
@@ -1069,13 +1091,13 @@ namespace eREST.BO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _DOR_PK_DETALLEORDEN;
-		
 		private int _DOR_FK_PRODUCTO;
 		
 		private double _DOR_CANTIDAD;
 		
 		private int _DOR_FK_ORDEN;
+		
+		private int _DOR_PK_DETALLEORDEN;
 		
 		private EntityRef<eREST_ORDEN> _eREST_ORDEN;
 		
@@ -1085,14 +1107,14 @@ namespace eREST.BO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnDOR_PK_DETALLEORDENChanging(int value);
-    partial void OnDOR_PK_DETALLEORDENChanged();
     partial void OnDOR_FK_PRODUCTOChanging(int value);
     partial void OnDOR_FK_PRODUCTOChanged();
     partial void OnDOR_CANTIDADChanging(double value);
     partial void OnDOR_CANTIDADChanged();
     partial void OnDOR_FK_ORDENChanging(int value);
     partial void OnDOR_FK_ORDENChanged();
+    partial void OnDOR_PK_DETALLEORDENChanging(int value);
+    partial void OnDOR_PK_DETALLEORDENChanged();
     #endregion
 		
 		public eREST_DETALLEORDEN()
@@ -1100,26 +1122,6 @@ namespace eREST.BO
 			this._eREST_ORDEN = default(EntityRef<eREST_ORDEN>);
 			this._eREST_PRODUCTO = default(EntityRef<eREST_PRODUCTO>);
 			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOR_PK_DETALLEORDEN", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int DOR_PK_DETALLEORDEN
-		{
-			get
-			{
-				return this._DOR_PK_DETALLEORDEN;
-			}
-			set
-			{
-				if ((this._DOR_PK_DETALLEORDEN != value))
-				{
-					this.OnDOR_PK_DETALLEORDENChanging(value);
-					this.SendPropertyChanging();
-					this._DOR_PK_DETALLEORDEN = value;
-					this.SendPropertyChanged("DOR_PK_DETALLEORDEN");
-					this.OnDOR_PK_DETALLEORDENChanged();
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOR_FK_PRODUCTO", DbType="Int NOT NULL")]
@@ -1186,6 +1188,26 @@ namespace eREST.BO
 					this._DOR_FK_ORDEN = value;
 					this.SendPropertyChanged("DOR_FK_ORDEN");
 					this.OnDOR_FK_ORDENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOR_PK_DETALLEORDEN", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DOR_PK_DETALLEORDEN
+		{
+			get
+			{
+				return this._DOR_PK_DETALLEORDEN;
+			}
+			set
+			{
+				if ((this._DOR_PK_DETALLEORDEN != value))
+				{
+					this.OnDOR_PK_DETALLEORDENChanging(value);
+					this.SendPropertyChanging();
+					this._DOR_PK_DETALLEORDEN = value;
+					this.SendPropertyChanged("DOR_PK_DETALLEORDEN");
+					this.OnDOR_PK_DETALLEORDENChanged();
 				}
 			}
 		}
@@ -2182,6 +2204,181 @@ namespace eREST.BO
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_EMPLEADOS")]
+	public partial class eREST_EMPLEADO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EMP_PK_EMPLEADO;
+		
+		private System.DateTime _EMP_FECHAREGISTRO;
+		
+		private int _EMP_FK_TIPOEMPLEADO;
+		
+		private int _EMP_FK_PERSONA;
+		
+		private EntityRef<eREST_PERSONA> _eREST_PERSONA;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEMP_PK_EMPLEADOChanging(int value);
+    partial void OnEMP_PK_EMPLEADOChanged();
+    partial void OnEMP_FECHAREGISTROChanging(System.DateTime value);
+    partial void OnEMP_FECHAREGISTROChanged();
+    partial void OnEMP_FK_TIPOEMPLEADOChanging(int value);
+    partial void OnEMP_FK_TIPOEMPLEADOChanged();
+    partial void OnEMP_FK_PERSONAChanging(int value);
+    partial void OnEMP_FK_PERSONAChanged();
+    #endregion
+		
+		public eREST_EMPLEADO()
+		{
+			this._eREST_PERSONA = default(EntityRef<eREST_PERSONA>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_PK_EMPLEADO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EMP_PK_EMPLEADO
+		{
+			get
+			{
+				return this._EMP_PK_EMPLEADO;
+			}
+			set
+			{
+				if ((this._EMP_PK_EMPLEADO != value))
+				{
+					this.OnEMP_PK_EMPLEADOChanging(value);
+					this.SendPropertyChanging();
+					this._EMP_PK_EMPLEADO = value;
+					this.SendPropertyChanged("EMP_PK_EMPLEADO");
+					this.OnEMP_PK_EMPLEADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_FECHAREGISTRO", DbType="Date NOT NULL")]
+		public System.DateTime EMP_FECHAREGISTRO
+		{
+			get
+			{
+				return this._EMP_FECHAREGISTRO;
+			}
+			set
+			{
+				if ((this._EMP_FECHAREGISTRO != value))
+				{
+					this.OnEMP_FECHAREGISTROChanging(value);
+					this.SendPropertyChanging();
+					this._EMP_FECHAREGISTRO = value;
+					this.SendPropertyChanged("EMP_FECHAREGISTRO");
+					this.OnEMP_FECHAREGISTROChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_FK_TIPOEMPLEADO", DbType="Int NOT NULL")]
+		public int EMP_FK_TIPOEMPLEADO
+		{
+			get
+			{
+				return this._EMP_FK_TIPOEMPLEADO;
+			}
+			set
+			{
+				if ((this._EMP_FK_TIPOEMPLEADO != value))
+				{
+					this.OnEMP_FK_TIPOEMPLEADOChanging(value);
+					this.SendPropertyChanging();
+					this._EMP_FK_TIPOEMPLEADO = value;
+					this.SendPropertyChanged("EMP_FK_TIPOEMPLEADO");
+					this.OnEMP_FK_TIPOEMPLEADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_FK_PERSONA", DbType="Int NOT NULL")]
+		public int EMP_FK_PERSONA
+		{
+			get
+			{
+				return this._EMP_FK_PERSONA;
+			}
+			set
+			{
+				if ((this._EMP_FK_PERSONA != value))
+				{
+					if (this._eREST_PERSONA.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEMP_FK_PERSONAChanging(value);
+					this.SendPropertyChanging();
+					this._EMP_FK_PERSONA = value;
+					this.SendPropertyChanged("EMP_FK_PERSONA");
+					this.OnEMP_FK_PERSONAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PERSONA_eREST_EMPLEADO", Storage="_eREST_PERSONA", ThisKey="EMP_FK_PERSONA", OtherKey="PER_PK_PERSONA", IsForeignKey=true)]
+		public eREST_PERSONA eREST_PERSONA
+		{
+			get
+			{
+				return this._eREST_PERSONA.Entity;
+			}
+			set
+			{
+				eREST_PERSONA previousValue = this._eREST_PERSONA.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_PERSONA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_PERSONA.Entity = null;
+						previousValue.eREST_EMPLEADOs.Remove(this);
+					}
+					this._eREST_PERSONA.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_EMPLEADOs.Add(this);
+						this._EMP_FK_PERSONA = value.PER_PK_PERSONA;
+					}
+					else
+					{
+						this._EMP_FK_PERSONA = default(int);
+					}
+					this.SendPropertyChanged("eREST_PERSONA");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_EMPRESA")]
 	public partial class eREST_EMPRESA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2832,8 +3029,6 @@ namespace eREST.BO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ORD_PK_ORDEN;
-		
 		private int _ORD_FK_USUARIO;
 		
 		private System.DateTime _ORD_FECHA;
@@ -2846,6 +3041,8 @@ namespace eREST.BO
 		
 		private int _ORD_FK_MOBILIARIO;
 		
+		private int _ORD_PK_ORDEN;
+		
 		private EntitySet<eREST_DETALLEORDEN> _eREST_DETALLEORDENs;
 		
 		private EntityRef<eREST_MOBILIARIO> _eREST_MOBILIARIO;
@@ -2856,8 +3053,6 @@ namespace eREST.BO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnORD_PK_ORDENChanging(int value);
-    partial void OnORD_PK_ORDENChanged();
     partial void OnORD_FK_USUARIOChanging(int value);
     partial void OnORD_FK_USUARIOChanged();
     partial void OnORD_FECHAChanging(System.DateTime value);
@@ -2870,6 +3065,8 @@ namespace eREST.BO
     partial void OnORD_TOTALChanged();
     partial void OnORD_FK_MOBILIARIOChanging(int value);
     partial void OnORD_FK_MOBILIARIOChanged();
+    partial void OnORD_PK_ORDENChanging(int value);
+    partial void OnORD_PK_ORDENChanged();
     #endregion
 		
 		public eREST_ORDEN()
@@ -2878,26 +3075,6 @@ namespace eREST.BO
 			this._eREST_MOBILIARIO = default(EntityRef<eREST_MOBILIARIO>);
 			this._eREST_USUARIO = default(EntityRef<eREST_USUARIO>);
 			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORD_PK_ORDEN", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ORD_PK_ORDEN
-		{
-			get
-			{
-				return this._ORD_PK_ORDEN;
-			}
-			set
-			{
-				if ((this._ORD_PK_ORDEN != value))
-				{
-					this.OnORD_PK_ORDENChanging(value);
-					this.SendPropertyChanging();
-					this._ORD_PK_ORDEN = value;
-					this.SendPropertyChanged("ORD_PK_ORDEN");
-					this.OnORD_PK_ORDENChanged();
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORD_FK_USUARIO", DbType="Int NOT NULL")]
@@ -3024,6 +3201,26 @@ namespace eREST.BO
 					this._ORD_FK_MOBILIARIO = value;
 					this.SendPropertyChanged("ORD_FK_MOBILIARIO");
 					this.OnORD_FK_MOBILIARIOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORD_PK_ORDEN", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ORD_PK_ORDEN
+		{
+			get
+			{
+				return this._ORD_PK_ORDEN;
+			}
+			set
+			{
+				if ((this._ORD_PK_ORDEN != value))
+				{
+					this.OnORD_PK_ORDENChanging(value);
+					this.SendPropertyChanging();
+					this._ORD_PK_ORDEN = value;
+					this.SendPropertyChanged("ORD_PK_ORDEN");
+					this.OnORD_PK_ORDENChanged();
 				}
 			}
 		}
@@ -3174,6 +3371,8 @@ namespace eREST.BO
 		
 		private EntitySet<eREST_CONTACTO> _eREST_CONTACTOs;
 		
+		private EntitySet<eREST_EMPLEADO> _eREST_EMPLEADOs;
+		
 		private EntityRef<eREST_DIRECCIONE> _eREST_DIRECCIONE;
 		
     #region Extensibility Method Definitions
@@ -3209,6 +3408,7 @@ namespace eREST.BO
 		public eREST_PERSONA()
 		{
 			this._eREST_CONTACTOs = new EntitySet<eREST_CONTACTO>(new Action<eREST_CONTACTO>(this.attach_eREST_CONTACTOs), new Action<eREST_CONTACTO>(this.detach_eREST_CONTACTOs));
+			this._eREST_EMPLEADOs = new EntitySet<eREST_EMPLEADO>(new Action<eREST_EMPLEADO>(this.attach_eREST_EMPLEADOs), new Action<eREST_EMPLEADO>(this.detach_eREST_EMPLEADOs));
 			this._eREST_DIRECCIONE = default(EntityRef<eREST_DIRECCIONE>);
 			OnCreated();
 		}
@@ -3470,6 +3670,19 @@ namespace eREST.BO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PERSONA_eREST_EMPLEADO", Storage="_eREST_EMPLEADOs", ThisKey="PER_PK_PERSONA", OtherKey="EMP_FK_PERSONA")]
+		public EntitySet<eREST_EMPLEADO> eREST_EMPLEADOs
+		{
+			get
+			{
+				return this._eREST_EMPLEADOs;
+			}
+			set
+			{
+				this._eREST_EMPLEADOs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_DIRECCIONE_eREST_PERSONA", Storage="_eREST_DIRECCIONE", ThisKey="PER_FK_DIRECCION", OtherKey="DIR_PK_DIRECCION", IsForeignKey=true)]
 		public eREST_DIRECCIONE eREST_DIRECCIONE
 		{
@@ -3535,6 +3748,18 @@ namespace eREST.BO
 			this.SendPropertyChanging();
 			entity.eREST_PERSONA = null;
 		}
+		
+		private void attach_eREST_EMPLEADOs(eREST_EMPLEADO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PERSONA = this;
+		}
+		
+		private void detach_eREST_EMPLEADOs(eREST_EMPLEADO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PERSONA = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_PRODUCTO")]
@@ -3556,6 +3781,8 @@ namespace eREST.BO
 		private System.Nullable<int> _PRO_FK_RECETA;
 		
 		private int _PRO_PK_PRODUCTO;
+		
+		private bool _PRO_ESTADO;
 		
 		private EntitySet<eREST_DETALLEORDEN> _eREST_DETALLEORDENs;
 		
@@ -3583,6 +3810,8 @@ namespace eREST.BO
     partial void OnPRO_FK_RECETAChanged();
     partial void OnPRO_PK_PRODUCTOChanging(int value);
     partial void OnPRO_PK_PRODUCTOChanged();
+    partial void OnPRO_ESTADOChanging(bool value);
+    partial void OnPRO_ESTADOChanged();
     #endregion
 		
 		public eREST_PRODUCTO()
@@ -3738,6 +3967,26 @@ namespace eREST.BO
 					this._PRO_PK_PRODUCTO = value;
 					this.SendPropertyChanged("PRO_PK_PRODUCTO");
 					this.OnPRO_PK_PRODUCTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_ESTADO", DbType="Bit NOT NULL")]
+		public bool PRO_ESTADO
+		{
+			get
+			{
+				return this._PRO_ESTADO;
+			}
+			set
+			{
+				if ((this._PRO_ESTADO != value))
+				{
+					this.OnPRO_ESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_ESTADO = value;
+					this.SendPropertyChanged("PRO_ESTADO");
+					this.OnPRO_ESTADOChanged();
 				}
 			}
 		}
@@ -4971,6 +5220,92 @@ namespace eREST.BO
 		{
 			this.SendPropertyChanging();
 			entity.eREST_TIPOCONTACTO = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_TIPOEMPLEADO")]
+	public partial class eREST_TIPOEMPLEADO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _TEM_PK_TIPOEMPLEADO;
+		
+		private string _TEM_NOMBRE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTEM_PK_TIPOEMPLEADOChanging(int value);
+    partial void OnTEM_PK_TIPOEMPLEADOChanged();
+    partial void OnTEM_NOMBREChanging(string value);
+    partial void OnTEM_NOMBREChanged();
+    #endregion
+		
+		public eREST_TIPOEMPLEADO()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEM_PK_TIPOEMPLEADO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TEM_PK_TIPOEMPLEADO
+		{
+			get
+			{
+				return this._TEM_PK_TIPOEMPLEADO;
+			}
+			set
+			{
+				if ((this._TEM_PK_TIPOEMPLEADO != value))
+				{
+					this.OnTEM_PK_TIPOEMPLEADOChanging(value);
+					this.SendPropertyChanging();
+					this._TEM_PK_TIPOEMPLEADO = value;
+					this.SendPropertyChanged("TEM_PK_TIPOEMPLEADO");
+					this.OnTEM_PK_TIPOEMPLEADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEM_NOMBRE", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string TEM_NOMBRE
+		{
+			get
+			{
+				return this._TEM_NOMBRE;
+			}
+			set
+			{
+				if ((this._TEM_NOMBRE != value))
+				{
+					this.OnTEM_NOMBREChanging(value);
+					this.SendPropertyChanging();
+					this._TEM_NOMBRE = value;
+					this.SendPropertyChanged("TEM_NOMBRE");
+					this.OnTEM_NOMBREChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

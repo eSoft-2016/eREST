@@ -33,5 +33,16 @@ namespace eREST.BO.Properties {
                 return ((string)(this["eREST_BDConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Luis-PC\\SQLEXPRESS;Initial Catalog=eREST_BD;User ID=sa;Password=al-az" +
+            "ar95")]
+        public string eREST_BDConnectionString1 {
+            get {
+                return ((string)(this["eREST_BDConnectionString1"]));
+            }
+        }
     }
 }
