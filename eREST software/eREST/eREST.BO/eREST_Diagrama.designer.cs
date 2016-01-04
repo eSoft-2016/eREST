@@ -42,9 +42,12 @@ namespace eREST.BO
     partial void InserteREST_CONTACTO(eREST_CONTACTO instance);
     partial void UpdateeREST_CONTACTO(eREST_CONTACTO instance);
     partial void DeleteeREST_CONTACTO(eREST_CONTACTO instance);
-    partial void InserteREST_DETALLEORDEN(eREST_DETALLEORDEN instance);
-    partial void UpdateeREST_DETALLEORDEN(eREST_DETALLEORDEN instance);
-    partial void DeleteeREST_DETALLEORDEN(eREST_DETALLEORDEN instance);
+    partial void InserteREST_DETALLEFACTURA(eREST_DETALLEFACTURA instance);
+    partial void UpdateeREST_DETALLEFACTURA(eREST_DETALLEFACTURA instance);
+    partial void DeleteeREST_DETALLEFACTURA(eREST_DETALLEFACTURA instance);
+    partial void InserteREST_DETALLEORDENE(eREST_DETALLEORDENE instance);
+    partial void UpdateeREST_DETALLEORDENE(eREST_DETALLEORDENE instance);
+    partial void DeleteeREST_DETALLEORDENE(eREST_DETALLEORDENE instance);
     partial void InserteREST_DETRECETA(eREST_DETRECETA instance);
     partial void UpdateeREST_DETRECETA(eREST_DETRECETA instance);
     partial void DeleteeREST_DETRECETA(eREST_DETRECETA instance);
@@ -63,15 +66,27 @@ namespace eREST.BO
     partial void InserteREST_EMPRESA(eREST_EMPRESA instance);
     partial void UpdateeREST_EMPRESA(eREST_EMPRESA instance);
     partial void DeleteeREST_EMPRESA(eREST_EMPRESA instance);
+    partial void InserteREST_FACTURA(eREST_FACTURA instance);
+    partial void UpdateeREST_FACTURA(eREST_FACTURA instance);
+    partial void DeleteeREST_FACTURA(eREST_FACTURA instance);
     partial void InserteREST_INSUMO(eREST_INSUMO instance);
     partial void UpdateeREST_INSUMO(eREST_INSUMO instance);
     partial void DeleteeREST_INSUMO(eREST_INSUMO instance);
     partial void InserteREST_MOBILIARIO(eREST_MOBILIARIO instance);
     partial void UpdateeREST_MOBILIARIO(eREST_MOBILIARIO instance);
     partial void DeleteeREST_MOBILIARIO(eREST_MOBILIARIO instance);
-    partial void InserteREST_ORDEN(eREST_ORDEN instance);
-    partial void UpdateeREST_ORDEN(eREST_ORDEN instance);
-    partial void DeleteeREST_ORDEN(eREST_ORDEN instance);
+    partial void InserteREST_MODULO(eREST_MODULO instance);
+    partial void UpdateeREST_MODULO(eREST_MODULO instance);
+    partial void DeleteeREST_MODULO(eREST_MODULO instance);
+    partial void InserteREST_ORDENE(eREST_ORDENE instance);
+    partial void UpdateeREST_ORDENE(eREST_ORDENE instance);
+    partial void DeleteeREST_ORDENE(eREST_ORDENE instance);
+    partial void InserteREST_PERMISO(eREST_PERMISO instance);
+    partial void UpdateeREST_PERMISO(eREST_PERMISO instance);
+    partial void DeleteeREST_PERMISO(eREST_PERMISO instance);
+    partial void InserteREST_PERMISOS_MODULO(eREST_PERMISOS_MODULO instance);
+    partial void UpdateeREST_PERMISOS_MODULO(eREST_PERMISOS_MODULO instance);
+    partial void DeleteeREST_PERMISOS_MODULO(eREST_PERMISOS_MODULO instance);
     partial void InserteREST_PERSONA(eREST_PERSONA instance);
     partial void UpdateeREST_PERSONA(eREST_PERSONA instance);
     partial void DeleteeREST_PERSONA(eREST_PERSONA instance);
@@ -84,6 +99,9 @@ namespace eREST.BO
     partial void InserteREST_RECETA(eREST_RECETA instance);
     partial void UpdateeREST_RECETA(eREST_RECETA instance);
     partial void DeleteeREST_RECETA(eREST_RECETA instance);
+    partial void InserteREST_ROLE(eREST_ROLE instance);
+    partial void UpdateeREST_ROLE(eREST_ROLE instance);
+    partial void DeleteeREST_ROLE(eREST_ROLE instance);
     partial void InserteREST_SECTOR(eREST_SECTOR instance);
     partial void UpdateeREST_SECTOR(eREST_SECTOR instance);
     partial void DeleteeREST_SECTOR(eREST_SECTOR instance);
@@ -105,9 +123,6 @@ namespace eREST.BO
     partial void InserteREST_TIPOMOBILIARIO(eREST_TIPOMOBILIARIO instance);
     partial void UpdateeREST_TIPOMOBILIARIO(eREST_TIPOMOBILIARIO instance);
     partial void DeleteeREST_TIPOMOBILIARIO(eREST_TIPOMOBILIARIO instance);
-    partial void InserteREST_USUARIO(eREST_USUARIO instance);
-    partial void UpdateeREST_USUARIO(eREST_USUARIO instance);
-    partial void DeleteeREST_USUARIO(eREST_USUARIO instance);
     #endregion
 		
 		public eREST_DiagramaDataContext() : 
@@ -172,11 +187,19 @@ namespace eREST.BO
 			}
 		}
 		
-		public System.Data.Linq.Table<eREST_DETALLEORDEN> eREST_DETALLEORDENs
+		public System.Data.Linq.Table<eREST_DETALLEFACTURA> eREST_DETALLEFACTURAs
 		{
 			get
 			{
-				return this.GetTable<eREST_DETALLEORDEN>();
+				return this.GetTable<eREST_DETALLEFACTURA>();
+			}
+		}
+		
+		public System.Data.Linq.Table<eREST_DETALLEORDENE> eREST_DETALLEORDENEs
+		{
+			get
+			{
+				return this.GetTable<eREST_DETALLEORDENE>();
 			}
 		}
 		
@@ -228,6 +251,14 @@ namespace eREST.BO
 			}
 		}
 		
+		public System.Data.Linq.Table<eREST_FACTURA> eREST_FACTURAs
+		{
+			get
+			{
+				return this.GetTable<eREST_FACTURA>();
+			}
+		}
+		
 		public System.Data.Linq.Table<eREST_INSUMO> eREST_INSUMOs
 		{
 			get
@@ -244,11 +275,35 @@ namespace eREST.BO
 			}
 		}
 		
-		public System.Data.Linq.Table<eREST_ORDEN> eREST_ORDENs
+		public System.Data.Linq.Table<eREST_MODULO> eREST_MODULOs
 		{
 			get
 			{
-				return this.GetTable<eREST_ORDEN>();
+				return this.GetTable<eREST_MODULO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<eREST_ORDENE> eREST_ORDENEs
+		{
+			get
+			{
+				return this.GetTable<eREST_ORDENE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<eREST_PERMISO> eREST_PERMISOs
+		{
+			get
+			{
+				return this.GetTable<eREST_PERMISO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<eREST_PERMISOS_MODULO> eREST_PERMISOS_MODULOs
+		{
+			get
+			{
+				return this.GetTable<eREST_PERMISOS_MODULO>();
 			}
 		}
 		
@@ -281,6 +336,14 @@ namespace eREST.BO
 			get
 			{
 				return this.GetTable<eREST_RECETA>();
+			}
+		}
+		
+		public System.Data.Linq.Table<eREST_ROLE> eREST_ROLEs
+		{
+			get
+			{
+				return this.GetTable<eREST_ROLE>();
 			}
 		}
 		
@@ -755,7 +818,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_CATEGORIA")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_CATEGORIAS")]
 	public partial class eREST_CATEGORIA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1085,8 +1148,248 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_DETALLEORDEN")]
-	public partial class eREST_DETALLEORDEN : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_DETALLEFACTURAS")]
+	public partial class eREST_DETALLEFACTURA : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DFAC_PK_DETFACTURA;
+		
+		private int _DFAC_PFK_FACTURA;
+		
+		private int _DFAC_CANTIDAD;
+		
+		private int _DFAC_FK_PRODUCTO;
+		
+		private System.Nullable<double> _DFAC_DESCUENTO;
+		
+		private EntityRef<eREST_FACTURA> _eREST_FACTURA;
+		
+		private EntityRef<eREST_PRODUCTO> _eREST_PRODUCTO;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDFAC_PK_DETFACTURAChanging(int value);
+    partial void OnDFAC_PK_DETFACTURAChanged();
+    partial void OnDFAC_PFK_FACTURAChanging(int value);
+    partial void OnDFAC_PFK_FACTURAChanged();
+    partial void OnDFAC_CANTIDADChanging(int value);
+    partial void OnDFAC_CANTIDADChanged();
+    partial void OnDFAC_FK_PRODUCTOChanging(int value);
+    partial void OnDFAC_FK_PRODUCTOChanged();
+    partial void OnDFAC_DESCUENTOChanging(System.Nullable<double> value);
+    partial void OnDFAC_DESCUENTOChanged();
+    #endregion
+		
+		public eREST_DETALLEFACTURA()
+		{
+			this._eREST_FACTURA = default(EntityRef<eREST_FACTURA>);
+			this._eREST_PRODUCTO = default(EntityRef<eREST_PRODUCTO>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFAC_PK_DETFACTURA", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int DFAC_PK_DETFACTURA
+		{
+			get
+			{
+				return this._DFAC_PK_DETFACTURA;
+			}
+			set
+			{
+				if ((this._DFAC_PK_DETFACTURA != value))
+				{
+					this.OnDFAC_PK_DETFACTURAChanging(value);
+					this.SendPropertyChanging();
+					this._DFAC_PK_DETFACTURA = value;
+					this.SendPropertyChanged("DFAC_PK_DETFACTURA");
+					this.OnDFAC_PK_DETFACTURAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFAC_PFK_FACTURA", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int DFAC_PFK_FACTURA
+		{
+			get
+			{
+				return this._DFAC_PFK_FACTURA;
+			}
+			set
+			{
+				if ((this._DFAC_PFK_FACTURA != value))
+				{
+					if (this._eREST_FACTURA.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDFAC_PFK_FACTURAChanging(value);
+					this.SendPropertyChanging();
+					this._DFAC_PFK_FACTURA = value;
+					this.SendPropertyChanged("DFAC_PFK_FACTURA");
+					this.OnDFAC_PFK_FACTURAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFAC_CANTIDAD", DbType="Int NOT NULL")]
+		public int DFAC_CANTIDAD
+		{
+			get
+			{
+				return this._DFAC_CANTIDAD;
+			}
+			set
+			{
+				if ((this._DFAC_CANTIDAD != value))
+				{
+					this.OnDFAC_CANTIDADChanging(value);
+					this.SendPropertyChanging();
+					this._DFAC_CANTIDAD = value;
+					this.SendPropertyChanged("DFAC_CANTIDAD");
+					this.OnDFAC_CANTIDADChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFAC_FK_PRODUCTO", DbType="Int NOT NULL")]
+		public int DFAC_FK_PRODUCTO
+		{
+			get
+			{
+				return this._DFAC_FK_PRODUCTO;
+			}
+			set
+			{
+				if ((this._DFAC_FK_PRODUCTO != value))
+				{
+					if (this._eREST_PRODUCTO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDFAC_FK_PRODUCTOChanging(value);
+					this.SendPropertyChanging();
+					this._DFAC_FK_PRODUCTO = value;
+					this.SendPropertyChanged("DFAC_FK_PRODUCTO");
+					this.OnDFAC_FK_PRODUCTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFAC_DESCUENTO", DbType="Float")]
+		public System.Nullable<double> DFAC_DESCUENTO
+		{
+			get
+			{
+				return this._DFAC_DESCUENTO;
+			}
+			set
+			{
+				if ((this._DFAC_DESCUENTO != value))
+				{
+					this.OnDFAC_DESCUENTOChanging(value);
+					this.SendPropertyChanging();
+					this._DFAC_DESCUENTO = value;
+					this.SendPropertyChanged("DFAC_DESCUENTO");
+					this.OnDFAC_DESCUENTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_FACTURA_eREST_DETALLEFACTURA", Storage="_eREST_FACTURA", ThisKey="DFAC_PFK_FACTURA", OtherKey="FAC_PK_FACTURA", IsForeignKey=true)]
+		public eREST_FACTURA eREST_FACTURA
+		{
+			get
+			{
+				return this._eREST_FACTURA.Entity;
+			}
+			set
+			{
+				eREST_FACTURA previousValue = this._eREST_FACTURA.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_FACTURA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_FACTURA.Entity = null;
+						previousValue.eREST_DETALLEFACTURAs.Remove(this);
+					}
+					this._eREST_FACTURA.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_DETALLEFACTURAs.Add(this);
+						this._DFAC_PFK_FACTURA = value.FAC_PK_FACTURA;
+					}
+					else
+					{
+						this._DFAC_PFK_FACTURA = default(int);
+					}
+					this.SendPropertyChanged("eREST_FACTURA");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETALLEFACTURA", Storage="_eREST_PRODUCTO", ThisKey="DFAC_FK_PRODUCTO", OtherKey="PRO_PK_PRODUCTO", IsForeignKey=true)]
+		public eREST_PRODUCTO eREST_PRODUCTO
+		{
+			get
+			{
+				return this._eREST_PRODUCTO.Entity;
+			}
+			set
+			{
+				eREST_PRODUCTO previousValue = this._eREST_PRODUCTO.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_PRODUCTO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_PRODUCTO.Entity = null;
+						previousValue.eREST_DETALLEFACTURAs.Remove(this);
+					}
+					this._eREST_PRODUCTO.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_DETALLEFACTURAs.Add(this);
+						this._DFAC_FK_PRODUCTO = value.PRO_PK_PRODUCTO;
+					}
+					else
+					{
+						this._DFAC_FK_PRODUCTO = default(int);
+					}
+					this.SendPropertyChanged("eREST_PRODUCTO");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_DETALLEORDENES")]
+	public partial class eREST_DETALLEORDENE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1099,7 +1402,11 @@ namespace eREST.BO
 		
 		private int _DOR_PK_DETALLEORDEN;
 		
-		private EntityRef<eREST_ORDEN> _eREST_ORDEN;
+		private int _DOR_FK_EMPLEADO;
+		
+		private EntityRef<eREST_EMPLEADO> _eREST_EMPLEADO;
+		
+		private EntityRef<eREST_ORDENE> _eREST_ORDENE;
 		
 		private EntityRef<eREST_PRODUCTO> _eREST_PRODUCTO;
 		
@@ -1115,11 +1422,14 @@ namespace eREST.BO
     partial void OnDOR_FK_ORDENChanged();
     partial void OnDOR_PK_DETALLEORDENChanging(int value);
     partial void OnDOR_PK_DETALLEORDENChanged();
+    partial void OnDOR_FK_EMPLEADOChanging(int value);
+    partial void OnDOR_FK_EMPLEADOChanged();
     #endregion
 		
-		public eREST_DETALLEORDEN()
+		public eREST_DETALLEORDENE()
 		{
-			this._eREST_ORDEN = default(EntityRef<eREST_ORDEN>);
+			this._eREST_EMPLEADO = default(EntityRef<eREST_EMPLEADO>);
+			this._eREST_ORDENE = default(EntityRef<eREST_ORDENE>);
 			this._eREST_PRODUCTO = default(EntityRef<eREST_PRODUCTO>);
 			OnCreated();
 		}
@@ -1179,7 +1489,7 @@ namespace eREST.BO
 			{
 				if ((this._DOR_FK_ORDEN != value))
 				{
-					if (this._eREST_ORDEN.HasLoadedOrAssignedValue)
+					if (this._eREST_ORDENE.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1203,6 +1513,10 @@ namespace eREST.BO
 			{
 				if ((this._DOR_PK_DETALLEORDEN != value))
 				{
+					if (this._eREST_EMPLEADO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnDOR_PK_DETALLEORDENChanging(value);
 					this.SendPropertyChanging();
 					this._DOR_PK_DETALLEORDEN = value;
@@ -1212,41 +1526,95 @@ namespace eREST.BO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_ORDEN_eREST_DETALLEORDEN", Storage="_eREST_ORDEN", ThisKey="DOR_FK_ORDEN", OtherKey="ORD_PK_ORDEN", IsForeignKey=true)]
-		public eREST_ORDEN eREST_ORDEN
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOR_FK_EMPLEADO", DbType="Int NOT NULL")]
+		public int DOR_FK_EMPLEADO
 		{
 			get
 			{
-				return this._eREST_ORDEN.Entity;
+				return this._DOR_FK_EMPLEADO;
 			}
 			set
 			{
-				eREST_ORDEN previousValue = this._eREST_ORDEN.Entity;
+				if ((this._DOR_FK_EMPLEADO != value))
+				{
+					this.OnDOR_FK_EMPLEADOChanging(value);
+					this.SendPropertyChanging();
+					this._DOR_FK_EMPLEADO = value;
+					this.SendPropertyChanged("DOR_FK_EMPLEADO");
+					this.OnDOR_FK_EMPLEADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_EMPLEADO_eREST_DETALLEORDENE", Storage="_eREST_EMPLEADO", ThisKey="DOR_PK_DETALLEORDEN", OtherKey="EMP_PK_EMPLEADO", IsForeignKey=true)]
+		public eREST_EMPLEADO eREST_EMPLEADO
+		{
+			get
+			{
+				return this._eREST_EMPLEADO.Entity;
+			}
+			set
+			{
+				eREST_EMPLEADO previousValue = this._eREST_EMPLEADO.Entity;
 				if (((previousValue != value) 
-							|| (this._eREST_ORDEN.HasLoadedOrAssignedValue == false)))
+							|| (this._eREST_EMPLEADO.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._eREST_ORDEN.Entity = null;
-						previousValue.eREST_DETALLEORDENs.Remove(this);
+						this._eREST_EMPLEADO.Entity = null;
+						previousValue.eREST_DETALLEORDENE = null;
 					}
-					this._eREST_ORDEN.Entity = value;
+					this._eREST_EMPLEADO.Entity = value;
 					if ((value != null))
 					{
-						value.eREST_DETALLEORDENs.Add(this);
+						value.eREST_DETALLEORDENE = this;
+						this._DOR_PK_DETALLEORDEN = value.EMP_PK_EMPLEADO;
+					}
+					else
+					{
+						this._DOR_PK_DETALLEORDEN = default(int);
+					}
+					this.SendPropertyChanged("eREST_EMPLEADO");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_ORDENE_eREST_DETALLEORDENE", Storage="_eREST_ORDENE", ThisKey="DOR_FK_ORDEN", OtherKey="ORD_PK_ORDEN", IsForeignKey=true)]
+		public eREST_ORDENE eREST_ORDENE
+		{
+			get
+			{
+				return this._eREST_ORDENE.Entity;
+			}
+			set
+			{
+				eREST_ORDENE previousValue = this._eREST_ORDENE.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_ORDENE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_ORDENE.Entity = null;
+						previousValue.eREST_DETALLEORDENEs.Remove(this);
+					}
+					this._eREST_ORDENE.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_DETALLEORDENEs.Add(this);
 						this._DOR_FK_ORDEN = value.ORD_PK_ORDEN;
 					}
 					else
 					{
 						this._DOR_FK_ORDEN = default(int);
 					}
-					this.SendPropertyChanged("eREST_ORDEN");
+					this.SendPropertyChanged("eREST_ORDENE");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETALLEORDEN", Storage="_eREST_PRODUCTO", ThisKey="DOR_FK_PRODUCTO", OtherKey="PRO_PK_PRODUCTO", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETALLEORDENE", Storage="_eREST_PRODUCTO", ThisKey="DOR_FK_PRODUCTO", OtherKey="PRO_PK_PRODUCTO", IsForeignKey=true)]
 		public eREST_PRODUCTO eREST_PRODUCTO
 		{
 			get
@@ -1263,12 +1631,12 @@ namespace eREST.BO
 					if ((previousValue != null))
 					{
 						this._eREST_PRODUCTO.Entity = null;
-						previousValue.eREST_DETALLEORDENs.Remove(this);
+						previousValue.eREST_DETALLEORDENEs.Remove(this);
 					}
 					this._eREST_PRODUCTO.Entity = value;
 					if ((value != null))
 					{
-						value.eREST_DETALLEORDENs.Add(this);
+						value.eREST_DETALLEORDENEs.Add(this);
 						this._DOR_FK_PRODUCTO = value.PRO_PK_PRODUCTO;
 					}
 					else
@@ -1301,7 +1669,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_DETRECETA")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_DETRECETAS")]
 	public partial class eREST_DETRECETA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2218,7 +2586,11 @@ namespace eREST.BO
 		
 		private int _EMP_FK_PERSONA;
 		
+		private EntityRef<eREST_DETALLEORDENE> _eREST_DETALLEORDENE;
+		
 		private EntityRef<eREST_PERSONA> _eREST_PERSONA;
+		
+		private EntityRef<eREST_TIPOEMPLEADO> _eREST_TIPOEMPLEADO;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2236,7 +2608,9 @@ namespace eREST.BO
 		
 		public eREST_EMPLEADO()
 		{
+			this._eREST_DETALLEORDENE = default(EntityRef<eREST_DETALLEORDENE>);
 			this._eREST_PERSONA = default(EntityRef<eREST_PERSONA>);
+			this._eREST_TIPOEMPLEADO = default(EntityRef<eREST_TIPOEMPLEADO>);
 			OnCreated();
 		}
 		
@@ -2291,6 +2665,10 @@ namespace eREST.BO
 			{
 				if ((this._EMP_FK_TIPOEMPLEADO != value))
 				{
+					if (this._eREST_TIPOEMPLEADO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnEMP_FK_TIPOEMPLEADOChanging(value);
 					this.SendPropertyChanging();
 					this._EMP_FK_TIPOEMPLEADO = value;
@@ -2320,6 +2698,35 @@ namespace eREST.BO
 					this._EMP_FK_PERSONA = value;
 					this.SendPropertyChanged("EMP_FK_PERSONA");
 					this.OnEMP_FK_PERSONAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_EMPLEADO_eREST_DETALLEORDENE", Storage="_eREST_DETALLEORDENE", ThisKey="EMP_PK_EMPLEADO", OtherKey="DOR_PK_DETALLEORDEN", IsUnique=true, IsForeignKey=false)]
+		public eREST_DETALLEORDENE eREST_DETALLEORDENE
+		{
+			get
+			{
+				return this._eREST_DETALLEORDENE.Entity;
+			}
+			set
+			{
+				eREST_DETALLEORDENE previousValue = this._eREST_DETALLEORDENE.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_DETALLEORDENE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_DETALLEORDENE.Entity = null;
+						previousValue.eREST_EMPLEADO = null;
+					}
+					this._eREST_DETALLEORDENE.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_EMPLEADO = this;
+					}
+					this.SendPropertyChanged("eREST_DETALLEORDENE");
 				}
 			}
 		}
@@ -2358,6 +2765,40 @@ namespace eREST.BO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_TIPOEMPLEADO_eREST_EMPLEADO", Storage="_eREST_TIPOEMPLEADO", ThisKey="EMP_FK_TIPOEMPLEADO", OtherKey="TEM_PK_TIPOEMPLEADO", IsForeignKey=true)]
+		public eREST_TIPOEMPLEADO eREST_TIPOEMPLEADO
+		{
+			get
+			{
+				return this._eREST_TIPOEMPLEADO.Entity;
+			}
+			set
+			{
+				eREST_TIPOEMPLEADO previousValue = this._eREST_TIPOEMPLEADO.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_TIPOEMPLEADO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_TIPOEMPLEADO.Entity = null;
+						previousValue.eREST_EMPLEADOs.Remove(this);
+					}
+					this._eREST_TIPOEMPLEADO.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_EMPLEADOs.Add(this);
+						this._EMP_FK_TIPOEMPLEADO = value.TEM_PK_TIPOEMPLEADO;
+					}
+					else
+					{
+						this._EMP_FK_TIPOEMPLEADO = default(int);
+					}
+					this.SendPropertyChanged("eREST_TIPOEMPLEADO");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2379,7 +2820,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_EMPRESA")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_EMPRESAS")]
 	public partial class eREST_EMPRESA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2538,6 +2979,257 @@ namespace eREST.BO
 		{
 			this.SendPropertyChanging();
 			entity.eREST_EMPRESA = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_FACTURAS")]
+	public partial class eREST_FACTURA : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _FAC_PK_FACTURA;
+		
+		private System.Nullable<int> _FAC_FK_ORDEN;
+		
+		private string _FAC_NOMBRE_CLIENTE;
+		
+		private char _FAC_ESTADO;
+		
+		private double _FAC_MONTOTOTAL;
+		
+		private System.Nullable<double> _FAC_DESCUENTO;
+		
+		private EntitySet<eREST_DETALLEFACTURA> _eREST_DETALLEFACTURAs;
+		
+		private EntityRef<eREST_ORDENE> _eREST_ORDENE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFAC_PK_FACTURAChanging(int value);
+    partial void OnFAC_PK_FACTURAChanged();
+    partial void OnFAC_FK_ORDENChanging(System.Nullable<int> value);
+    partial void OnFAC_FK_ORDENChanged();
+    partial void OnFAC_NOMBRE_CLIENTEChanging(string value);
+    partial void OnFAC_NOMBRE_CLIENTEChanged();
+    partial void OnFAC_ESTADOChanging(char value);
+    partial void OnFAC_ESTADOChanged();
+    partial void OnFAC_MONTOTOTALChanging(double value);
+    partial void OnFAC_MONTOTOTALChanged();
+    partial void OnFAC_DESCUENTOChanging(System.Nullable<double> value);
+    partial void OnFAC_DESCUENTOChanged();
+    #endregion
+		
+		public eREST_FACTURA()
+		{
+			this._eREST_DETALLEFACTURAs = new EntitySet<eREST_DETALLEFACTURA>(new Action<eREST_DETALLEFACTURA>(this.attach_eREST_DETALLEFACTURAs), new Action<eREST_DETALLEFACTURA>(this.detach_eREST_DETALLEFACTURAs));
+			this._eREST_ORDENE = default(EntityRef<eREST_ORDENE>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAC_PK_FACTURA", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int FAC_PK_FACTURA
+		{
+			get
+			{
+				return this._FAC_PK_FACTURA;
+			}
+			set
+			{
+				if ((this._FAC_PK_FACTURA != value))
+				{
+					if (this._eREST_ORDENE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFAC_PK_FACTURAChanging(value);
+					this.SendPropertyChanging();
+					this._FAC_PK_FACTURA = value;
+					this.SendPropertyChanged("FAC_PK_FACTURA");
+					this.OnFAC_PK_FACTURAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAC_FK_ORDEN", DbType="Int")]
+		public System.Nullable<int> FAC_FK_ORDEN
+		{
+			get
+			{
+				return this._FAC_FK_ORDEN;
+			}
+			set
+			{
+				if ((this._FAC_FK_ORDEN != value))
+				{
+					this.OnFAC_FK_ORDENChanging(value);
+					this.SendPropertyChanging();
+					this._FAC_FK_ORDEN = value;
+					this.SendPropertyChanged("FAC_FK_ORDEN");
+					this.OnFAC_FK_ORDENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAC_NOMBRE_CLIENTE", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FAC_NOMBRE_CLIENTE
+		{
+			get
+			{
+				return this._FAC_NOMBRE_CLIENTE;
+			}
+			set
+			{
+				if ((this._FAC_NOMBRE_CLIENTE != value))
+				{
+					this.OnFAC_NOMBRE_CLIENTEChanging(value);
+					this.SendPropertyChanging();
+					this._FAC_NOMBRE_CLIENTE = value;
+					this.SendPropertyChanged("FAC_NOMBRE_CLIENTE");
+					this.OnFAC_NOMBRE_CLIENTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAC_ESTADO", DbType="Char(1) NOT NULL")]
+		public char FAC_ESTADO
+		{
+			get
+			{
+				return this._FAC_ESTADO;
+			}
+			set
+			{
+				if ((this._FAC_ESTADO != value))
+				{
+					this.OnFAC_ESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._FAC_ESTADO = value;
+					this.SendPropertyChanged("FAC_ESTADO");
+					this.OnFAC_ESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAC_MONTOTOTAL", DbType="Float NOT NULL")]
+		public double FAC_MONTOTOTAL
+		{
+			get
+			{
+				return this._FAC_MONTOTOTAL;
+			}
+			set
+			{
+				if ((this._FAC_MONTOTOTAL != value))
+				{
+					this.OnFAC_MONTOTOTALChanging(value);
+					this.SendPropertyChanging();
+					this._FAC_MONTOTOTAL = value;
+					this.SendPropertyChanged("FAC_MONTOTOTAL");
+					this.OnFAC_MONTOTOTALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAC_DESCUENTO", DbType="Float")]
+		public System.Nullable<double> FAC_DESCUENTO
+		{
+			get
+			{
+				return this._FAC_DESCUENTO;
+			}
+			set
+			{
+				if ((this._FAC_DESCUENTO != value))
+				{
+					this.OnFAC_DESCUENTOChanging(value);
+					this.SendPropertyChanging();
+					this._FAC_DESCUENTO = value;
+					this.SendPropertyChanged("FAC_DESCUENTO");
+					this.OnFAC_DESCUENTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_FACTURA_eREST_DETALLEFACTURA", Storage="_eREST_DETALLEFACTURAs", ThisKey="FAC_PK_FACTURA", OtherKey="DFAC_PFK_FACTURA")]
+		public EntitySet<eREST_DETALLEFACTURA> eREST_DETALLEFACTURAs
+		{
+			get
+			{
+				return this._eREST_DETALLEFACTURAs;
+			}
+			set
+			{
+				this._eREST_DETALLEFACTURAs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_ORDENE_eREST_FACTURA", Storage="_eREST_ORDENE", ThisKey="FAC_PK_FACTURA", OtherKey="ORD_PK_ORDEN", IsForeignKey=true)]
+		public eREST_ORDENE eREST_ORDENE
+		{
+			get
+			{
+				return this._eREST_ORDENE.Entity;
+			}
+			set
+			{
+				eREST_ORDENE previousValue = this._eREST_ORDENE.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_ORDENE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_ORDENE.Entity = null;
+						previousValue.eREST_FACTURA = null;
+					}
+					this._eREST_ORDENE.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_FACTURA = this;
+						this._FAC_PK_FACTURA = value.ORD_PK_ORDEN;
+					}
+					else
+					{
+						this._FAC_PK_FACTURA = default(int);
+					}
+					this.SendPropertyChanged("eREST_ORDENE");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_eREST_DETALLEFACTURAs(eREST_DETALLEFACTURA entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_FACTURA = this;
+		}
+		
+		private void detach_eREST_DETALLEFACTURAs(eREST_DETALLEFACTURA entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_FACTURA = null;
 		}
 	}
 	
@@ -2731,7 +3423,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_MOBILIARIO")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_MOBILIARIOS")]
 	public partial class eREST_MOBILIARIO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2749,7 +3441,7 @@ namespace eREST.BO
 		
 		private int _MOB_FK_SECTOR;
 		
-		private EntitySet<eREST_ORDEN> _eREST_ORDENs;
+		private EntitySet<eREST_ORDENE> _eREST_ORDENEs;
 		
 		private EntityRef<eREST_SECTOR> _eREST_SECTOR;
 		
@@ -2775,7 +3467,7 @@ namespace eREST.BO
 		
 		public eREST_MOBILIARIO()
 		{
-			this._eREST_ORDENs = new EntitySet<eREST_ORDEN>(new Action<eREST_ORDEN>(this.attach_eREST_ORDENs), new Action<eREST_ORDEN>(this.detach_eREST_ORDENs));
+			this._eREST_ORDENEs = new EntitySet<eREST_ORDENE>(new Action<eREST_ORDENE>(this.attach_eREST_ORDENEs), new Action<eREST_ORDENE>(this.detach_eREST_ORDENEs));
 			this._eREST_SECTOR = default(EntityRef<eREST_SECTOR>);
 			this._eREST_TIPOMOBILIARIO = default(EntityRef<eREST_TIPOMOBILIARIO>);
 			OnCreated();
@@ -2909,16 +3601,16 @@ namespace eREST.BO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_MOBILIARIO_eREST_ORDEN", Storage="_eREST_ORDENs", ThisKey="MOB_PK_MOBILIARIO", OtherKey="ORD_FK_MOBILIARIO")]
-		public EntitySet<eREST_ORDEN> eREST_ORDENs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_MOBILIARIO_eREST_ORDENE", Storage="_eREST_ORDENEs", ThisKey="MOB_PK_MOBILIARIO", OtherKey="ORD_FK_MOBILIARIO")]
+		public EntitySet<eREST_ORDENE> eREST_ORDENEs
 		{
 			get
 			{
-				return this._eREST_ORDENs;
+				return this._eREST_ORDENEs;
 			}
 			set
 			{
-				this._eREST_ORDENs.Assign(value);
+				this._eREST_ORDENEs.Assign(value);
 			}
 		}
 		
@@ -3010,26 +3702,186 @@ namespace eREST.BO
 			}
 		}
 		
-		private void attach_eREST_ORDENs(eREST_ORDEN entity)
+		private void attach_eREST_ORDENEs(eREST_ORDENE entity)
 		{
 			this.SendPropertyChanging();
 			entity.eREST_MOBILIARIO = this;
 		}
 		
-		private void detach_eREST_ORDENs(eREST_ORDEN entity)
+		private void detach_eREST_ORDENEs(eREST_ORDENE entity)
 		{
 			this.SendPropertyChanging();
 			entity.eREST_MOBILIARIO = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_ORDEN")]
-	public partial class eREST_ORDEN : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_MODULOS")]
+	public partial class eREST_MODULO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ORD_FK_USUARIO;
+		private int _MOD_PK_MODULO;
+		
+		private string _MOD_NOMBRE;
+		
+		private string _MOD_DESCRIPCION;
+		
+		private char _MOD_ESTADO;
+		
+		private EntitySet<eREST_PERMISOS_MODULO> _eREST_PERMISOS_MODULOs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMOD_PK_MODULOChanging(int value);
+    partial void OnMOD_PK_MODULOChanged();
+    partial void OnMOD_NOMBREChanging(string value);
+    partial void OnMOD_NOMBREChanged();
+    partial void OnMOD_DESCRIPCIONChanging(string value);
+    partial void OnMOD_DESCRIPCIONChanged();
+    partial void OnMOD_ESTADOChanging(char value);
+    partial void OnMOD_ESTADOChanged();
+    #endregion
+		
+		public eREST_MODULO()
+		{
+			this._eREST_PERMISOS_MODULOs = new EntitySet<eREST_PERMISOS_MODULO>(new Action<eREST_PERMISOS_MODULO>(this.attach_eREST_PERMISOS_MODULOs), new Action<eREST_PERMISOS_MODULO>(this.detach_eREST_PERMISOS_MODULOs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOD_PK_MODULO", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MOD_PK_MODULO
+		{
+			get
+			{
+				return this._MOD_PK_MODULO;
+			}
+			set
+			{
+				if ((this._MOD_PK_MODULO != value))
+				{
+					this.OnMOD_PK_MODULOChanging(value);
+					this.SendPropertyChanging();
+					this._MOD_PK_MODULO = value;
+					this.SendPropertyChanged("MOD_PK_MODULO");
+					this.OnMOD_PK_MODULOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOD_NOMBRE", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MOD_NOMBRE
+		{
+			get
+			{
+				return this._MOD_NOMBRE;
+			}
+			set
+			{
+				if ((this._MOD_NOMBRE != value))
+				{
+					this.OnMOD_NOMBREChanging(value);
+					this.SendPropertyChanging();
+					this._MOD_NOMBRE = value;
+					this.SendPropertyChanged("MOD_NOMBRE");
+					this.OnMOD_NOMBREChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOD_DESCRIPCION", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string MOD_DESCRIPCION
+		{
+			get
+			{
+				return this._MOD_DESCRIPCION;
+			}
+			set
+			{
+				if ((this._MOD_DESCRIPCION != value))
+				{
+					this.OnMOD_DESCRIPCIONChanging(value);
+					this.SendPropertyChanging();
+					this._MOD_DESCRIPCION = value;
+					this.SendPropertyChanged("MOD_DESCRIPCION");
+					this.OnMOD_DESCRIPCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOD_ESTADO", DbType="Char(1) NOT NULL")]
+		public char MOD_ESTADO
+		{
+			get
+			{
+				return this._MOD_ESTADO;
+			}
+			set
+			{
+				if ((this._MOD_ESTADO != value))
+				{
+					this.OnMOD_ESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._MOD_ESTADO = value;
+					this.SendPropertyChanged("MOD_ESTADO");
+					this.OnMOD_ESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_MODULO_eREST_PERMISOS_MODULO", Storage="_eREST_PERMISOS_MODULOs", ThisKey="MOD_PK_MODULO", OtherKey="MOD_PK_MODULO")]
+		public EntitySet<eREST_PERMISOS_MODULO> eREST_PERMISOS_MODULOs
+		{
+			get
+			{
+				return this._eREST_PERMISOS_MODULOs;
+			}
+			set
+			{
+				this._eREST_PERMISOS_MODULOs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_eREST_PERMISOS_MODULOs(eREST_PERMISOS_MODULO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_MODULO = this;
+		}
+		
+		private void detach_eREST_PERMISOS_MODULOs(eREST_PERMISOS_MODULO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_MODULO = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_ORDENES")]
+	public partial class eREST_ORDENE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.DateTime _ORD_FECHA;
 		
@@ -3043,18 +3895,16 @@ namespace eREST.BO
 		
 		private int _ORD_PK_ORDEN;
 		
-		private EntitySet<eREST_DETALLEORDEN> _eREST_DETALLEORDENs;
+		private EntitySet<eREST_DETALLEORDENE> _eREST_DETALLEORDENEs;
+		
+		private EntityRef<eREST_FACTURA> _eREST_FACTURA;
 		
 		private EntityRef<eREST_MOBILIARIO> _eREST_MOBILIARIO;
-		
-		private EntityRef<eREST_USUARIO> _eREST_USUARIO;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnORD_FK_USUARIOChanging(int value);
-    partial void OnORD_FK_USUARIOChanged();
     partial void OnORD_FECHAChanging(System.DateTime value);
     partial void OnORD_FECHAChanged();
     partial void OnORD_ESTADOChanging(bool value);
@@ -3069,36 +3919,12 @@ namespace eREST.BO
     partial void OnORD_PK_ORDENChanged();
     #endregion
 		
-		public eREST_ORDEN()
+		public eREST_ORDENE()
 		{
-			this._eREST_DETALLEORDENs = new EntitySet<eREST_DETALLEORDEN>(new Action<eREST_DETALLEORDEN>(this.attach_eREST_DETALLEORDENs), new Action<eREST_DETALLEORDEN>(this.detach_eREST_DETALLEORDENs));
+			this._eREST_DETALLEORDENEs = new EntitySet<eREST_DETALLEORDENE>(new Action<eREST_DETALLEORDENE>(this.attach_eREST_DETALLEORDENEs), new Action<eREST_DETALLEORDENE>(this.detach_eREST_DETALLEORDENEs));
+			this._eREST_FACTURA = default(EntityRef<eREST_FACTURA>);
 			this._eREST_MOBILIARIO = default(EntityRef<eREST_MOBILIARIO>);
-			this._eREST_USUARIO = default(EntityRef<eREST_USUARIO>);
 			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORD_FK_USUARIO", DbType="Int NOT NULL")]
-		public int ORD_FK_USUARIO
-		{
-			get
-			{
-				return this._ORD_FK_USUARIO;
-			}
-			set
-			{
-				if ((this._ORD_FK_USUARIO != value))
-				{
-					if (this._eREST_USUARIO.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnORD_FK_USUARIOChanging(value);
-					this.SendPropertyChanging();
-					this._ORD_FK_USUARIO = value;
-					this.SendPropertyChanged("ORD_FK_USUARIO");
-					this.OnORD_FK_USUARIOChanged();
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORD_FECHA", DbType="DateTime NOT NULL")]
@@ -3225,20 +4051,49 @@ namespace eREST.BO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_ORDEN_eREST_DETALLEORDEN", Storage="_eREST_DETALLEORDENs", ThisKey="ORD_PK_ORDEN", OtherKey="DOR_FK_ORDEN")]
-		public EntitySet<eREST_DETALLEORDEN> eREST_DETALLEORDENs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_ORDENE_eREST_DETALLEORDENE", Storage="_eREST_DETALLEORDENEs", ThisKey="ORD_PK_ORDEN", OtherKey="DOR_FK_ORDEN")]
+		public EntitySet<eREST_DETALLEORDENE> eREST_DETALLEORDENEs
 		{
 			get
 			{
-				return this._eREST_DETALLEORDENs;
+				return this._eREST_DETALLEORDENEs;
 			}
 			set
 			{
-				this._eREST_DETALLEORDENs.Assign(value);
+				this._eREST_DETALLEORDENEs.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_MOBILIARIO_eREST_ORDEN", Storage="_eREST_MOBILIARIO", ThisKey="ORD_FK_MOBILIARIO", OtherKey="MOB_PK_MOBILIARIO", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_ORDENE_eREST_FACTURA", Storage="_eREST_FACTURA", ThisKey="ORD_PK_ORDEN", OtherKey="FAC_PK_FACTURA", IsUnique=true, IsForeignKey=false)]
+		public eREST_FACTURA eREST_FACTURA
+		{
+			get
+			{
+				return this._eREST_FACTURA.Entity;
+			}
+			set
+			{
+				eREST_FACTURA previousValue = this._eREST_FACTURA.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_FACTURA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_FACTURA.Entity = null;
+						previousValue.eREST_ORDENE = null;
+					}
+					this._eREST_FACTURA.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_ORDENE = this;
+					}
+					this.SendPropertyChanged("eREST_FACTURA");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_MOBILIARIO_eREST_ORDENE", Storage="_eREST_MOBILIARIO", ThisKey="ORD_FK_MOBILIARIO", OtherKey="MOB_PK_MOBILIARIO", IsForeignKey=true)]
 		public eREST_MOBILIARIO eREST_MOBILIARIO
 		{
 			get
@@ -3255,12 +4110,12 @@ namespace eREST.BO
 					if ((previousValue != null))
 					{
 						this._eREST_MOBILIARIO.Entity = null;
-						previousValue.eREST_ORDENs.Remove(this);
+						previousValue.eREST_ORDENEs.Remove(this);
 					}
 					this._eREST_MOBILIARIO.Entity = value;
 					if ((value != null))
 					{
-						value.eREST_ORDENs.Add(this);
+						value.eREST_ORDENEs.Add(this);
 						this._ORD_FK_MOBILIARIO = value.MOB_PK_MOBILIARIO;
 					}
 					else
@@ -3268,40 +4123,6 @@ namespace eREST.BO
 						this._ORD_FK_MOBILIARIO = default(int);
 					}
 					this.SendPropertyChanged("eREST_MOBILIARIO");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_USUARIO_eREST_ORDEN", Storage="_eREST_USUARIO", ThisKey="ORD_FK_USUARIO", OtherKey="USU_PK_USUARIO", IsForeignKey=true)]
-		public eREST_USUARIO eREST_USUARIO
-		{
-			get
-			{
-				return this._eREST_USUARIO.Entity;
-			}
-			set
-			{
-				eREST_USUARIO previousValue = this._eREST_USUARIO.Entity;
-				if (((previousValue != value) 
-							|| (this._eREST_USUARIO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._eREST_USUARIO.Entity = null;
-						previousValue.eREST_ORDENs.Remove(this);
-					}
-					this._eREST_USUARIO.Entity = value;
-					if ((value != null))
-					{
-						value.eREST_ORDENs.Add(this);
-						this._ORD_FK_USUARIO = value.USU_PK_USUARIO;
-					}
-					else
-					{
-						this._ORD_FK_USUARIO = default(int);
-					}
-					this.SendPropertyChanged("eREST_USUARIO");
 				}
 			}
 		}
@@ -3326,16 +4147,411 @@ namespace eREST.BO
 			}
 		}
 		
-		private void attach_eREST_DETALLEORDENs(eREST_DETALLEORDEN entity)
+		private void attach_eREST_DETALLEORDENEs(eREST_DETALLEORDENE entity)
 		{
 			this.SendPropertyChanging();
-			entity.eREST_ORDEN = this;
+			entity.eREST_ORDENE = this;
 		}
 		
-		private void detach_eREST_DETALLEORDENs(eREST_DETALLEORDEN entity)
+		private void detach_eREST_DETALLEORDENEs(eREST_DETALLEORDENE entity)
 		{
 			this.SendPropertyChanging();
-			entity.eREST_ORDEN = null;
+			entity.eREST_ORDENE = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_PERMISOS")]
+	public partial class eREST_PERMISO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PRM_PK_PERMISO;
+		
+		private string _PRM_NOMBRE;
+		
+		private string _PRM_DESCRIPCION;
+		
+		private char _PRM_ESTADO;
+		
+		private EntitySet<eREST_PERMISOS_MODULO> _eREST_PERMISOS_MODULOs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPRM_PK_PERMISOChanging(int value);
+    partial void OnPRM_PK_PERMISOChanged();
+    partial void OnPRM_NOMBREChanging(string value);
+    partial void OnPRM_NOMBREChanged();
+    partial void OnPRM_DESCRIPCIONChanging(string value);
+    partial void OnPRM_DESCRIPCIONChanged();
+    partial void OnPRM_ESTADOChanging(char value);
+    partial void OnPRM_ESTADOChanged();
+    #endregion
+		
+		public eREST_PERMISO()
+		{
+			this._eREST_PERMISOS_MODULOs = new EntitySet<eREST_PERMISOS_MODULO>(new Action<eREST_PERMISOS_MODULO>(this.attach_eREST_PERMISOS_MODULOs), new Action<eREST_PERMISOS_MODULO>(this.detach_eREST_PERMISOS_MODULOs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRM_PK_PERMISO", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PRM_PK_PERMISO
+		{
+			get
+			{
+				return this._PRM_PK_PERMISO;
+			}
+			set
+			{
+				if ((this._PRM_PK_PERMISO != value))
+				{
+					this.OnPRM_PK_PERMISOChanging(value);
+					this.SendPropertyChanging();
+					this._PRM_PK_PERMISO = value;
+					this.SendPropertyChanged("PRM_PK_PERMISO");
+					this.OnPRM_PK_PERMISOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRM_NOMBRE", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string PRM_NOMBRE
+		{
+			get
+			{
+				return this._PRM_NOMBRE;
+			}
+			set
+			{
+				if ((this._PRM_NOMBRE != value))
+				{
+					this.OnPRM_NOMBREChanging(value);
+					this.SendPropertyChanging();
+					this._PRM_NOMBRE = value;
+					this.SendPropertyChanged("PRM_NOMBRE");
+					this.OnPRM_NOMBREChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRM_DESCRIPCION", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string PRM_DESCRIPCION
+		{
+			get
+			{
+				return this._PRM_DESCRIPCION;
+			}
+			set
+			{
+				if ((this._PRM_DESCRIPCION != value))
+				{
+					this.OnPRM_DESCRIPCIONChanging(value);
+					this.SendPropertyChanging();
+					this._PRM_DESCRIPCION = value;
+					this.SendPropertyChanged("PRM_DESCRIPCION");
+					this.OnPRM_DESCRIPCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRM_ESTADO", DbType="Char(1) NOT NULL")]
+		public char PRM_ESTADO
+		{
+			get
+			{
+				return this._PRM_ESTADO;
+			}
+			set
+			{
+				if ((this._PRM_ESTADO != value))
+				{
+					this.OnPRM_ESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._PRM_ESTADO = value;
+					this.SendPropertyChanged("PRM_ESTADO");
+					this.OnPRM_ESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PERMISO_eREST_PERMISOS_MODULO", Storage="_eREST_PERMISOS_MODULOs", ThisKey="PRM_PK_PERMISO", OtherKey="PRM_PK_PERMISO")]
+		public EntitySet<eREST_PERMISOS_MODULO> eREST_PERMISOS_MODULOs
+		{
+			get
+			{
+				return this._eREST_PERMISOS_MODULOs;
+			}
+			set
+			{
+				this._eREST_PERMISOS_MODULOs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_eREST_PERMISOS_MODULOs(eREST_PERMISOS_MODULO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PERMISO = this;
+		}
+		
+		private void detach_eREST_PERMISOS_MODULOs(eREST_PERMISOS_MODULO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PERMISO = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_PERMISOS_MODULOS")]
+	public partial class eREST_PERMISOS_MODULO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MOD_PK_MODULO;
+		
+		private int _PRM_PK_PERMISO;
+		
+		private int _ROL_PK_ROL;
+		
+		private EntityRef<eREST_MODULO> _eREST_MODULO;
+		
+		private EntityRef<eREST_PERMISO> _eREST_PERMISO;
+		
+		private EntityRef<eREST_ROLE> _eREST_ROLE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMOD_PK_MODULOChanging(int value);
+    partial void OnMOD_PK_MODULOChanged();
+    partial void OnPRM_PK_PERMISOChanging(int value);
+    partial void OnPRM_PK_PERMISOChanged();
+    partial void OnROL_PK_ROLChanging(int value);
+    partial void OnROL_PK_ROLChanged();
+    #endregion
+		
+		public eREST_PERMISOS_MODULO()
+		{
+			this._eREST_MODULO = default(EntityRef<eREST_MODULO>);
+			this._eREST_PERMISO = default(EntityRef<eREST_PERMISO>);
+			this._eREST_ROLE = default(EntityRef<eREST_ROLE>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOD_PK_MODULO", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MOD_PK_MODULO
+		{
+			get
+			{
+				return this._MOD_PK_MODULO;
+			}
+			set
+			{
+				if ((this._MOD_PK_MODULO != value))
+				{
+					if (this._eREST_MODULO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMOD_PK_MODULOChanging(value);
+					this.SendPropertyChanging();
+					this._MOD_PK_MODULO = value;
+					this.SendPropertyChanged("MOD_PK_MODULO");
+					this.OnMOD_PK_MODULOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRM_PK_PERMISO", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PRM_PK_PERMISO
+		{
+			get
+			{
+				return this._PRM_PK_PERMISO;
+			}
+			set
+			{
+				if ((this._PRM_PK_PERMISO != value))
+				{
+					if (this._eREST_PERMISO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPRM_PK_PERMISOChanging(value);
+					this.SendPropertyChanging();
+					this._PRM_PK_PERMISO = value;
+					this.SendPropertyChanged("PRM_PK_PERMISO");
+					this.OnPRM_PK_PERMISOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROL_PK_ROL", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ROL_PK_ROL
+		{
+			get
+			{
+				return this._ROL_PK_ROL;
+			}
+			set
+			{
+				if ((this._ROL_PK_ROL != value))
+				{
+					if (this._eREST_ROLE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnROL_PK_ROLChanging(value);
+					this.SendPropertyChanging();
+					this._ROL_PK_ROL = value;
+					this.SendPropertyChanged("ROL_PK_ROL");
+					this.OnROL_PK_ROLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_MODULO_eREST_PERMISOS_MODULO", Storage="_eREST_MODULO", ThisKey="MOD_PK_MODULO", OtherKey="MOD_PK_MODULO", IsForeignKey=true)]
+		public eREST_MODULO eREST_MODULO
+		{
+			get
+			{
+				return this._eREST_MODULO.Entity;
+			}
+			set
+			{
+				eREST_MODULO previousValue = this._eREST_MODULO.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_MODULO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_MODULO.Entity = null;
+						previousValue.eREST_PERMISOS_MODULOs.Remove(this);
+					}
+					this._eREST_MODULO.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_PERMISOS_MODULOs.Add(this);
+						this._MOD_PK_MODULO = value.MOD_PK_MODULO;
+					}
+					else
+					{
+						this._MOD_PK_MODULO = default(int);
+					}
+					this.SendPropertyChanged("eREST_MODULO");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PERMISO_eREST_PERMISOS_MODULO", Storage="_eREST_PERMISO", ThisKey="PRM_PK_PERMISO", OtherKey="PRM_PK_PERMISO", IsForeignKey=true)]
+		public eREST_PERMISO eREST_PERMISO
+		{
+			get
+			{
+				return this._eREST_PERMISO.Entity;
+			}
+			set
+			{
+				eREST_PERMISO previousValue = this._eREST_PERMISO.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_PERMISO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_PERMISO.Entity = null;
+						previousValue.eREST_PERMISOS_MODULOs.Remove(this);
+					}
+					this._eREST_PERMISO.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_PERMISOS_MODULOs.Add(this);
+						this._PRM_PK_PERMISO = value.PRM_PK_PERMISO;
+					}
+					else
+					{
+						this._PRM_PK_PERMISO = default(int);
+					}
+					this.SendPropertyChanged("eREST_PERMISO");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_ROLE_eREST_PERMISOS_MODULO", Storage="_eREST_ROLE", ThisKey="ROL_PK_ROL", OtherKey="ROL_PK_ROL", IsForeignKey=true)]
+		public eREST_ROLE eREST_ROLE
+		{
+			get
+			{
+				return this._eREST_ROLE.Entity;
+			}
+			set
+			{
+				eREST_ROLE previousValue = this._eREST_ROLE.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_ROLE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_ROLE.Entity = null;
+						previousValue.eREST_PERMISOS_MODULOs.Remove(this);
+					}
+					this._eREST_ROLE.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_PERMISOS_MODULOs.Add(this);
+						this._ROL_PK_ROL = value.ROL_PK_ROL;
+					}
+					else
+					{
+						this._ROL_PK_ROL = default(int);
+					}
+					this.SendPropertyChanged("eREST_ROLE");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -3345,7 +4561,7 @@ namespace eREST.BO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _PER_PK_CEDULA;
+		private string _PER_CEDULA;
 		
 		private System.Nullable<int> _PER_FK_DIRECCION;
 		
@@ -3379,8 +4595,8 @@ namespace eREST.BO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnPER_PK_CEDULAChanging(int value);
-    partial void OnPER_PK_CEDULAChanged();
+    partial void OnPER_CEDULAChanging(string value);
+    partial void OnPER_CEDULAChanged();
     partial void OnPER_FK_DIRECCIONChanging(System.Nullable<int> value);
     partial void OnPER_FK_DIRECCIONChanged();
     partial void OnPER_PNOMBREChanging(string value);
@@ -3413,22 +4629,22 @@ namespace eREST.BO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PER_PK_CEDULA", DbType="Int NOT NULL")]
-		public int PER_PK_CEDULA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PER_CEDULA", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PER_CEDULA
 		{
 			get
 			{
-				return this._PER_PK_CEDULA;
+				return this._PER_CEDULA;
 			}
 			set
 			{
-				if ((this._PER_PK_CEDULA != value))
+				if ((this._PER_CEDULA != value))
 				{
-					this.OnPER_PK_CEDULAChanging(value);
+					this.OnPER_CEDULAChanging(value);
 					this.SendPropertyChanging();
-					this._PER_PK_CEDULA = value;
-					this.SendPropertyChanged("PER_PK_CEDULA");
-					this.OnPER_PK_CEDULAChanged();
+					this._PER_CEDULA = value;
+					this.SendPropertyChanged("PER_CEDULA");
+					this.OnPER_CEDULAChanged();
 				}
 			}
 		}
@@ -3762,7 +4978,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_PRODUCTO")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_PRODUCTOS")]
 	public partial class eREST_PRODUCTO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -3786,7 +5002,9 @@ namespace eREST.BO
 		
 		private string _PRO_RUTAIMAGEN;
 		
-		private EntitySet<eREST_DETALLEORDEN> _eREST_DETALLEORDENs;
+		private EntitySet<eREST_DETALLEFACTURA> _eREST_DETALLEFACTURAs;
+		
+		private EntitySet<eREST_DETALLEORDENE> _eREST_DETALLEORDENEs;
 		
 		private EntitySet<eREST_DETSUBBODEGA> _eREST_DETSUBBODEGAs;
 		
@@ -3820,7 +5038,8 @@ namespace eREST.BO
 		
 		public eREST_PRODUCTO()
 		{
-			this._eREST_DETALLEORDENs = new EntitySet<eREST_DETALLEORDEN>(new Action<eREST_DETALLEORDEN>(this.attach_eREST_DETALLEORDENs), new Action<eREST_DETALLEORDEN>(this.detach_eREST_DETALLEORDENs));
+			this._eREST_DETALLEFACTURAs = new EntitySet<eREST_DETALLEFACTURA>(new Action<eREST_DETALLEFACTURA>(this.attach_eREST_DETALLEFACTURAs), new Action<eREST_DETALLEFACTURA>(this.detach_eREST_DETALLEFACTURAs));
+			this._eREST_DETALLEORDENEs = new EntitySet<eREST_DETALLEORDENE>(new Action<eREST_DETALLEORDENE>(this.attach_eREST_DETALLEORDENEs), new Action<eREST_DETALLEORDENE>(this.detach_eREST_DETALLEORDENEs));
 			this._eREST_DETSUBBODEGAs = new EntitySet<eREST_DETSUBBODEGA>(new Action<eREST_DETSUBBODEGA>(this.attach_eREST_DETSUBBODEGAs), new Action<eREST_DETSUBBODEGA>(this.detach_eREST_DETSUBBODEGAs));
 			this._eREST_RECETA = default(EntityRef<eREST_RECETA>);
 			this._eREST_SUBCATEGORIA = default(EntityRef<eREST_SUBCATEGORIA>);
@@ -4015,16 +5234,29 @@ namespace eREST.BO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETALLEORDEN", Storage="_eREST_DETALLEORDENs", ThisKey="PRO_PK_PRODUCTO", OtherKey="DOR_FK_PRODUCTO")]
-		public EntitySet<eREST_DETALLEORDEN> eREST_DETALLEORDENs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETALLEFACTURA", Storage="_eREST_DETALLEFACTURAs", ThisKey="PRO_PK_PRODUCTO", OtherKey="DFAC_FK_PRODUCTO")]
+		public EntitySet<eREST_DETALLEFACTURA> eREST_DETALLEFACTURAs
 		{
 			get
 			{
-				return this._eREST_DETALLEORDENs;
+				return this._eREST_DETALLEFACTURAs;
 			}
 			set
 			{
-				this._eREST_DETALLEORDENs.Assign(value);
+				this._eREST_DETALLEFACTURAs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETALLEORDENE", Storage="_eREST_DETALLEORDENEs", ThisKey="PRO_PK_PRODUCTO", OtherKey="DOR_FK_PRODUCTO")]
+		public EntitySet<eREST_DETALLEORDENE> eREST_DETALLEORDENEs
+		{
+			get
+			{
+				return this._eREST_DETALLEORDENEs;
+			}
+			set
+			{
+				this._eREST_DETALLEORDENEs.Assign(value);
 			}
 		}
 		
@@ -4129,13 +5361,25 @@ namespace eREST.BO
 			}
 		}
 		
-		private void attach_eREST_DETALLEORDENs(eREST_DETALLEORDEN entity)
+		private void attach_eREST_DETALLEFACTURAs(eREST_DETALLEFACTURA entity)
 		{
 			this.SendPropertyChanging();
 			entity.eREST_PRODUCTO = this;
 		}
 		
-		private void detach_eREST_DETALLEORDENs(eREST_DETALLEORDEN entity)
+		private void detach_eREST_DETALLEFACTURAs(eREST_DETALLEFACTURA entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PRODUCTO = null;
+		}
+		
+		private void attach_eREST_DETALLEORDENEs(eREST_DETALLEORDENE entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PRODUCTO = this;
+		}
+		
+		private void detach_eREST_DETALLEORDENEs(eREST_DETALLEORDENE entity)
 		{
 			this.SendPropertyChanging();
 			entity.eREST_PRODUCTO = null;
@@ -4268,7 +5512,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_RECETA")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_RECETAS")]
 	public partial class eREST_RECETA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -4407,6 +5651,144 @@ namespace eREST.BO
 		{
 			this.SendPropertyChanging();
 			entity.eREST_RECETA = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_ROLES")]
+	public partial class eREST_ROLE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ROL_PK_ROL;
+		
+		private string _ROL_DESCRIPCION;
+		
+		private char _ROL_ESTADO;
+		
+		private EntitySet<eREST_PERMISOS_MODULO> _eREST_PERMISOS_MODULOs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnROL_PK_ROLChanging(int value);
+    partial void OnROL_PK_ROLChanged();
+    partial void OnROL_DESCRIPCIONChanging(string value);
+    partial void OnROL_DESCRIPCIONChanged();
+    partial void OnROL_ESTADOChanging(char value);
+    partial void OnROL_ESTADOChanged();
+    #endregion
+		
+		public eREST_ROLE()
+		{
+			this._eREST_PERMISOS_MODULOs = new EntitySet<eREST_PERMISOS_MODULO>(new Action<eREST_PERMISOS_MODULO>(this.attach_eREST_PERMISOS_MODULOs), new Action<eREST_PERMISOS_MODULO>(this.detach_eREST_PERMISOS_MODULOs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROL_PK_ROL", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ROL_PK_ROL
+		{
+			get
+			{
+				return this._ROL_PK_ROL;
+			}
+			set
+			{
+				if ((this._ROL_PK_ROL != value))
+				{
+					this.OnROL_PK_ROLChanging(value);
+					this.SendPropertyChanging();
+					this._ROL_PK_ROL = value;
+					this.SendPropertyChanged("ROL_PK_ROL");
+					this.OnROL_PK_ROLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROL_DESCRIPCION", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string ROL_DESCRIPCION
+		{
+			get
+			{
+				return this._ROL_DESCRIPCION;
+			}
+			set
+			{
+				if ((this._ROL_DESCRIPCION != value))
+				{
+					this.OnROL_DESCRIPCIONChanging(value);
+					this.SendPropertyChanging();
+					this._ROL_DESCRIPCION = value;
+					this.SendPropertyChanged("ROL_DESCRIPCION");
+					this.OnROL_DESCRIPCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROL_ESTADO", DbType="Char(1) NOT NULL")]
+		public char ROL_ESTADO
+		{
+			get
+			{
+				return this._ROL_ESTADO;
+			}
+			set
+			{
+				if ((this._ROL_ESTADO != value))
+				{
+					this.OnROL_ESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._ROL_ESTADO = value;
+					this.SendPropertyChanged("ROL_ESTADO");
+					this.OnROL_ESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_ROLE_eREST_PERMISOS_MODULO", Storage="_eREST_PERMISOS_MODULOs", ThisKey="ROL_PK_ROL", OtherKey="ROL_PK_ROL")]
+		public EntitySet<eREST_PERMISOS_MODULO> eREST_PERMISOS_MODULOs
+		{
+			get
+			{
+				return this._eREST_PERMISOS_MODULOs;
+			}
+			set
+			{
+				this._eREST_PERMISOS_MODULOs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_eREST_PERMISOS_MODULOs(eREST_PERMISOS_MODULO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_ROLE = this;
+		}
+		
+		private void detach_eREST_PERMISOS_MODULOs(eREST_PERMISOS_MODULO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_ROLE = null;
 		}
 	}
 	
@@ -4840,7 +6222,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_SUBCATEGORIA")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_SUBCATEGORIAS")]
 	public partial class eREST_SUBCATEGORIA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5019,7 +6401,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_TIPOBODEGA")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_TIPOBODEGAS")]
 	public partial class eREST_TIPOBODEGA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5133,7 +6515,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_TIPOCONTACTO")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_TIPOCONTACTOS")]
 	public partial class eREST_TIPOCONTACTO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5247,7 +6629,7 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_TIPOEMPLEADO")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_TIPOEMPLEADOS")]
 	public partial class eREST_TIPOEMPLEADO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5256,6 +6638,8 @@ namespace eREST.BO
 		private int _TEM_PK_TIPOEMPLEADO;
 		
 		private string _TEM_NOMBRE;
+		
+		private EntitySet<eREST_EMPLEADO> _eREST_EMPLEADOs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5269,6 +6653,7 @@ namespace eREST.BO
 		
 		public eREST_TIPOEMPLEADO()
 		{
+			this._eREST_EMPLEADOs = new EntitySet<eREST_EMPLEADO>(new Action<eREST_EMPLEADO>(this.attach_eREST_EMPLEADOs), new Action<eREST_EMPLEADO>(this.detach_eREST_EMPLEADOs));
 			OnCreated();
 		}
 		
@@ -5312,6 +6697,19 @@ namespace eREST.BO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_TIPOEMPLEADO_eREST_EMPLEADO", Storage="_eREST_EMPLEADOs", ThisKey="TEM_PK_TIPOEMPLEADO", OtherKey="EMP_FK_TIPOEMPLEADO")]
+		public EntitySet<eREST_EMPLEADO> eREST_EMPLEADOs
+		{
+			get
+			{
+				return this._eREST_EMPLEADOs;
+			}
+			set
+			{
+				this._eREST_EMPLEADOs.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -5331,9 +6729,21 @@ namespace eREST.BO
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_eREST_EMPLEADOs(eREST_EMPLEADO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_TIPOEMPLEADO = this;
+		}
+		
+		private void detach_eREST_EMPLEADOs(eREST_EMPLEADO entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_TIPOEMPLEADO = null;
+		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_TIPOMOBILIARIO")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_TIPOMOBILIARIOS")]
 	public partial class eREST_TIPOMOBILIARIO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5495,135 +6905,43 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_USUARIO")]
-	public partial class eREST_USUARIO : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_USUARIOS")]
+	public partial class eREST_USUARIO
 	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _USU_PK_USUARIO;
-		
-		private System.Nullable<int> _USU_FK_PERSONA;
-		
-		private System.Nullable<int> _USU_FK_ROL;
-		
-		private string _USU_NOMBRE_USAURIO;
+		private string _USU_USUARIO;
 		
 		private string _USU_CLAVE;
 		
-		private System.Nullable<int> _USU_FK_EMPLEADO;
+		private char _USU_ESTADO;
 		
-		private System.Nullable<bool> _USU_ESTADO;
+		private int _USU_FK_ROL;
 		
-		private EntitySet<eREST_ORDEN> _eREST_ORDENs;
+		private System.Nullable<int> _USU_ERRORINTENTO;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUSU_PK_USUARIOChanging(int value);
-    partial void OnUSU_PK_USUARIOChanged();
-    partial void OnUSU_FK_PERSONAChanging(System.Nullable<int> value);
-    partial void OnUSU_FK_PERSONAChanged();
-    partial void OnUSU_FK_ROLChanging(System.Nullable<int> value);
-    partial void OnUSU_FK_ROLChanged();
-    partial void OnUSU_NOMBRE_USAURIOChanging(string value);
-    partial void OnUSU_NOMBRE_USAURIOChanged();
-    partial void OnUSU_CLAVEChanging(string value);
-    partial void OnUSU_CLAVEChanged();
-    partial void OnUSU_FK_EMPLEADOChanging(System.Nullable<int> value);
-    partial void OnUSU_FK_EMPLEADOChanged();
-    partial void OnUSU_ESTADOChanging(System.Nullable<bool> value);
-    partial void OnUSU_ESTADOChanged();
-    #endregion
+		private string _USU_PFK_PERSONA;
 		
 		public eREST_USUARIO()
 		{
-			this._eREST_ORDENs = new EntitySet<eREST_ORDEN>(new Action<eREST_ORDEN>(this.attach_eREST_ORDENs), new Action<eREST_ORDEN>(this.detach_eREST_ORDENs));
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_PK_USUARIO", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int USU_PK_USUARIO
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_USUARIO", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string USU_USUARIO
 		{
 			get
 			{
-				return this._USU_PK_USUARIO;
+				return this._USU_USUARIO;
 			}
 			set
 			{
-				if ((this._USU_PK_USUARIO != value))
+				if ((this._USU_USUARIO != value))
 				{
-					this.OnUSU_PK_USUARIOChanging(value);
-					this.SendPropertyChanging();
-					this._USU_PK_USUARIO = value;
-					this.SendPropertyChanged("USU_PK_USUARIO");
-					this.OnUSU_PK_USUARIOChanged();
+					this._USU_USUARIO = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_FK_PERSONA", DbType="Int")]
-		public System.Nullable<int> USU_FK_PERSONA
-		{
-			get
-			{
-				return this._USU_FK_PERSONA;
-			}
-			set
-			{
-				if ((this._USU_FK_PERSONA != value))
-				{
-					this.OnUSU_FK_PERSONAChanging(value);
-					this.SendPropertyChanging();
-					this._USU_FK_PERSONA = value;
-					this.SendPropertyChanged("USU_FK_PERSONA");
-					this.OnUSU_FK_PERSONAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_FK_ROL", DbType="Int")]
-		public System.Nullable<int> USU_FK_ROL
-		{
-			get
-			{
-				return this._USU_FK_ROL;
-			}
-			set
-			{
-				if ((this._USU_FK_ROL != value))
-				{
-					this.OnUSU_FK_ROLChanging(value);
-					this.SendPropertyChanging();
-					this._USU_FK_ROL = value;
-					this.SendPropertyChanged("USU_FK_ROL");
-					this.OnUSU_FK_ROLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_NOMBRE_USAURIO", DbType="VarChar(30)")]
-		public string USU_NOMBRE_USAURIO
-		{
-			get
-			{
-				return this._USU_NOMBRE_USAURIO;
-			}
-			set
-			{
-				if ((this._USU_NOMBRE_USAURIO != value))
-				{
-					this.OnUSU_NOMBRE_USAURIOChanging(value);
-					this.SendPropertyChanging();
-					this._USU_NOMBRE_USAURIO = value;
-					this.SendPropertyChanged("USU_NOMBRE_USAURIO");
-					this.OnUSU_NOMBRE_USAURIOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_CLAVE", DbType="VarChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_CLAVE", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
 		public string USU_CLAVE
 		{
 			get
@@ -5634,37 +6952,13 @@ namespace eREST.BO
 			{
 				if ((this._USU_CLAVE != value))
 				{
-					this.OnUSU_CLAVEChanging(value);
-					this.SendPropertyChanging();
 					this._USU_CLAVE = value;
-					this.SendPropertyChanged("USU_CLAVE");
-					this.OnUSU_CLAVEChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_FK_EMPLEADO", DbType="Int")]
-		public System.Nullable<int> USU_FK_EMPLEADO
-		{
-			get
-			{
-				return this._USU_FK_EMPLEADO;
-			}
-			set
-			{
-				if ((this._USU_FK_EMPLEADO != value))
-				{
-					this.OnUSU_FK_EMPLEADOChanging(value);
-					this.SendPropertyChanging();
-					this._USU_FK_EMPLEADO = value;
-					this.SendPropertyChanged("USU_FK_EMPLEADO");
-					this.OnUSU_FK_EMPLEADOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_ESTADO", DbType="Bit")]
-		public System.Nullable<bool> USU_ESTADO
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_ESTADO", DbType="Char(1) NOT NULL")]
+		public char USU_ESTADO
 		{
 			get
 			{
@@ -5674,58 +6968,57 @@ namespace eREST.BO
 			{
 				if ((this._USU_ESTADO != value))
 				{
-					this.OnUSU_ESTADOChanging(value);
-					this.SendPropertyChanging();
 					this._USU_ESTADO = value;
-					this.SendPropertyChanged("USU_ESTADO");
-					this.OnUSU_ESTADOChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_USUARIO_eREST_ORDEN", Storage="_eREST_ORDENs", ThisKey="USU_PK_USUARIO", OtherKey="ORD_FK_USUARIO")]
-		public EntitySet<eREST_ORDEN> eREST_ORDENs
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_FK_ROL", DbType="Int NOT NULL")]
+		public int USU_FK_ROL
 		{
 			get
 			{
-				return this._eREST_ORDENs;
+				return this._USU_FK_ROL;
 			}
 			set
 			{
-				this._eREST_ORDENs.Assign(value);
+				if ((this._USU_FK_ROL != value))
+				{
+					this._USU_FK_ROL = value;
+				}
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_ERRORINTENTO", DbType="Int")]
+		public System.Nullable<int> USU_ERRORINTENTO
 		{
-			if ((this.PropertyChanging != null))
+			get
 			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
+				return this._USU_ERRORINTENTO;
 			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
+			set
 			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				if ((this._USU_ERRORINTENTO != value))
+				{
+					this._USU_ERRORINTENTO = value;
+				}
 			}
 		}
 		
-		private void attach_eREST_ORDENs(eREST_ORDEN entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_PFK_PERSONA", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string USU_PFK_PERSONA
 		{
-			this.SendPropertyChanging();
-			entity.eREST_USUARIO = this;
-		}
-		
-		private void detach_eREST_ORDENs(eREST_ORDEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.eREST_USUARIO = null;
+			get
+			{
+				return this._USU_PFK_PERSONA;
+			}
+			set
+			{
+				if ((this._USU_PFK_PERSONA != value))
+				{
+					this._USU_PFK_PERSONA = value;
+				}
+			}
 		}
 	}
 }
