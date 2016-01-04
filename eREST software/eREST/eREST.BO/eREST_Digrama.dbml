@@ -67,8 +67,8 @@
       <Column Name="DSB_FK_INSUMO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DSB_PK_DETSUBBODEGA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="eREST_INSUMO_eREST_DETSUBBODEGA" Member="eREST_INSUMO" ThisKey="DSB_FK_INSUMO" OtherKey="INS_PK_INSUMO" Type="eREST_INSUMO" IsForeignKey="true" />
-      <Association Name="eREST_PRODUCTO_eREST_DETSUBBODEGA" Member="eREST_PRODUCTO" ThisKey="DSB_FK_PRODUCTO" OtherKey="PRO_PK_PRODUCTO" Type="eREST_PRODUCTO" IsForeignKey="true" />
       <Association Name="eREST_SUBBODEGA_eREST_DETSUBBODEGA" Member="eREST_SUBBODEGA" ThisKey="DSB_FK_SUBBODEGA" OtherKey="SBO_PK_SUBBODEGA" Type="eREST_SUBBODEGA" IsForeignKey="true" />
+      <Association Name="eREST_PRODUCTO_eREST_DETSUBBODEGA" Member="eREST_PRODUCTO" ThisKey="DSB_FK_PRODUCTO" OtherKey="PRO_PK_PRODUCTO" Type="eREST_PRODUCTO" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.eREST_DIRECCIONES" Member="eREST_DIRECCIONEs">
@@ -153,21 +153,6 @@
       <Association Name="eREST_DIRECCIONE_eREST_PERSONA" Member="eREST_DIRECCIONE" ThisKey="PER_FK_DIRECCION" OtherKey="DIR_PK_DIRECCION" Type="eREST_DIRECCIONE" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.eREST_PRODUCTO" Member="eREST_PRODUCTOs">
-    <Type Name="eREST_PRODUCTO">
-      <Column Name="PRO_NOMBRE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="PRO_UMEDIDA" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="PRO_TAMANNO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PRO_PREPARADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="PRO_FK_SUBCATEGORIA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PRO_FK_RECETA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PRO_PK_PRODUCTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="eREST_PRODUCTO_eREST_DETALLEORDEN" Member="eREST_DETALLEORDENs" ThisKey="PRO_PK_PRODUCTO" OtherKey="DOR_FK_PRODUCTO" Type="eREST_DETALLEORDEN" />
-      <Association Name="eREST_PRODUCTO_eREST_DETSUBBODEGA" Member="eREST_DETSUBBODEGAs" ThisKey="PRO_PK_PRODUCTO" OtherKey="DSB_FK_PRODUCTO" Type="eREST_DETSUBBODEGA" />
-      <Association Name="eREST_RECETA_eREST_PRODUCTO" Member="eREST_RECETA" ThisKey="PRO_FK_RECETA" OtherKey="REC_PK_RECETA" Type="eREST_RECETA" IsForeignKey="true" />
-      <Association Name="eREST_SUBCATEGORIA_eREST_PRODUCTO" Member="eREST_SUBCATEGORIA" ThisKey="PRO_FK_SUBCATEGORIA" OtherKey="SCA_PK_SUBCATEGORIA" Type="eREST_SUBCATEGORIA" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.eREST_PROVINCIAS" Member="eREST_PROVINCIAs">
     <Type Name="eREST_PROVINCIA">
       <Column Name="PRO_PROVINCIA" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
@@ -246,6 +231,22 @@
       <Column Name="USU_FK_EMPLEADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="USU_ESTADO" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="eREST_USUARIO_eREST_ORDEN" Member="eREST_ORDENs" ThisKey="USU_PK_USUARIO" OtherKey="ORD_FK_USUARIO" Type="eREST_ORDEN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_PRODUCTO" Member="eREST_PRODUCTOs">
+    <Type Name="eREST_PRODUCTO">
+      <Column Name="PRO_NOMBRE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_UMEDIDA" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="PRO_TAMANNO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRO_PREPARADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_FK_SUBCATEGORIA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_FK_RECETA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRO_PK_PRODUCTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PRO_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="eREST_PRODUCTO_eREST_DETALLEORDEN" Member="eREST_DETALLEORDENs" ThisKey="PRO_PK_PRODUCTO" OtherKey="DOR_FK_PRODUCTO" Type="eREST_DETALLEORDEN" />
+      <Association Name="eREST_PRODUCTO_eREST_DETSUBBODEGA" Member="eREST_DETSUBBODEGAs" ThisKey="PRO_PK_PRODUCTO" OtherKey="DSB_FK_PRODUCTO" Type="eREST_DETSUBBODEGA" />
+      <Association Name="eREST_RECETA_eREST_PRODUCTO" Member="eREST_RECETA" ThisKey="PRO_FK_RECETA" OtherKey="REC_PK_RECETA" Type="eREST_RECETA" IsForeignKey="true" />
+      <Association Name="eREST_SUBCATEGORIA_eREST_PRODUCTO" Member="eREST_SUBCATEGORIA" ThisKey="PRO_FK_SUBCATEGORIA" OtherKey="SCA_PK_SUBCATEGORIA" Type="eREST_SUBCATEGORIA" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

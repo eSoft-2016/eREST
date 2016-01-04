@@ -86,12 +86,6 @@
         <elementListCompartment Id="2ff698ee-1eba-404c-bc9a-053e79f4aa6a" absoluteBounds="17.765, 7.585, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="945bfbe5-2fa9-48e3-b5ba-1239497aea23" absoluteBounds="3.5, 3.625, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/eREST_DigramaDataContext/eREST_PRODUCTO" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a206c0bb-d7c4-4d73-bd7e-2fb88c4c9fcf" absoluteBounds="3.515, 4.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="7abe2298-caa9-4d2c-aa67-60a58d2bc00c" absoluteBounds="6.75, 8.125, 2, 1.1939925130208344">
       <DataClassMoniker Name="/eREST_DigramaDataContext/eREST_PROVINCIA" />
       <nestedChildShapes>
@@ -167,7 +161,7 @@
         <classShapeMoniker Id="8b3bb2c3-4900-4dad-90c5-95e451eed88f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 12.5); (5.875 : 12.125); (5.875 : 1.73159912109375); (5.97916666666667 : 1.73159912109375 : JumpStart); (6.14583333333333 : 1.73159912109375 : JumpEnd); (6.25 : 1.73159912109375)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 12.5); (5.875 : 12.125); (5.875 : 1.73159912109375); (6.25 : 1.73159912109375)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_INSUMO/eREST_INSUMO_eREST_DETSUBBODEGA" />
       <nodes>
         <classShapeMoniker Id="75de3834-f69f-4e1e-b3f9-9e44e2ced7b7" />
@@ -202,20 +196,6 @@
         <classShapeMoniker Id="45e7eaee-b8c0-4c9f-a240-4a097c28ef4d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 4.78929768880208); (5.79166666666667 : 4.78929768880208 : JumpStart); (5.95833333333333 : 4.78929768880208 : JumpEnd); (5.97916666666667 : 4.78929768880208 : JumpStart); (6.14583333333333 : 4.78929768880208 : JumpEnd); (6.25 : 4.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_PRODUCTO/eREST_PRODUCTO_eREST_DETALLEORDEN" />
-      <nodes>
-        <classShapeMoniker Id="945bfbe5-2fa9-48e3-b5ba-1239497aea23" />
-        <classShapeMoniker Id="b7a2990f-0e76-455c-8789-d66da70a3d27" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 3.625); (4.5 : 2.25365118164063); (5.79166666666667 : 2.25365118164062 : JumpStart); (5.95833333333333 : 2.25365118164063 : JumpEnd); (5.97916666666667 : 2.25365118164062 : JumpStart); (6.14583333333333 : 2.25365118164063 : JumpEnd); (6.25 : 2.25365118164063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_PRODUCTO/eREST_PRODUCTO_eREST_DETSUBBODEGA" />
-      <nodes>
-        <classShapeMoniker Id="945bfbe5-2fa9-48e3-b5ba-1239497aea23" />
-        <classShapeMoniker Id="6d7fc264-40a3-4e03-9ef9-fa2afb9541cc" />
-      </nodes>
-    </associationConnector>
     <associationConnector edgePoints="[(8.75 : 8.72199625651042); (9.5 : 8.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_PROVINCIA/eREST_PROVINCIA_eREST_CANTONE" />
       <nodes>
@@ -223,18 +203,11 @@
         <classShapeMoniker Id="75402b7a-6709-498c-be31-b4918f88cd2e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 7.72199625651042); (3.19791666666667 : 7.72199625651042 : JumpStart); (3.36458333333333 : 7.72199625651042 : JumpEnd); (3.5 : 7.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 7.72199625651042); (3.5 : 7.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_RECETA/eREST_RECETA_eREST_DETRECETA" />
       <nodes>
         <classShapeMoniker Id="57b1235a-c319-4400-886f-2d3710373113" />
         <classShapeMoniker Id="8b3bb2c3-4900-4dad-90c5-95e451eed88f" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 7.12591745577925); (3.125 : 6.75091745577925); (3.125 : 4.70274983723958); (3.5 : 4.70274983723958)]" fixedFrom="NotFixed" fixedTo="Algorithm">
-      <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_RECETA/eREST_RECETA_eREST_PRODUCTO" />
-      <nodes>
-        <classShapeMoniker Id="57b1235a-c319-4400-886f-2d3710373113" />
-        <classShapeMoniker Id="945bfbe5-2fa9-48e3-b5ba-1239497aea23" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(1.5 : 29.8854484049479); (1.1249995 : 29.8854484049479); (1.1249995 : 23.7131982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
@@ -251,7 +224,7 @@
         <classShapeMoniker Id="bd1d1f4b-eb34-4284-8a74-13aae935172b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 15.0619285109675); (6.0625 : 14.4994285109675); (6.0625 : 1.20954756054688); (6.25 : 1.20954756054688)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 15.0619285109675); (6.0625 : 14.4994285109675); (6.0625 : 2.25365068164063); (6.25 : 2.25365068164063)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_SUBBODEGA/eREST_SUBBODEGA_eREST_DETSUBBODEGA" />
       <nodes>
         <classShapeMoniker Id="a4165717-8623-4567-9cce-19a80489a534" />
@@ -265,14 +238,7 @@
         <classShapeMoniker Id="a4165717-8623-4567-9cce-19a80489a534" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.28887491861979); (3.5 : 4.28887491861979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_SUBCATEGORIA/eREST_SUBCATEGORIA_eREST_PRODUCTO" />
-      <nodes>
-        <classShapeMoniker Id="97fccd0b-dc7a-4dc8-b0ac-62a78825a83f" />
-        <classShapeMoniker Id="945bfbe5-2fa9-48e3-b5ba-1239497aea23" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(3.28125 : 10.125); (3.28125 : 5.07577439127604); (3.20833333333333 : 5.07577439127604 : JumpStart); (3.04166666666667 : 5.07577439127604 : JumpEnd); (2.75 : 5.07577439127604)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.5 : 10.125); (1.125 : 9.75); (0.375 : 9.75); (0.375 : 5.7612939453125); (0.75 : 5.3862939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_CATEGORIA/eREST_CATEGORIA_eREST_SUBCATEGORIA" />
       <nodes>
         <classShapeMoniker Id="fbdcc2d0-f7d7-4f60-93c8-f1fcc2bda08a" />
@@ -305,6 +271,40 @@
       <nodes>
         <classShapeMoniker Id="467f9eef-34de-42b7-81d2-f0f361aeb5b8" />
         <classShapeMoniker Id="d4b0d582-c45f-448d-bbaf-8f33414b6fa3" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="aed17b92-53ff-4854-a5ea-6e71a2b9abd3" absoluteBounds="3.375, 3.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/eREST_DigramaDataContext/eREST_PRODUCTO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cb3c63ff-d38d-47d4-8894-5414637fd037" absoluteBounds="3.3900000000000006, 3.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 4.78929768880208); (5.79166666666667 : 4.78929768880208 : JumpStart); (5.95833333333333 : 4.78929768880208 : JumpEnd); (5.97916666666667 : 4.78929768880208 : JumpStart); (6.14583333333333 : 4.78929768880208 : JumpEnd); (6.25 : 4.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_PRODUCTO/eREST_PRODUCTO_eREST_DETALLEORDEN" />
+      <nodes>
+        <classShapeMoniker Id="aed17b92-53ff-4854-a5ea-6e71a2b9abd3" />
+        <classShapeMoniker Id="b7a2990f-0e76-455c-8789-d66da70a3d27" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.375 : 3.375); (4.375 : 1.20954706054688); (6.25 : 1.20954706054688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_PRODUCTO/eREST_PRODUCTO_eREST_DETSUBBODEGA" />
+      <nodes>
+        <classShapeMoniker Id="aed17b92-53ff-4854-a5ea-6e71a2b9abd3" />
+        <classShapeMoniker Id="6d7fc264-40a3-4e03-9ef9-fa2afb9541cc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.12591745577925); (3.125 : 6.75091745577925); (3.125 : 6.09780110677083); (3.00153746153846 : 6.09780110677083); (3.37653746153846 : 5.72280110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_RECETA/eREST_RECETA_eREST_PRODUCTO" />
+      <nodes>
+        <classShapeMoniker Id="57b1235a-c319-4400-886f-2d3710373113" />
+        <classShapeMoniker Id="aed17b92-53ff-4854-a5ea-6e71a2b9abd3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.69314697265625); (3.375 : 4.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/eREST_DigramaDataContext/eREST_SUBCATEGORIA/eREST_SUBCATEGORIA_eREST_PRODUCTO" />
+      <nodes>
+        <classShapeMoniker Id="97fccd0b-dc7a-4dc8-b0ac-62a78825a83f" />
+        <classShapeMoniker Id="aed17b92-53ff-4854-a5ea-6e71a2b9abd3" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

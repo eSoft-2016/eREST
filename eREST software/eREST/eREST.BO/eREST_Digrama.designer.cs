@@ -72,9 +72,6 @@ namespace eREST.BO
     partial void InserteREST_PERSONA(eREST_PERSONA instance);
     partial void UpdateeREST_PERSONA(eREST_PERSONA instance);
     partial void DeleteeREST_PERSONA(eREST_PERSONA instance);
-    partial void InserteREST_PRODUCTO(eREST_PRODUCTO instance);
-    partial void UpdateeREST_PRODUCTO(eREST_PRODUCTO instance);
-    partial void DeleteeREST_PRODUCTO(eREST_PRODUCTO instance);
     partial void InserteREST_PROVINCIA(eREST_PROVINCIA instance);
     partial void UpdateeREST_PROVINCIA(eREST_PROVINCIA instance);
     partial void DeleteeREST_PROVINCIA(eREST_PROVINCIA instance);
@@ -102,6 +99,9 @@ namespace eREST.BO
     partial void InserteREST_USUARIO(eREST_USUARIO instance);
     partial void UpdateeREST_USUARIO(eREST_USUARIO instance);
     partial void DeleteeREST_USUARIO(eREST_USUARIO instance);
+    partial void InserteREST_PRODUCTO(eREST_PRODUCTO instance);
+    partial void UpdateeREST_PRODUCTO(eREST_PRODUCTO instance);
+    partial void DeleteeREST_PRODUCTO(eREST_PRODUCTO instance);
     #endregion
 		
 		public eREST_DigramaDataContext() : 
@@ -246,14 +246,6 @@ namespace eREST.BO
 			}
 		}
 		
-		public System.Data.Linq.Table<eREST_PRODUCTO> eREST_PRODUCTOs
-		{
-			get
-			{
-				return this.GetTable<eREST_PRODUCTO>();
-			}
-		}
-		
 		public System.Data.Linq.Table<eREST_PROVINCIA> eREST_PROVINCIAs
 		{
 			get
@@ -323,6 +315,14 @@ namespace eREST.BO
 			get
 			{
 				return this.GetTable<eREST_USUARIO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<eREST_PRODUCTO> eREST_PRODUCTOs
+		{
+			get
+			{
+				return this.GetTable<eREST_PRODUCTO>();
 			}
 		}
 	}
@@ -1539,9 +1539,9 @@ namespace eREST.BO
 		
 		private EntityRef<eREST_INSUMO> _eREST_INSUMO;
 		
-		private EntityRef<eREST_PRODUCTO> _eREST_PRODUCTO;
-		
 		private EntityRef<eREST_SUBBODEGA> _eREST_SUBBODEGA;
+		
+		private EntityRef<eREST_PRODUCTO> _eREST_PRODUCTO;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1564,8 +1564,8 @@ namespace eREST.BO
 		public eREST_DETSUBBODEGA()
 		{
 			this._eREST_INSUMO = default(EntityRef<eREST_INSUMO>);
-			this._eREST_PRODUCTO = default(EntityRef<eREST_PRODUCTO>);
 			this._eREST_SUBBODEGA = default(EntityRef<eREST_SUBBODEGA>);
+			this._eREST_PRODUCTO = default(EntityRef<eREST_PRODUCTO>);
 			OnCreated();
 		}
 		
@@ -1735,40 +1735,6 @@ namespace eREST.BO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETSUBBODEGA", Storage="_eREST_PRODUCTO", ThisKey="DSB_FK_PRODUCTO", OtherKey="PRO_PK_PRODUCTO", IsForeignKey=true)]
-		public eREST_PRODUCTO eREST_PRODUCTO
-		{
-			get
-			{
-				return this._eREST_PRODUCTO.Entity;
-			}
-			set
-			{
-				eREST_PRODUCTO previousValue = this._eREST_PRODUCTO.Entity;
-				if (((previousValue != value) 
-							|| (this._eREST_PRODUCTO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._eREST_PRODUCTO.Entity = null;
-						previousValue.eREST_DETSUBBODEGAs.Remove(this);
-					}
-					this._eREST_PRODUCTO.Entity = value;
-					if ((value != null))
-					{
-						value.eREST_DETSUBBODEGAs.Add(this);
-						this._DSB_FK_PRODUCTO = value.PRO_PK_PRODUCTO;
-					}
-					else
-					{
-						this._DSB_FK_PRODUCTO = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("eREST_PRODUCTO");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_SUBBODEGA_eREST_DETSUBBODEGA", Storage="_eREST_SUBBODEGA", ThisKey="DSB_FK_SUBBODEGA", OtherKey="SBO_PK_SUBBODEGA", IsForeignKey=true)]
 		public eREST_SUBBODEGA eREST_SUBBODEGA
 		{
@@ -1799,6 +1765,40 @@ namespace eREST.BO
 						this._DSB_FK_SUBBODEGA = default(int);
 					}
 					this.SendPropertyChanged("eREST_SUBBODEGA");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETSUBBODEGA", Storage="_eREST_PRODUCTO", ThisKey="DSB_FK_PRODUCTO", OtherKey="PRO_PK_PRODUCTO", IsForeignKey=true)]
+		public eREST_PRODUCTO eREST_PRODUCTO
+		{
+			get
+			{
+				return this._eREST_PRODUCTO.Entity;
+			}
+			set
+			{
+				eREST_PRODUCTO previousValue = this._eREST_PRODUCTO.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_PRODUCTO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_PRODUCTO.Entity = null;
+						previousValue.eREST_DETSUBBODEGAs.Remove(this);
+					}
+					this._eREST_PRODUCTO.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_DETSUBBODEGAs.Add(this);
+						this._DSB_FK_PRODUCTO = value.PRO_PK_PRODUCTO;
+					}
+					else
+					{
+						this._DSB_FK_PRODUCTO = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("eREST_PRODUCTO");
 				}
 			}
 		}
@@ -3537,350 +3537,6 @@ namespace eREST.BO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_PRODUCTO")]
-	public partial class eREST_PRODUCTO : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _PRO_NOMBRE;
-		
-		private string _PRO_UMEDIDA;
-		
-		private System.Nullable<double> _PRO_TAMANNO;
-		
-		private bool _PRO_PREPARADO;
-		
-		private int _PRO_FK_SUBCATEGORIA;
-		
-		private System.Nullable<int> _PRO_FK_RECETA;
-		
-		private int _PRO_PK_PRODUCTO;
-		
-		private EntitySet<eREST_DETALLEORDEN> _eREST_DETALLEORDENs;
-		
-		private EntitySet<eREST_DETSUBBODEGA> _eREST_DETSUBBODEGAs;
-		
-		private EntityRef<eREST_RECETA> _eREST_RECETA;
-		
-		private EntityRef<eREST_SUBCATEGORIA> _eREST_SUBCATEGORIA;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPRO_NOMBREChanging(string value);
-    partial void OnPRO_NOMBREChanged();
-    partial void OnPRO_UMEDIDAChanging(string value);
-    partial void OnPRO_UMEDIDAChanged();
-    partial void OnPRO_TAMANNOChanging(System.Nullable<double> value);
-    partial void OnPRO_TAMANNOChanged();
-    partial void OnPRO_PREPARADOChanging(bool value);
-    partial void OnPRO_PREPARADOChanged();
-    partial void OnPRO_FK_SUBCATEGORIAChanging(int value);
-    partial void OnPRO_FK_SUBCATEGORIAChanged();
-    partial void OnPRO_FK_RECETAChanging(System.Nullable<int> value);
-    partial void OnPRO_FK_RECETAChanged();
-    partial void OnPRO_PK_PRODUCTOChanging(int value);
-    partial void OnPRO_PK_PRODUCTOChanged();
-    #endregion
-		
-		public eREST_PRODUCTO()
-		{
-			this._eREST_DETALLEORDENs = new EntitySet<eREST_DETALLEORDEN>(new Action<eREST_DETALLEORDEN>(this.attach_eREST_DETALLEORDENs), new Action<eREST_DETALLEORDEN>(this.detach_eREST_DETALLEORDENs));
-			this._eREST_DETSUBBODEGAs = new EntitySet<eREST_DETSUBBODEGA>(new Action<eREST_DETSUBBODEGA>(this.attach_eREST_DETSUBBODEGAs), new Action<eREST_DETSUBBODEGA>(this.detach_eREST_DETSUBBODEGAs));
-			this._eREST_RECETA = default(EntityRef<eREST_RECETA>);
-			this._eREST_SUBCATEGORIA = default(EntityRef<eREST_SUBCATEGORIA>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_NOMBRE", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string PRO_NOMBRE
-		{
-			get
-			{
-				return this._PRO_NOMBRE;
-			}
-			set
-			{
-				if ((this._PRO_NOMBRE != value))
-				{
-					this.OnPRO_NOMBREChanging(value);
-					this.SendPropertyChanging();
-					this._PRO_NOMBRE = value;
-					this.SendPropertyChanged("PRO_NOMBRE");
-					this.OnPRO_NOMBREChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_UMEDIDA", DbType="VarChar(5)")]
-		public string PRO_UMEDIDA
-		{
-			get
-			{
-				return this._PRO_UMEDIDA;
-			}
-			set
-			{
-				if ((this._PRO_UMEDIDA != value))
-				{
-					this.OnPRO_UMEDIDAChanging(value);
-					this.SendPropertyChanging();
-					this._PRO_UMEDIDA = value;
-					this.SendPropertyChanged("PRO_UMEDIDA");
-					this.OnPRO_UMEDIDAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_TAMANNO", DbType="Float")]
-		public System.Nullable<double> PRO_TAMANNO
-		{
-			get
-			{
-				return this._PRO_TAMANNO;
-			}
-			set
-			{
-				if ((this._PRO_TAMANNO != value))
-				{
-					this.OnPRO_TAMANNOChanging(value);
-					this.SendPropertyChanging();
-					this._PRO_TAMANNO = value;
-					this.SendPropertyChanged("PRO_TAMANNO");
-					this.OnPRO_TAMANNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_PREPARADO", DbType="Bit NOT NULL")]
-		public bool PRO_PREPARADO
-		{
-			get
-			{
-				return this._PRO_PREPARADO;
-			}
-			set
-			{
-				if ((this._PRO_PREPARADO != value))
-				{
-					this.OnPRO_PREPARADOChanging(value);
-					this.SendPropertyChanging();
-					this._PRO_PREPARADO = value;
-					this.SendPropertyChanged("PRO_PREPARADO");
-					this.OnPRO_PREPARADOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_FK_SUBCATEGORIA", DbType="Int NOT NULL")]
-		public int PRO_FK_SUBCATEGORIA
-		{
-			get
-			{
-				return this._PRO_FK_SUBCATEGORIA;
-			}
-			set
-			{
-				if ((this._PRO_FK_SUBCATEGORIA != value))
-				{
-					if (this._eREST_SUBCATEGORIA.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPRO_FK_SUBCATEGORIAChanging(value);
-					this.SendPropertyChanging();
-					this._PRO_FK_SUBCATEGORIA = value;
-					this.SendPropertyChanged("PRO_FK_SUBCATEGORIA");
-					this.OnPRO_FK_SUBCATEGORIAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_FK_RECETA", DbType="Int")]
-		public System.Nullable<int> PRO_FK_RECETA
-		{
-			get
-			{
-				return this._PRO_FK_RECETA;
-			}
-			set
-			{
-				if ((this._PRO_FK_RECETA != value))
-				{
-					if (this._eREST_RECETA.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPRO_FK_RECETAChanging(value);
-					this.SendPropertyChanging();
-					this._PRO_FK_RECETA = value;
-					this.SendPropertyChanged("PRO_FK_RECETA");
-					this.OnPRO_FK_RECETAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_PK_PRODUCTO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int PRO_PK_PRODUCTO
-		{
-			get
-			{
-				return this._PRO_PK_PRODUCTO;
-			}
-			set
-			{
-				if ((this._PRO_PK_PRODUCTO != value))
-				{
-					this.OnPRO_PK_PRODUCTOChanging(value);
-					this.SendPropertyChanging();
-					this._PRO_PK_PRODUCTO = value;
-					this.SendPropertyChanged("PRO_PK_PRODUCTO");
-					this.OnPRO_PK_PRODUCTOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETALLEORDEN", Storage="_eREST_DETALLEORDENs", ThisKey="PRO_PK_PRODUCTO", OtherKey="DOR_FK_PRODUCTO")]
-		public EntitySet<eREST_DETALLEORDEN> eREST_DETALLEORDENs
-		{
-			get
-			{
-				return this._eREST_DETALLEORDENs;
-			}
-			set
-			{
-				this._eREST_DETALLEORDENs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETSUBBODEGA", Storage="_eREST_DETSUBBODEGAs", ThisKey="PRO_PK_PRODUCTO", OtherKey="DSB_FK_PRODUCTO")]
-		public EntitySet<eREST_DETSUBBODEGA> eREST_DETSUBBODEGAs
-		{
-			get
-			{
-				return this._eREST_DETSUBBODEGAs;
-			}
-			set
-			{
-				this._eREST_DETSUBBODEGAs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_RECETA_eREST_PRODUCTO", Storage="_eREST_RECETA", ThisKey="PRO_FK_RECETA", OtherKey="REC_PK_RECETA", IsForeignKey=true)]
-		public eREST_RECETA eREST_RECETA
-		{
-			get
-			{
-				return this._eREST_RECETA.Entity;
-			}
-			set
-			{
-				eREST_RECETA previousValue = this._eREST_RECETA.Entity;
-				if (((previousValue != value) 
-							|| (this._eREST_RECETA.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._eREST_RECETA.Entity = null;
-						previousValue.eREST_PRODUCTOs.Remove(this);
-					}
-					this._eREST_RECETA.Entity = value;
-					if ((value != null))
-					{
-						value.eREST_PRODUCTOs.Add(this);
-						this._PRO_FK_RECETA = value.REC_PK_RECETA;
-					}
-					else
-					{
-						this._PRO_FK_RECETA = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("eREST_RECETA");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_SUBCATEGORIA_eREST_PRODUCTO", Storage="_eREST_SUBCATEGORIA", ThisKey="PRO_FK_SUBCATEGORIA", OtherKey="SCA_PK_SUBCATEGORIA", IsForeignKey=true)]
-		public eREST_SUBCATEGORIA eREST_SUBCATEGORIA
-		{
-			get
-			{
-				return this._eREST_SUBCATEGORIA.Entity;
-			}
-			set
-			{
-				eREST_SUBCATEGORIA previousValue = this._eREST_SUBCATEGORIA.Entity;
-				if (((previousValue != value) 
-							|| (this._eREST_SUBCATEGORIA.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._eREST_SUBCATEGORIA.Entity = null;
-						previousValue.eREST_PRODUCTOs.Remove(this);
-					}
-					this._eREST_SUBCATEGORIA.Entity = value;
-					if ((value != null))
-					{
-						value.eREST_PRODUCTOs.Add(this);
-						this._PRO_FK_SUBCATEGORIA = value.SCA_PK_SUBCATEGORIA;
-					}
-					else
-					{
-						this._PRO_FK_SUBCATEGORIA = default(int);
-					}
-					this.SendPropertyChanged("eREST_SUBCATEGORIA");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_eREST_DETALLEORDENs(eREST_DETALLEORDEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.eREST_PRODUCTO = this;
-		}
-		
-		private void detach_eREST_DETALLEORDENs(eREST_DETALLEORDEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.eREST_PRODUCTO = null;
-		}
-		
-		private void attach_eREST_DETSUBBODEGAs(eREST_DETSUBBODEGA entity)
-		{
-			this.SendPropertyChanging();
-			entity.eREST_PRODUCTO = this;
-		}
-		
-		private void detach_eREST_DETSUBBODEGAs(eREST_DETSUBBODEGA entity)
-		{
-			this.SendPropertyChanging();
-			entity.eREST_PRODUCTO = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_PROVINCIAS")]
 	public partial class eREST_PROVINCIA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5367,6 +5023,398 @@ namespace eREST.BO
 		{
 			this.SendPropertyChanging();
 			entity.eREST_USUARIO = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eREST_PRODUCTO")]
+	public partial class eREST_PRODUCTO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _PRO_NOMBRE;
+		
+		private string _PRO_UMEDIDA;
+		
+		private System.Nullable<double> _PRO_TAMANNO;
+		
+		private bool _PRO_PREPARADO;
+		
+		private int _PRO_FK_SUBCATEGORIA;
+		
+		private System.Nullable<int> _PRO_FK_RECETA;
+		
+		private int _PRO_PK_PRODUCTO;
+		
+		private bool _PRO_ESTADO;
+		
+		private string _PRO_RUTAIMAGEN;
+		
+		private EntitySet<eREST_DETALLEORDEN> _eREST_DETALLEORDENs;
+		
+		private EntitySet<eREST_DETSUBBODEGA> _eREST_DETSUBBODEGAs;
+		
+		private EntityRef<eREST_RECETA> _eREST_RECETA;
+		
+		private EntityRef<eREST_SUBCATEGORIA> _eREST_SUBCATEGORIA;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPRO_NOMBREChanging(string value);
+    partial void OnPRO_NOMBREChanged();
+    partial void OnPRO_UMEDIDAChanging(string value);
+    partial void OnPRO_UMEDIDAChanged();
+    partial void OnPRO_TAMANNOChanging(System.Nullable<double> value);
+    partial void OnPRO_TAMANNOChanged();
+    partial void OnPRO_PREPARADOChanging(bool value);
+    partial void OnPRO_PREPARADOChanged();
+    partial void OnPRO_FK_SUBCATEGORIAChanging(int value);
+    partial void OnPRO_FK_SUBCATEGORIAChanged();
+    partial void OnPRO_FK_RECETAChanging(System.Nullable<int> value);
+    partial void OnPRO_FK_RECETAChanged();
+    partial void OnPRO_PK_PRODUCTOChanging(int value);
+    partial void OnPRO_PK_PRODUCTOChanged();
+    partial void OnPRO_ESTADOChanging(bool value);
+    partial void OnPRO_ESTADOChanged();
+    partial void OnPRO_RUTAIMAGENChanging(string value);
+    partial void OnPRO_RUTAIMAGENChanged();
+    #endregion
+		
+		public eREST_PRODUCTO()
+		{
+			this._eREST_DETALLEORDENs = new EntitySet<eREST_DETALLEORDEN>(new Action<eREST_DETALLEORDEN>(this.attach_eREST_DETALLEORDENs), new Action<eREST_DETALLEORDEN>(this.detach_eREST_DETALLEORDENs));
+			this._eREST_DETSUBBODEGAs = new EntitySet<eREST_DETSUBBODEGA>(new Action<eREST_DETSUBBODEGA>(this.attach_eREST_DETSUBBODEGAs), new Action<eREST_DETSUBBODEGA>(this.detach_eREST_DETSUBBODEGAs));
+			this._eREST_RECETA = default(EntityRef<eREST_RECETA>);
+			this._eREST_SUBCATEGORIA = default(EntityRef<eREST_SUBCATEGORIA>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_NOMBRE", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string PRO_NOMBRE
+		{
+			get
+			{
+				return this._PRO_NOMBRE;
+			}
+			set
+			{
+				if ((this._PRO_NOMBRE != value))
+				{
+					this.OnPRO_NOMBREChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_NOMBRE = value;
+					this.SendPropertyChanged("PRO_NOMBRE");
+					this.OnPRO_NOMBREChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_UMEDIDA", DbType="VarChar(5)")]
+		public string PRO_UMEDIDA
+		{
+			get
+			{
+				return this._PRO_UMEDIDA;
+			}
+			set
+			{
+				if ((this._PRO_UMEDIDA != value))
+				{
+					this.OnPRO_UMEDIDAChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_UMEDIDA = value;
+					this.SendPropertyChanged("PRO_UMEDIDA");
+					this.OnPRO_UMEDIDAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_TAMANNO", DbType="Float")]
+		public System.Nullable<double> PRO_TAMANNO
+		{
+			get
+			{
+				return this._PRO_TAMANNO;
+			}
+			set
+			{
+				if ((this._PRO_TAMANNO != value))
+				{
+					this.OnPRO_TAMANNOChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_TAMANNO = value;
+					this.SendPropertyChanged("PRO_TAMANNO");
+					this.OnPRO_TAMANNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_PREPARADO", DbType="Bit NOT NULL")]
+		public bool PRO_PREPARADO
+		{
+			get
+			{
+				return this._PRO_PREPARADO;
+			}
+			set
+			{
+				if ((this._PRO_PREPARADO != value))
+				{
+					this.OnPRO_PREPARADOChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_PREPARADO = value;
+					this.SendPropertyChanged("PRO_PREPARADO");
+					this.OnPRO_PREPARADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_FK_SUBCATEGORIA", DbType="Int NOT NULL")]
+		public int PRO_FK_SUBCATEGORIA
+		{
+			get
+			{
+				return this._PRO_FK_SUBCATEGORIA;
+			}
+			set
+			{
+				if ((this._PRO_FK_SUBCATEGORIA != value))
+				{
+					if (this._eREST_SUBCATEGORIA.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPRO_FK_SUBCATEGORIAChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_FK_SUBCATEGORIA = value;
+					this.SendPropertyChanged("PRO_FK_SUBCATEGORIA");
+					this.OnPRO_FK_SUBCATEGORIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_FK_RECETA", DbType="Int")]
+		public System.Nullable<int> PRO_FK_RECETA
+		{
+			get
+			{
+				return this._PRO_FK_RECETA;
+			}
+			set
+			{
+				if ((this._PRO_FK_RECETA != value))
+				{
+					if (this._eREST_RECETA.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPRO_FK_RECETAChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_FK_RECETA = value;
+					this.SendPropertyChanged("PRO_FK_RECETA");
+					this.OnPRO_FK_RECETAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_PK_PRODUCTO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int PRO_PK_PRODUCTO
+		{
+			get
+			{
+				return this._PRO_PK_PRODUCTO;
+			}
+			set
+			{
+				if ((this._PRO_PK_PRODUCTO != value))
+				{
+					this.OnPRO_PK_PRODUCTOChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_PK_PRODUCTO = value;
+					this.SendPropertyChanged("PRO_PK_PRODUCTO");
+					this.OnPRO_PK_PRODUCTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_ESTADO", DbType="Bit NOT NULL")]
+		public bool PRO_ESTADO
+		{
+			get
+			{
+				return this._PRO_ESTADO;
+			}
+			set
+			{
+				if ((this._PRO_ESTADO != value))
+				{
+					this.OnPRO_ESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_ESTADO = value;
+					this.SendPropertyChanged("PRO_ESTADO");
+					this.OnPRO_ESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRO_RUTAIMAGEN", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PRO_RUTAIMAGEN
+		{
+			get
+			{
+				return this._PRO_RUTAIMAGEN;
+			}
+			set
+			{
+				if ((this._PRO_RUTAIMAGEN != value))
+				{
+					this.OnPRO_RUTAIMAGENChanging(value);
+					this.SendPropertyChanging();
+					this._PRO_RUTAIMAGEN = value;
+					this.SendPropertyChanged("PRO_RUTAIMAGEN");
+					this.OnPRO_RUTAIMAGENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETALLEORDEN", Storage="_eREST_DETALLEORDENs", ThisKey="PRO_PK_PRODUCTO", OtherKey="DOR_FK_PRODUCTO")]
+		public EntitySet<eREST_DETALLEORDEN> eREST_DETALLEORDENs
+		{
+			get
+			{
+				return this._eREST_DETALLEORDENs;
+			}
+			set
+			{
+				this._eREST_DETALLEORDENs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_PRODUCTO_eREST_DETSUBBODEGA", Storage="_eREST_DETSUBBODEGAs", ThisKey="PRO_PK_PRODUCTO", OtherKey="DSB_FK_PRODUCTO")]
+		public EntitySet<eREST_DETSUBBODEGA> eREST_DETSUBBODEGAs
+		{
+			get
+			{
+				return this._eREST_DETSUBBODEGAs;
+			}
+			set
+			{
+				this._eREST_DETSUBBODEGAs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_RECETA_eREST_PRODUCTO", Storage="_eREST_RECETA", ThisKey="PRO_FK_RECETA", OtherKey="REC_PK_RECETA", IsForeignKey=true)]
+		public eREST_RECETA eREST_RECETA
+		{
+			get
+			{
+				return this._eREST_RECETA.Entity;
+			}
+			set
+			{
+				eREST_RECETA previousValue = this._eREST_RECETA.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_RECETA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_RECETA.Entity = null;
+						previousValue.eREST_PRODUCTOs.Remove(this);
+					}
+					this._eREST_RECETA.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_PRODUCTOs.Add(this);
+						this._PRO_FK_RECETA = value.REC_PK_RECETA;
+					}
+					else
+					{
+						this._PRO_FK_RECETA = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("eREST_RECETA");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eREST_SUBCATEGORIA_eREST_PRODUCTO", Storage="_eREST_SUBCATEGORIA", ThisKey="PRO_FK_SUBCATEGORIA", OtherKey="SCA_PK_SUBCATEGORIA", IsForeignKey=true)]
+		public eREST_SUBCATEGORIA eREST_SUBCATEGORIA
+		{
+			get
+			{
+				return this._eREST_SUBCATEGORIA.Entity;
+			}
+			set
+			{
+				eREST_SUBCATEGORIA previousValue = this._eREST_SUBCATEGORIA.Entity;
+				if (((previousValue != value) 
+							|| (this._eREST_SUBCATEGORIA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eREST_SUBCATEGORIA.Entity = null;
+						previousValue.eREST_PRODUCTOs.Remove(this);
+					}
+					this._eREST_SUBCATEGORIA.Entity = value;
+					if ((value != null))
+					{
+						value.eREST_PRODUCTOs.Add(this);
+						this._PRO_FK_SUBCATEGORIA = value.SCA_PK_SUBCATEGORIA;
+					}
+					else
+					{
+						this._PRO_FK_SUBCATEGORIA = default(int);
+					}
+					this.SendPropertyChanged("eREST_SUBCATEGORIA");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_eREST_DETALLEORDENs(eREST_DETALLEORDEN entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PRODUCTO = this;
+		}
+		
+		private void detach_eREST_DETALLEORDENs(eREST_DETALLEORDEN entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PRODUCTO = null;
+		}
+		
+		private void attach_eREST_DETSUBBODEGAs(eREST_DETSUBBODEGA entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PRODUCTO = this;
+		}
+		
+		private void detach_eREST_DETSUBBODEGAs(eREST_DETSUBBODEGA entity)
+		{
+			this.SendPropertyChanging();
+			entity.eREST_PRODUCTO = null;
 		}
 	}
 }
