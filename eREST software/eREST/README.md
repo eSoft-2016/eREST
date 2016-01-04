@@ -1,2 +1,0 @@
-# eREST
-Nuevo repositorio
