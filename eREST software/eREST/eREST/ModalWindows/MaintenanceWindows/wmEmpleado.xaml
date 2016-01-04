@@ -4,21 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:eREST.ModalWindows.MaintenanceWindows"
+        xmlns:CustomControls="clr-namespace:eREST.CustomControls"
         mc:Ignorable="d"
-        Title="wmEmpleado" Height="551.504" Width="557.144">
+        Title="wmEmpleado" Height="551.504" Width="557.144" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="0,0,-8,-4">
-        <TextBox x:Name="CedulaTextBox" HorizontalAlignment="Left" Height="23" Margin="261,36,0,466" Grid.Row="0" 
+        <TextBox x:Name="CedulaTextBox" HorizontalAlignment="Left" Height="45" Margin="261,36,0,444" Grid.Row="0" 
             	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" FontSize="16" FontWeight="Bold" />
-        <TextBox x:Name="PNombreTextBox" HorizontalAlignment="Left" Height="23" Margin="261,86,0,416" Grid.Row="0" 
+        <TextBox x:Name="PNombreTextBox" HorizontalAlignment="Left" Height="45" Margin="261,86,0,394" Grid.Row="0" 
             	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" FontSize="16" FontWeight="Bold" />
-        <TextBox x:Name="SNombreTextBox" HorizontalAlignment="Left" Height="23" Margin="261,136,0,366" Grid.Row="0" 
+        <TextBox x:Name="SNombreTextBox" HorizontalAlignment="Left" Height="45" Margin="261,136,0,344" Grid.Row="0" 
             	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" FontSize="16" FontWeight="Bold" />
-        <TextBox x:Name="PApellidoTextBox" HorizontalAlignment="Left" Height="23" Margin="261,186,0,316" Grid.Row="0" 
+        <TextBox x:Name="PApellidoTextBox" HorizontalAlignment="Left" Height="45" Margin="261,186,0,294" Grid.Row="0" 
             	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" FontSize="16" FontWeight="Bold" />
-        <TextBox x:Name="SApellidoTextBox" HorizontalAlignment="Left" Height="23" Margin="261,236,0,266" Grid.Row="0" 
+        <TextBox x:Name="SApellidoTextBox" HorizontalAlignment="Left" Height="47" Margin="261,236,0,242" Grid.Row="0" 
             	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" FontSize="16" FontWeight="Bold" />
-        <ComboBox x:Name="cbEstadoCivil" HorizontalAlignment="Left" Margin="261,288,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold"/>
-        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left" Margin="261,341,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold"/>
+        <ComboBox x:Name="cbEstadoCivil" HorizontalAlignment="Left" Margin="261,288,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold" Height="48"/>
+        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left" Margin="261,341,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold" Height="43"/>
         <Label x:Name="lbCedula" Content="Cédula" HorizontalAlignment="Left" Margin="22,28,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="lbPNombre" Content="Primer nombre" HorizontalAlignment="Left" Margin="22,78,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="lbSNombre" Content="Segundo nombre" HorizontalAlignment="Left" Margin="22,128,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
@@ -28,5 +29,8 @@
         <Label x:Name="lbGenero" Content="Género" HorizontalAlignment="Left" Margin="22,337,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <CheckBox x:Name="chHistorialDelictivo" Content="Historial delictivo" HorizontalAlignment="Left" Margin="49,408,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <CheckBox x:Name="chNacional" Content="Nacional" HorizontalAlignment="Left" Margin="347,408,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <CustomControls:ccMaintenanceButton x:Name="btnSave" HorizontalAlignment="Left" Height="37" Margin="162,454,0,0" VerticalAlignment="Top" Width="41" Icon="/eREST;component/Icons/Maintenance/save.png" Style="{DynamicResource stMaintenanceButton}" Click="btnSave_Click" Command="New" IsEnabled="True"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="300,471,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+
     </Grid>
 </Window>

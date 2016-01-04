@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using eREST.ModalWindows.MaintenanceWindows;
 namespace eREST.Pages
 {
     /// <summary>
@@ -23,6 +24,12 @@ namespace eREST.Pages
         public Empleados()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            wmEmpleado nuevaVentana = new wmEmpleado();
+            nuevaVentana.Show();
         }
     }
 }

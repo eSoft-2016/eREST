@@ -75,7 +75,8 @@ namespace eREST
             //        btn.Tag="Pages/Productos.xaml";
             //    else
             //        btn.Tag = "Pages/Usuarios.xaml";
-        private void addButton(){ 
+        private void addButton()
+        { 
             //for (int i = 0; i < 6; i++ )
             //    {
             //        Button btn = new Button();
@@ -111,10 +112,6 @@ namespace eREST
             stkButtons.Children.Add(btn);
 
         }
-
         #endregion
-
-
-
     }
 }

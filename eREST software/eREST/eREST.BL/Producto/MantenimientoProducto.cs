@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using eREST.BO;
 using System.Data.Linq;
 
-namespace eREST.BL
+namespace eREST.BL.Producto
 {
-    public class Mantenimiento_Producto
+    public class MantenimientoProducto
     {
         /// <summary>
         /// Registrar producto
@@ -46,4 +47,3 @@ namespace eREST.BL
         }
     }
 }
-

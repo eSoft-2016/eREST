@@ -9,6 +9,6 @@
       Title="Empleados">
 
     <Grid>
-        <Button x:Name="button" Content="Agregar empleado" HorizontalAlignment="Left" Margin="51,71,0,0" VerticalAlignment="Top" Width="117" Height="49"/>
+        <Button x:Name="button" Content="Agregar empleado" HorizontalAlignment="Left" Margin="51,71,0,0" VerticalAlignment="Top" Width="117" Height="49" Click="button_Click"/>
     </Grid>
 </Page>

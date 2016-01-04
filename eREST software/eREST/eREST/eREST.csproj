@@ -39,6 +39,7 @@
     <Reference Include="PresentationFramework.Classic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Controls.Ribbon" />
@@ -220,6 +221,16 @@
     <Resource Include="Images\ComponentsBar\pass.png" />
     <Resource Include="Images\ComponentsBar\PrincipalBig.png" />
     <Resource Include="Images\ComponentsBar\Principalsmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eREST.BL\eREST.BL.csproj">
+      <Project>{911f2139-bb83-4881-9846-e1c4bac19195}</Project>
+      <Name>eREST.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eREST.BO\eREST.BO.csproj">
+      <Project>{10048ea6-a2ce-45e8-8d47-89634f8decb2}</Project>
+      <Name>eREST.BO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
