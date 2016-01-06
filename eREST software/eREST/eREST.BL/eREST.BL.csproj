@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Empleado\MantenimientoEmpleado.cs" />
+    <Compile Include="Empresa\MantenimientoEmpresa.cs" />
+    <Compile Include="Local\MantenimientoLocal.cs" />
     <Compile Include="Persona\MantenimientoPersona.cs" />
     <Compile Include="Producto\MantenimientoProducto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sector\MantenimientoSector.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eREST.BO\eREST.BO.csproj">

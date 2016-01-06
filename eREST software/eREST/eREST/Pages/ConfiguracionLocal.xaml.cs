@@ -19,6 +19,9 @@ using eREST.Resources;
 
 using System.Net;
 using System.Collections.ObjectModel;
+using eREST.BO;
+
+using eREST.BL.Local;
 
 
 namespace eREST.Pages
@@ -170,11 +173,7 @@ namespace eREST.Pages
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            //blFurniture = new blFurniture();
-
-            //blFurniture.DeleteFurniture();
-
-            //SaveLocalConfiguration(lsComponents);
+             SaveLocalConfiguration(lsComponents);
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
@@ -252,21 +251,20 @@ namespace eREST.Pages
                     itemList.PositionY = Canvas.GetTop(itemList);
 
                     //nwFurniture = new clFurniture();
+                    eREST_MOBILIARIOS newMobiliario = new eREST_MOBILIARIOS();
+                    
+                   // newMobiliario.eREST_SECTOR = 1;
+                   // newMobiliario.MOB_COORX = itemList.PositionX;
+                   // newMobiliario.MOB_COORY = itemList.PositionY;
 
-                    //nwFurniture.Tipo = itemList.Type.ToString();
-                    //nwFurniture.PosicionX = itemList.PositionX;
-                    //nwFurniture.PosicionY = itemList.PositionY;
+                   // if (itemList.Type.Equals("M4") || itemList.Type.Equals("M6"))
+                   // newMobiliario.eREST_TIPOMOBILIARIO = 1;
+                 
 
-                    //if (itemList.Type.Equals("M4") || itemList.Type.Equals("M6"))
-                    //    nwFurniture.Numeracion = int.Parse(itemList.Identify);
-                    //if (itemList.Type.Equals("B"))
-                    //    nwFurniture.Numeracion = int.Parse(itemList.Tag.ToString());
-
-                    //nwFurniture.FechaCreacion = DateTime.Now;
-
-                    //nwFurniture.Usuario_Creacion = 2; //PRUEBA RECORDAR CAMBIAR POR EL USUARIO LOGEADO.
-
-                    //SaveFurnitures(nwFurniture);
+                   // if (itemList.Type.Equals("B"))
+                   // nwFurniture.Numeracion = int.Parse(itemList.Tag.ToString());
+                   //Mantenimeitnp nuevoEmpleado = new MantenimientoEmpleado();
+                   // AgregarMobiliario(newMobiliario);
                 }
             }
             catch

@@ -111,6 +111,27 @@ namespace eREST
             btn.Click += btn_Click;
             stkButtons.Children.Add(btn);
 
+
+            Button btn1 = new Button();
+            btn1.Width = 300;
+            btn1.Height = 38;
+            btn1.Style = Application.Current.Resources["stMenuButton"] as Style;
+            btn1.Content = "Configuracion del Local";
+            btn1.Tag = "Pages/ConfiguracionLocal.xaml";
+
+            btn1.Click += btn_Click;
+            stkButtons.Children.Add(btn1);
+
+            Button btn2 = new Button();
+            btn2.Width = 300;
+            btn2.Height = 38;
+            btn2.Style = Application.Current.Resources["stMenuButton"] as Style;
+            btn2.Content = "Empresas";
+            btn2.Tag = "Pages/Empresas.xaml";
+
+            btn2.Click += btn_Click;
+            stkButtons.Children.Add(btn2);
+
         }
         #endregion
     }

@@ -42,7 +42,7 @@ namespace eREST.ModalWindows.MaintenanceWindows
         {
             try
             {
-                eREST_PERSONA nuevaPersona = new eREST_PERSONA();
+                eREST_PERSONAS nuevaPersona = new eREST_PERSONAS();
 
                 nuevaPersona.PER_PNOMBRE = PNombreTextBox.Text;
                 nuevaPersona.PER_SNOMBRE = SNombreTextBox.Text;

@@ -18,5 +18,13 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=Luis-PC\SQLEXPRESS;Initial Catalog=eREST_BD;User ID=sa;Password=al-azar95</Value>
     </Setting>
+    <Setting Name="eREST_BDConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=JINTAN\SQLEXPRESS;Initial Catalog=eREST_BD;Persist Security Info=True;User ID=sa;Password=1234&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=JINTAN\SQLEXPRESS;Initial Catalog=eREST_BD;Persist Security Info=True;User ID=sa;Password=1234</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -44,8 +44,8 @@
                     <ColumnDefinition Width="30*"/>
                     <ColumnDefinition Width="31*"/>
                 </Grid.ColumnDefinitions>
-                <CustomControls:ccMaintenanceButton x:Name="btnNew" Visibility="Hidden" ToolTip="Nuevo" Icon="/Asterisk;component/Icons/Maintenance/add.png" Content="ccMaintenanceButton" Style="{DynamicResource stMaintenanceButton}" Margin="4,0,2,0" Click="btnNew_Click"/>
-                <CustomControls:ccMaintenanceButton x:Name="btnSave" ToolTip="Guardar" Icon="/Asterisk;component/Icons/Maintenance/save.png" Content="ccMaintenanceButton" Grid.Column="1" HorizontalAlignment="Left" Width="40" Style="{DynamicResource stMaintenanceButton}" Click="btnSave_Click"/>
+                <CustomControls:ccMaintenanceButton x:Name="btnNew" Visibility="Hidden" ToolTip="Nuevo" Icon="/eREST;component/Icons/Maintenance/add.png" Content="ccMaintenanceButton" Style="{DynamicResource stMaintenanceButton}" Margin="4,0,2,0" Click="btnNew_Click"/>
+                <CustomControls:ccMaintenanceButton x:Name="btnSave" ToolTip="Guardar" Icon="/eREST;component/Icons/Maintenance/save.png" Content="ccMaintenanceButton" Grid.Column="1" HorizontalAlignment="Left" Width="40" Style="{DynamicResource stMaintenanceButton}" Click="btnSave_Click"/>
             </Grid>
             <Rectangle x:Name="rgLimitSquare" Height="515" Canvas.Left="10" Canvas.Top="73" Width="1072">
                 <Rectangle.Fill>
