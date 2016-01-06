@@ -48,6 +48,7 @@ namespace eREST.ModalWindows.MaintenanceWindows
                 nuevaPersona.PER_SNOMBRE = SNombreTextBox.Text;
                 nuevaPersona.PER_PAPELLIDO = PApellidoTextBox.Text;
                 nuevaPersona.PER_SAPELLIDO = SApellidoTextBox.Text;
+                nuevaPersona.PER_CEDULA = CedulaTextBox.Text;
 
                 nuevaPersona.PER_ESTADO = 'A';
 
