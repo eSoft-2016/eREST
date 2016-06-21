@@ -29,7 +29,7 @@ namespace eREST.Pages
         #region Global Variables
 
         bool registrar = true;
-        eREST_EMPRESAS Empresa = new eREST_EMPRESAS();
+        eREST_EMPRESA Empresa = new eREST_EMPRESA();
         MantenimientoEmpresa blaMant = new MantenimientoEmpresa();
 
         int error = 0;
@@ -46,7 +46,7 @@ namespace eREST.Pages
             {
                 btnEdit.IsEnabled = false;
                 MantenimientoEmpresa blr = new MantenimientoEmpresa();
-                List<eREST_EMPRESAS> Lista = new List<eREST_EMPRESAS>();
+                List<eREST_EMPRESA> Lista = new List<eREST_EMPRESA>();
                 Lista = blr.ListarEmpresas();
                 if (Lista != null)
                 {
@@ -69,7 +69,7 @@ namespace eREST.Pages
             }
         }
 
-        private void MostrarVentanaMat(eREST_EMPRESAS pEmpresa)
+        private void MostrarVentanaMat(eREST_EMPRESA pEmpresa)
         {
             wmEmpresa ventis = new wmEmpresa(pEmpresa);
             ventis.Closed += new EventHandler(ventis_Closed); ;
@@ -109,7 +109,7 @@ namespace eREST.Pages
 
             try
             {
-                Empresa = ((DataGrid)sender).SelectedItem as eREST_EMPRESAS;
+                Empresa = ((DataGrid)sender).SelectedItem as eREST_EMPRESA;
                 if (Empresa != null)
                 {
                     btnEdit.IsEnabled = true;
@@ -144,7 +144,7 @@ namespace eREST.Pages
         {
             try
             {
-                Empresa = ((DataGrid)sender).SelectedItem as eREST_EMPRESAS;
+                Empresa = ((DataGrid)sender).SelectedItem as eREST_EMPRESA;
                 if (Empresa != null)
                 {
                     btnEdit.IsEnabled = true;

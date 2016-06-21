@@ -11,16 +11,17 @@ namespace eREST.BL.Empleado
 {
     public class MantenimientoEmpleado
     {
-<<<<<<< HEAD
 
-        public void RegistrarEmpleado(eREST_PERSONAS pPersona)
-=======
+
+        
+
         public void RegistrarEmpleado(eREST_PERSONA pPersona)
->>>>>>> origin/master
+
         {
+            
             eREST_DiagramaDataContext dc = new eREST_DiagramaDataContext();
             MantenimientoPersona nuevaPersona = new MantenimientoPersona();
-            eREST_EMPLEADOS nuevoEmpleado = new eREST_EMPLEADOS();
+            eREST_EMPLEADO nuevoEmpleado = new eREST_EMPLEADO();
             nuevaPersona.RegistrarPersona(pPersona);
 
             nuevoEmpleado.EMP_FK_PERSONA = pPersona.PER_PK_PERSONA;
@@ -28,10 +29,10 @@ namespace eREST.BL.Empleado
             var diaYhora = DateTime.Now;
             nuevoEmpleado.EMP_FECHAREGISTRO = diaYhora.Date;
 
-<<<<<<< HEAD
-            dc.eREST_EMPLEADOS.InsertOnSubmit(nuevoEmpleado);
+
+            dc.eREST_EMPLEADOs.InsertOnSubmit(nuevoEmpleado);
         }
-        public void RegistrarEmpleado(eREST_PERSONAS pPersona, eREST_EMPLEADOS pEmpleado)
+        public void RegistrarEmpleado(eREST_PERSONA pPersona, eREST_EMPLEADO pEmpleado)
         {
             eREST_DiagramaDataContext dc = new eREST_DiagramaDataContext();
             MantenimientoPersona nuevaPersona = new MantenimientoPersona();
@@ -42,11 +43,10 @@ namespace eREST.BL.Empleado
             var diaYhora = DateTime.Now;
             pEmpleado.EMP_FECHAREGISTRO = diaYhora.Date;
 
-            dc.eREST_EMPLEADOS.InsertOnSubmit(pEmpleado);
+            dc.eREST_EMPLEADOs.InsertOnSubmit(pEmpleado);
 
-=======
-            dc.eREST_EMPLEADOs.InsertOnSubmit(nuevoEmpleado);
->>>>>>> origin/master
+            
+
             dc.SubmitChanges();
         }
     }

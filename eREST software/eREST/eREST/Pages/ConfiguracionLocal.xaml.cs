@@ -251,7 +251,7 @@ namespace eREST.Pages
                     itemList.PositionY = Canvas.GetTop(itemList);
 
                     //nwFurniture = new clFurniture();
-                    eREST_MOBILIARIOS newMobiliario = new eREST_MOBILIARIOS();
+                    eREST_MOBILIARIO newMobiliario = new eREST_MOBILIARIO();
                     
                    // newMobiliario.eREST_SECTOR = 1;
                    // newMobiliario.MOB_COORX = itemList.PositionX;

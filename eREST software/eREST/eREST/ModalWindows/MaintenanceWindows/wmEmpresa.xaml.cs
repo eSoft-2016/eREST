@@ -25,14 +25,14 @@ namespace eREST.ModalWindows.MaintenanceWindows
         #region Global Variables
 
         bool registrar = true;
-        eREST_EMPRESAS Empresa = new eREST_EMPRESAS();
+        eREST_EMPRESA Empresa = new eREST_EMPRESA();
         MantenimientoEmpresa blaMant = new MantenimientoEmpresa();
 
         int error = 0;
         #endregion
 
         #region Construcrot
-        public wmEmpresa(eREST_EMPRESAS pEmpresa)
+        public wmEmpresa(eREST_EMPRESA pEmpresa)
         {
             InitializeComponent();
             Empresa = pEmpresa;
@@ -46,7 +46,7 @@ namespace eREST.ModalWindows.MaintenanceWindows
             {
                 if (Empresa == null)
                 {
-                    gridEmpresa.DataContext = new eREST_EMPRESAS();
+                    gridEmpresa.DataContext = new eREST_EMPRESA();
                     registrar = true;
                 }
                 else
@@ -73,14 +73,14 @@ namespace eREST.ModalWindows.MaintenanceWindows
             {
                 if (registrar)
                 {
-                    Empresa = gridEmpresa.DataContext as eREST_EMPRESAS;
+                    Empresa = gridEmpresa.DataContext as eREST_EMPRESA;
                     blaMant.RegistrarEmpresa(Empresa);  
                     this.DialogResult = true;
                     
                 }
                 else
                 {
-                    Empresa = gridEmpresa.DataContext as eREST_EMPRESAS;
+                    Empresa = gridEmpresa.DataContext as eREST_EMPRESA;
                     blaMant.EditarEmpresa(Empresa);
                     this.DialogResult = true;
                 }

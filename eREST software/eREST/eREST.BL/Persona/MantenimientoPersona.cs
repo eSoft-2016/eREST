@@ -10,10 +10,10 @@ namespace eREST.BL.Persona
 {
     public class MantenimientoPersona
     {
-        public void RegistrarPersona(eREST_PERSONAS pPersona)
+        public void RegistrarPersona(eREST_PERSONA pPersona)
         {
             eREST_DiagramaDataContext dc = new eREST_DiagramaDataContext();
-            dc.eREST_PERSONAS.InsertOnSubmit(pPersona);
+            dc.eREST_PERSONAs.InsertOnSubmit(pPersona);
             dc.SubmitChanges();
         }
     }

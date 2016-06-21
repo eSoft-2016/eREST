@@ -15,10 +15,10 @@ namespace eREST.BL.Local
         /// Registrar la configuracion de mesas en el Local
         /// </summary>
         /// <param name="lista de mesas y barras"></param>
-        public void AgregarMobiliario(eREST_MOBILIARIOS Mobiliario)
+        public void AgregarMobiliario(eREST_MOBILIARIO Mobiliario)
         {
             eREST_DiagramaDataContext dc = new eREST_DiagramaDataContext();
-            dc.eREST_MOBILIARIOS.InsertOnSubmit(Mobiliario);
+            dc.eREST_MOBILIARIOs.InsertOnSubmit(Mobiliario);
             dc.SubmitChanges();
         }
     }
