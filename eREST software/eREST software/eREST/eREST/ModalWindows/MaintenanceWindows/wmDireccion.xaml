@@ -1,0 +1,70 @@
+﻿<Window x:Class="eREST.ModalWindows.MaintenanceWindows.wmDireccion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:CustomControls="clr-namespace:eREST.CustomControls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d"
+        Height="730" Width="1366" Background="#7FFFFFFF" AllowsTransparency="True"
+        WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+
+    </Window.Resources>
+    <Grid x:Name="gridContenedor"   Background="White"  Margin="150">
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="8" BlurRadius="3" RenderingBias="Quality" Opacity="0.5"/>
+        </Grid.Effect>
+
+
+        <Rectangle Stroke="{StaticResource MediumColor}" StrokeThickness="1.5" Margin="12,46,560,94"/>
+        <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="2" Margin="10,376,0,0" VerticalAlignment="Top" Width="496"/>
+
+        <TextBlock  Foreground="{StaticResource TextColor}"  HorizontalAlignment="Left" Margin="10,3,0,0" TextWrapping="Wrap" Text="Direcciones del Empleado" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="22" />
+        <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="2" Margin="12,39,0,0" VerticalAlignment="Top" Width="496"/>
+        <Grid HorizontalAlignment="Left" Height="325" Margin="12,46,0,0" VerticalAlignment="Top" Width="496"/>
+        <DataGrid x:Name="dgDirecciones" Visibility="Visible" HorizontalGridLinesBrush="{StaticResource MediumColor}" FontFamily="Segoe UI Light" FontSize="16" Foreground="{StaticResource TextColor}" Margin="12,46,560,59" BorderBrush="{StaticResource MediumColor}" VerticalGridLinesBrush="{StaticResource MediumColor}"  RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" Background="White" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" SelectionChanged="dgEmpresas_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="direccionColumn" IsReadOnly="True" Binding="{Binding EMP_DIRECCION}" Header="DIRECCION" Width="300"/>
+                <DataGridTemplateColumn Header="Editar" Width="90" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate />
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDetail" Width="35" Height="35" Click="btnDetail_Click" Style="{StaticResource btnSelectItem}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Eliminar" Visibility="Visible" Width="80" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate />
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDelete" Width="Auto" Click="btnDelete_Click" Height="Auto" Style="{StaticResource btnDelete}" Margin="6,6,8,3" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <CustomControls:ccMaintenanceButton x:Name="btnNew" Visibility="Visible" ToolTip="Nuevo" Icon="/eREST;component/Icons/Maintenance/add.png" Content="ccMaintenanceButton" Height="40" VerticalAlignment="Top" Style="{DynamicResource stMaintenanceButton}" HorizontalAlignment="Left" Width="40" Margin="466,383,0,0" Click="btnNew_Click"/>
+        <Grid Visibility="Hidden" x:Name="gridDireccion" HorizontalAlignment="Left" Height="325" Margin="562,46,0,0" VerticalAlignment="Top" Width="494">
+            <ComboBox x:Name="cbProvincia" HorizontalAlignment="Left" Margin="208,15,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold" Height="25"/>
+            <ComboBox x:Name="cbCanton" HorizontalAlignment="Left" Margin="208,54,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold" Height="25"/>
+            <Label FontWeight="Bold" x:Name="lbProvincia" Content="Provincia" HorizontalAlignment="Left" Margin="48,15,0,0" VerticalAlignment="Top" FontFamily="Segoe UI"  FontSize="16" Foreground="{StaticResource MediumColor}" />
+            <Label FontWeight="Bold" x:Name="lbCanton" Content="Canton" HorizontalAlignment="Left" Margin="48,54,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" />
+            <ComboBox x:Name="cbDistrito" HorizontalAlignment="Left" Margin="208,90,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold" Height="25"/>
+            <Label FontWeight="Bold" x:Name="lbDistrito" Content="Distrito" HorizontalAlignment="Left" Margin="48,90,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" />
+            <Label x:Name="lbDicExacta" Content="Direccion Exacta" HorizontalAlignment="Left" Margin="48,136,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}"  FontWeight="Bold"/>
+            <TextBox x:Name="DireccionExactaTextBox" HorizontalAlignment="Left" Height="56" Margin="208,136,0,133" Grid.Row="0" 
+            	BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" Text="{Binding DIR_DESCRIPCION, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" />
+            <CustomControls:ccMaintenanceButton x:Name="btnSave" HorizontalAlignment="Left" Height="40" Margin="413,334,0,-49" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/save.png" Style="{DynamicResource stMaintenanceButton}"   Command="New"/>
+            <CustomControls:ccMaintenanceButton x:Name="btnCancel" HorizontalAlignment="Left" Height="40" Margin="453,334,0,-49" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/cancel.png" Style="{DynamicResource stMaintenanceButton}"  />
+            <TextBlock  Foreground="{StaticResource TextColor}"  HorizontalAlignment="Left" Margin="-3,-43,0,0" TextWrapping="Wrap" Text="Mantenimiento de direcciones" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="22" />
+            <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="2" Margin="-3,330,0,-7" VerticalAlignment="Top" Width="496"/>
+            <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="2" Margin="-1,-7,-1,0" VerticalAlignment="Top" Width="496"/>
+        </Grid>
+
+
+    </Grid>
+</Window>

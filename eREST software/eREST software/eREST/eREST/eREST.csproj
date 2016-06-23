@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1E86418-B871-44C8-9A03-BB69B19F9562}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eREST</RootNamespace>
+    <AssemblyName>eREST</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CustomControls\ccProducts.cs" />
+    <Compile Include="ModalWindows\MaintenanceWindows\wmAgregarProducto.xaml.cs">
+      <DependentUpon>wmAgregarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmBodega.xaml.cs">
+      <DependentUpon>wmBodega.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmDireccion.xaml.cs">
+      <DependentUpon>wmDireccion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmEmpleado.xaml.cs">
+      <DependentUpon>wmEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmEliminar.xaml.cs">
+      <DependentUpon>wmEliminar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmEmpresa.xaml.cs">
+      <DependentUpon>wmEmpresa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmInsumo.xaml.cs">
+      <DependentUpon>wmInsumo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmOrden.xaml.cs">
+      <DependentUpon>wmOrden.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmSector.xaml.cs">
+      <DependentUpon>wmSector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmSeletSector.xaml.cs">
+      <DependentUpon>wmSeletSector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bodegas.xaml.cs">
+      <DependentUpon>Bodegas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Empleados.xaml.cs">
+      <DependentUpon>Empleados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Empresas.xaml.cs">
+      <DependentUpon>Empresas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Insumos.xaml.cs">
+      <DependentUpon>Insumos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ordenes.xaml.cs">
+      <DependentUpon>Ordenes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sectores.xaml.cs">
+      <DependentUpon>Sectores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\OthersResoures.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OthersResoures.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucProducto.xaml.cs">
+      <DependentUpon>ucProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucProductOrder.xaml.cs">
+      <DependentUpon>ucProductOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucProductWithButtons.xaml.cs">
+      <DependentUpon>ucProductWithButtons.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ccComponentBar.cs" />
+    <Compile Include="CustomControls\ccMaintenanceButton.cs" />
+    <Compile Include="CustomControls\ccWindowButtons.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ModalWindows\Login\wmLogin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmAgregarProducto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmBodega.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmDireccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmEliminar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmEmpresa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmInsumo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmOrden.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmSector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmSeletSector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModalWindows\MaintenanceWindows\wmUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Bodegas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ConfiguracionLocal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Empleados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Empresas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Insumos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Ordenes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Productos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Sectores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Usuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\GeneralStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ucProducto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ucProductOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ucProductWithButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModalWindows\Login\wmLogin.xaml.cs">
+      <DependentUpon>wmLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmProducto.xaml.cs">
+      <DependentUpon>wmProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModalWindows\MaintenanceWindows\wmUsuario.xaml.cs">
+      <DependentUpon>wmUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConfiguracionLocal.xaml.cs">
+      <DependentUpon>ConfiguracionLocal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Productos.xaml.cs">
+      <DependentUpon>Productos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Usuarios.xaml.cs">
+      <DependentUpon>Usuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\OthersResoures.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OthersResoures.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Icons\Maintenance\add.png" />
+    <Resource Include="Icons\Maintenance\Bill.png" />
+    <Resource Include="Icons\Maintenance\btnCancel.png" />
+    <Resource Include="Icons\Maintenance\cancel.png" />
+    <Resource Include="Icons\Maintenance\check.png" />
+    <Resource Include="Icons\Maintenance\edit.png" />
+    <Resource Include="Icons\Maintenance\error.png" />
+    <Resource Include="Icons\Maintenance\mail.png" />
+    <Resource Include="Icons\Maintenance\Mouse.png" />
+    <Resource Include="Icons\Maintenance\next.png" />
+    <Resource Include="Icons\Maintenance\parent.png" />
+    <Resource Include="Icons\Maintenance\refresh.png" />
+    <Resource Include="Icons\Maintenance\save.png" />
+    <Resource Include="Icons\Maintenance\search.png" />
+    <Resource Include="Icons\Maintenance\SelectMouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Others\ApprovedPosition.png" />
+    <Resource Include="Icons\Others\Asterisk.ico" />
+    <Resource Include="Icons\Others\DeniedPosition.png" />
+    <Resource Include="Icons\Others\ico.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Others\Border.png" />
+    <Resource Include="Images\Others\Login.png" />
+    <Resource Include="Images\Others\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Window\cancel.png" />
+    <Resource Include="Icons\Window\message.png" />
+    <Resource Include="Icons\Window\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ComponentsBar\B.png" />
+    <Resource Include="Images\ComponentsBar\Bathroom.png" />
+    <Resource Include="Images\ComponentsBar\M4.png" />
+    <Resource Include="Images\ComponentsBar\M6.png" />
+    <Resource Include="Images\ComponentsBar\P.png" />
+    <Resource Include="Images\ComponentsBar\pass.png" />
+    <Resource Include="Images\ComponentsBar\PrincipalBig.png" />
+    <Resource Include="Images\ComponentsBar\Principalsmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eREST.BL\eREST.BL.csproj">
+      <Project>{911f2139-bb83-4881-9846-e1c4bac19195}</Project>
+      <Name>eREST.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eREST.BO\eREST.BO.csproj">
+      <Project>{10048ea6-a2ce-45e8-8d47-89634f8decb2}</Project>
+      <Name>eREST.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

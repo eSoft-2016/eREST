@@ -1,0 +1,65 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:eREST.Pages"
+      xmlns:CustomControls="clr-namespace:eREST.CustomControls" x:Class="eREST.Pages.Bodegas"
+      mc:Ignorable="d"
+      Title="Bodegas" Height="460" Width="981.5">
+
+    <Grid Margin="0,0,0,-62">
+        <DataGrid x:Name="dgBodegas" Visibility="Visible" HorizontalGridLinesBrush="{StaticResource MediumColor}" FontFamily="Segoe UI Light" FontSize="16" Foreground="{StaticResource TextColor}" Margin="10,63,28,70" BorderBrush="{StaticResource MediumColor}" VerticalGridLinesBrush="{StaticResource MediumColor}"  RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" Background="White" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" SelectionChanged="dgBodegas_SelectionChanged">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn x:Name="nombreColumn" IsReadOnly="True" Binding="{Binding BOD_NOMBRE}" Header="NOMBRE" Width="200"/>
+                <DataGridTextColumn x:Name="tipoColumn" IsReadOnly="True" Binding="{Binding TBO_NOMBRE}" Header="TIPO" Width="100"/>
+                <DataGridTextColumn x:Name="localidadColumn" IsReadOnly="True" Binding="{Binding BOD_LOCALIDAD}" Header="LOCALIDAD" Width="300"/>
+                <DataGridTextColumn x:Name="estadoColumn" IsReadOnly="True" Binding="{Binding BOD_ESTADO}" Header="ESTADO" Width="100"/>
+                <DataGridTemplateColumn Header="Consultar" Width="90" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate />
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDetail" Width="35" Height="35" Click="btnDetail_Click" Style="{StaticResource btnSelectItem}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Cambiar estado" Visibility="Visible" Width="130" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate />
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDelete" Width="Auto" Click="btnDelete_Click"  Height="Auto" Style="{StaticResource btnDelete}" Margin="6,6,8,3" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label VerticalAlignment="Center" Grid.Row="0" Margin="104,12,0,470" Height="40" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource DarkColor}" Grid.Column="0" Content="Nombre:"/>
+        <CustomControls:ccMaintenanceButton x:Name="btnFilter" HorizontalAlignment="Left" Height="40" Margin="346,12,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/search.png" Style="{DynamicResource stMaintenanceButton}" />
+        <TextBox x:Name="nombreTextBox" BorderBrush="{StaticResource LightColor}" HorizontalAlignment="Left" Height="23" Margin="194,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="nombreTextBox_TextChanged" Width="135">
+            <TextBox.Effect>
+                <DropShadowEffect ShadowDepth="2" RenderingBias="Quality" Opacity="0.7"/>
+            </TextBox.Effect>
+        </TextBox>
+        <CustomControls:ccMaintenanceButton x:Name="btnAdd" HorizontalAlignment="Left" Height="40" Margin="410,12,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/add.png" Style="{DynamicResource stMaintenanceButton}" Click="btnAdd_Click" />
+        <CustomControls:ccMaintenanceButton x:Name="btnEdit" Visibility="Visible" ToolTip="Guardar" Icon="/eREST;component/Icons/Maintenance/edit.png" Content="ccMaintenanceButton" HorizontalAlignment="Left" Width="40" Style="{DynamicResource stMaintenanceButton}"  Margin="908,461,0,13" Click="btnEdit_Click" RenderTransformOrigin="0.5,0.5">
+            <CustomControls:ccMaintenanceButton.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </CustomControls:ccMaintenanceButton.RenderTransform>
+        </CustomControls:ccMaintenanceButton>
+
+
+
+    </Grid>
+</Page>

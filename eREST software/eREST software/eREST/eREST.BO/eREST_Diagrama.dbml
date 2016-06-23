@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="eREST_BD" Class="eREST_DiagramaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JINTAN\SQLEXPRESS;Initial Catalog=eREST_BD;Persist Security Info=True;User ID=sa" SettingsObjectName="eREST.BO.Properties.Settings" SettingsPropertyName="eREST_BDConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.eREST_BODEGAS" Member="eREST_BODEGAS">
+    <Type Name="eREST_BODEGAS">
+      <Column Name="BOD_NOMBRE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="BOD_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BOD_LOCALIDAD" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BOD_FK_TIPOBODEGA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BOD_PK_BODEGA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_BODEGAS_eREST_DETBODEGAS" Member="eREST_DETBODEGAS" ThisKey="BOD_PK_BODEGA" OtherKey="DB_FK_BODEGA" Type="eREST_DETBODEGAS" />
+      <Association Name="eREST_BODEGAS_eREST_SUBBODEGAS" Member="eREST_SUBBODEGAS" ThisKey="BOD_PK_BODEGA" OtherKey="SBO_FK_BODEGA" Type="eREST_SUBBODEGAS" />
+      <Association Name="eREST_TIPOBODEGAS_eREST_BODEGAS" Member="eREST_TIPOBODEGAS" ThisKey="BOD_FK_TIPOBODEGA" OtherKey="TBO_PK_TIPOBODEGA" Type="eREST_TIPOBODEGAS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_USUARIOS" Member="eREST_USUARIOS">
+    <Type Name="eREST_USUARIOS">
+      <Column Name="USU_USUARIO" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="USU_CLAVE" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="USU_ESTADO" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="USU_FK_ROL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USU_ERRORINTENTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USU_PFK_PERSONA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="eREST_PERSONAS_eREST_USUARIOS" Member="eREST_PERSONAS" ThisKey="USU_PFK_PERSONA" OtherKey="PER_PK_PERSONA" Type="eREST_PERSONAS" IsForeignKey="true" />
+      <Association Name="eREST_ROLES_eREST_USUARIOS" Member="eREST_ROLES" ThisKey="USU_FK_ROL" OtherKey="ROL_PK_ROL" Type="eREST_ROLES" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_CANTONES" Member="eREST_CANTONES">
+    <Type Name="eREST_CANTONES">
+      <Column Name="CAN_FK_PROVINCIA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CAN_CANTON" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CAN_PK_CANTON" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_CANTONES_eREST_DISTRITOS" Member="eREST_DISTRITOS" ThisKey="CAN_PK_CANTON" OtherKey="DIS_FK_CANTON" Type="eREST_DISTRITOS" />
+      <Association Name="eREST_PROVINCIAS_eREST_CANTONES" Member="eREST_PROVINCIAS" ThisKey="CAN_FK_PROVINCIA" OtherKey="PRO_PK_PROVINCIA" Type="eREST_PROVINCIAS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_CATEGORIAS" Member="eREST_CATEGORIAS">
+    <Type Name="eREST_CATEGORIAS">
+      <Column Name="CAT_NOMBRE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CAT_PK_CATEGORIA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_CATEGORIAS_eREST_SUBCATEGORIAS" Member="eREST_SUBCATEGORIAS" ThisKey="CAT_PK_CATEGORIA" OtherKey="SCA_FK_CATEGORIA" Type="eREST_SUBCATEGORIAS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_CONTACTOS" Member="eREST_CONTACTOS">
+    <Type Name="eREST_CONTACTOS">
+      <Column Name="PTC_CONTACTO" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PTC_FK_PERSONA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PTC_FK_TIPOCONTACTO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TCO_PK_CONTACTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_PERSONAS_eREST_CONTACTOS" Member="eREST_PERSONAS" ThisKey="PTC_FK_PERSONA" OtherKey="PER_PK_PERSONA" Type="eREST_PERSONAS" IsForeignKey="true" />
+      <Association Name="eREST_TIPOCONTACTOS_eREST_CONTACTOS" Member="eREST_TIPOCONTACTOS" ThisKey="PTC_FK_TIPOCONTACTO" OtherKey="TIP_PK_TIPOCONTACTO" Type="eREST_TIPOCONTACTOS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_DETALLEFACTURAS" Member="eREST_DETALLEFACTURAS">
+    <Type Name="eREST_DETALLEFACTURAS">
+      <Column Name="DFAC_PK_DETFACTURA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DFAC_PFK_FACTURA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DFAC_CANTIDAD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DFAC_FK_PRODUCTO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DFAC_DESCUENTO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="eREST_FACTURAS_eREST_DETALLEFACTURAS" Member="eREST_FACTURAS" ThisKey="DFAC_PFK_FACTURA" OtherKey="FAC_PK_FACTURA" Type="eREST_FACTURAS" IsForeignKey="true" />
+      <Association Name="eREST_PRODUCTOS_eREST_DETALLEFACTURAS" Member="eREST_PRODUCTOS" ThisKey="DFAC_FK_PRODUCTO" OtherKey="PRO_PK_PRODUCTO" Type="eREST_PRODUCTOS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_DETALLEORDENES" Member="eREST_DETALLEORDENES">
+    <Type Name="eREST_DETALLEORDENES">
+      <Column Name="DOR_FK_PRODUCTO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOR_CANTIDAD" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DOR_FK_ORDEN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOR_PK_DETALLEORDEN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DOR_FK_EMPLEADO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOR_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DOR_FECHA" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="eREST_EMPLEADOS_eREST_DETALLEORDENES" Member="eREST_EMPLEADOS" ThisKey="DOR_PK_DETALLEORDEN" OtherKey="EMP_PK_EMPLEADO" Type="eREST_EMPLEADOS" IsForeignKey="true" />
+      <Association Name="eREST_ORDENES_eREST_DETALLEORDENES" Member="eREST_ORDENES" ThisKey="DOR_FK_ORDEN" OtherKey="ORD_PK_ORDEN" Type="eREST_ORDENES" IsForeignKey="true" />
+      <Association Name="eREST_PRODUCTOS_eREST_DETALLEORDENES" Member="eREST_PRODUCTOS" ThisKey="DOR_FK_PRODUCTO" OtherKey="PRO_PK_PRODUCTO" Type="eREST_PRODUCTOS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_DETBODEGAS" Member="eREST_DETBODEGAS">
+    <Type Name="eREST_DETBODEGAS">
+      <Column Name="DB_CANTIDAD" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DB_UMEDIDA" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="DB_FK_SUBBODEGA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DB_FK_BODEGA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DB_PK_DETBODEGA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DB_FK_INSUMO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="eREST_BODEGAS_eREST_DETBODEGAS" Member="eREST_BODEGAS" ThisKey="DB_FK_BODEGA" OtherKey="BOD_PK_BODEGA" Type="eREST_BODEGAS" IsForeignKey="true" />
+      <Association Name="eREST_INSUMOS_eREST_DETBODEGAS" Member="eREST_INSUMOS" ThisKey="DB_FK_INSUMO" OtherKey="INS_PK_INSUMO" Type="eREST_INSUMOS" IsForeignKey="true" />
+      <Association Name="eREST_SUBBODEGAS_eREST_DETBODEGAS" Member="eREST_SUBBODEGAS" ThisKey="DB_FK_SUBBODEGA" OtherKey="SBO_PK_SUBBODEGA" Type="eREST_SUBBODEGAS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_DETRECETAS" Member="eREST_DETRECETAS">
+    <Type Name="eREST_DETRECETAS">
+      <Column Name="DRE_CANTIDAD" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DRE_UMEDIDA" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="DRE_FK_RECETA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DRE_FK_INSUMO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DRE_PK_DETRECETA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DRE_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="eREST_INSUMOS_eREST_DETRECETAS" Member="eREST_INSUMOS" ThisKey="DRE_FK_INSUMO" OtherKey="INS_PK_INSUMO" Type="eREST_INSUMOS" IsForeignKey="true" />
+      <Association Name="eREST_RECETAS_eREST_DETRECETAS" Member="eREST_RECETAS" ThisKey="DRE_FK_RECETA" OtherKey="REC_PK_RECETA" Type="eREST_RECETAS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_DIRECCIONES" Member="eREST_DIRECCIONES">
+    <Type Name="eREST_DIRECCIONES">
+      <Column Name="DIR_FK_DISTRITO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DIR_DESCRIPCION" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DIR_PK_DIRECCION" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DIR_FK_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="eREST_DISTRITOS_eREST_DIRECCIONES" Member="eREST_DISTRITOS" ThisKey="DIR_FK_DISTRITO" OtherKey="DIS_PK_DISTRITO" Type="eREST_DISTRITOS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_DISTRITOS" Member="eREST_DISTRITOS">
+    <Type Name="eREST_DISTRITOS">
+      <Column Name="DIS_FK_CANTON" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DIS_DISTRITO" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DIS_PK_DISTRITO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_DISTRITOS_eREST_DIRECCIONES" Member="eREST_DIRECCIONES" ThisKey="DIS_PK_DISTRITO" OtherKey="DIR_FK_DISTRITO" Type="eREST_DIRECCIONES" />
+      <Association Name="eREST_CANTONES_eREST_DISTRITOS" Member="eREST_CANTONES" ThisKey="DIS_FK_CANTON" OtherKey="CAN_PK_CANTON" Type="eREST_CANTONES" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_EMPLEADOS" Member="eREST_EMPLEADOS">
+    <Type Name="eREST_EMPLEADOS">
+      <Column Name="EMP_PK_EMPLEADO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EMP_FECHAREGISTRO" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_FK_TIPOEMPLEADO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_FK_PERSONA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="eREST_EMPLEADOS_eREST_DETALLEORDENES" Member="eREST_DETALLEORDENES" ThisKey="EMP_PK_EMPLEADO" OtherKey="DOR_PK_DETALLEORDEN" Type="eREST_DETALLEORDENES" Cardinality="One" />
+      <Association Name="eREST_PERSONAS_eREST_EMPLEADOS" Member="eREST_PERSONAS" ThisKey="EMP_FK_PERSONA" OtherKey="PER_PK_PERSONA" Type="eREST_PERSONAS" IsForeignKey="true" />
+      <Association Name="eREST_TIPOEMPLEADOS_eREST_EMPLEADOS" Member="eREST_TIPOEMPLEADOS" ThisKey="EMP_FK_TIPOEMPLEADO" OtherKey="TEM_PK_TIPOEMPLEADO" Type="eREST_TIPOEMPLEADOS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_EMPRESAS" Member="eREST_EMPRESAS">
+    <Type Name="eREST_EMPRESAS">
+      <Column Name="EMP_PK_EMPRESA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EMP_NOMBRE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_TELEFONO" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="EMP_DIRECCION" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Association Name="eREST_EMPRESAS_eREST_SECTORES" Member="eREST_SECTORES" ThisKey="EMP_PK_EMPRESA" OtherKey="SEC_FK_EMPRESA" Type="eREST_SECTORES" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_FACTURAS" Member="eREST_FACTURAS">
+    <Type Name="eREST_FACTURAS">
+      <Column Name="FAC_PK_FACTURA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FAC_FK_ORDEN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FAC_NOMBRE_CLIENTE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FAC_ESTADO" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="FAC_MONTOTOTAL" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="FAC_DESCUENTO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="eREST_FACTURAS_eREST_DETALLEFACTURAS" Member="eREST_DETALLEFACTURAS" ThisKey="FAC_PK_FACTURA" OtherKey="DFAC_PFK_FACTURA" Type="eREST_DETALLEFACTURAS" />
+      <Association Name="eREST_ORDENES_eREST_FACTURAS" Member="eREST_ORDENES" ThisKey="FAC_PK_FACTURA" OtherKey="ORD_PK_ORDEN" Type="eREST_ORDENES" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_INSUMOS" Member="eREST_INSUMOS">
+    <Type Name="eREST_INSUMOS">
+      <Column Name="INS_NOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="INS_DESCRIPCION" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="INS_PK_INSUMO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_INSUMOS_eREST_DETBODEGAS" Member="eREST_DETBODEGAS" ThisKey="INS_PK_INSUMO" OtherKey="DB_FK_INSUMO" Type="eREST_DETBODEGAS" />
+      <Association Name="eREST_INSUMOS_eREST_DETRECETAS" Member="eREST_DETRECETAS" ThisKey="INS_PK_INSUMO" OtherKey="DRE_FK_INSUMO" Type="eREST_DETRECETAS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_MOBILIARIOS" Member="eREST_MOBILIARIOS">
+    <Type Name="eREST_MOBILIARIOS">
+      <Column Name="MOB_PK_MOBILIARIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MOB_COORX" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MOB_COORY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MOB_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MOB_FK_TIPOMOBILIARIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MOB_FK_SECTOR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MOB_NUMERO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="eREST_MOBILIARIOS_eREST_ORDENES" Member="eREST_ORDENES" ThisKey="MOB_PK_MOBILIARIO" OtherKey="ORD_FK_MOBILIARIO" Type="eREST_ORDENES" />
+      <Association Name="eREST_SECTORES_eREST_MOBILIARIOS" Member="eREST_SECTORES" ThisKey="MOB_FK_SECTOR" OtherKey="SEC_PK_SECTOR" Type="eREST_SECTORES" IsForeignKey="true" />
+      <Association Name="eREST_TIPOMOBILIARIOS_eREST_MOBILIARIOS" Member="eREST_TIPOMOBILIARIOS" ThisKey="MOB_FK_TIPOMOBILIARIO" OtherKey="TMO_PK_TIPOMOBILIARIO" Type="eREST_TIPOMOBILIARIOS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_MODULOS" Member="eREST_MODULOS">
+    <Type Name="eREST_MODULOS">
+      <Column Name="MOD_PK_MODULO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MOD_NOMBRE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MOD_DESCRIPCION" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="MOD_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="eREST_MODULOS_eREST_PERMISOS_MODULOS" Member="eREST_PERMISOS_MODULOS" ThisKey="MOD_PK_MODULO" OtherKey="MOD_PK_MODULO" Type="eREST_PERMISOS_MODULOS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_ORDENES" Member="eREST_ORDENES">
+    <Type Name="eREST_ORDENES">
+      <Column Name="ORD_FECHA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ORD_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ORD_IMPUESTO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ORD_TOTAL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ORD_FK_MOBILIARIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ORD_PK_ORDEN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_ORDENES_eREST_DETALLEORDENES" Member="eREST_DETALLEORDENES" ThisKey="ORD_PK_ORDEN" OtherKey="DOR_FK_ORDEN" Type="eREST_DETALLEORDENES" />
+      <Association Name="eREST_ORDENES_eREST_FACTURAS" Member="eREST_FACTURAS" ThisKey="ORD_PK_ORDEN" OtherKey="FAC_PK_FACTURA" Type="eREST_FACTURAS" Cardinality="One" />
+      <Association Name="eREST_MOBILIARIOS_eREST_ORDENES" Member="eREST_MOBILIARIOS" ThisKey="ORD_FK_MOBILIARIO" OtherKey="MOB_PK_MOBILIARIO" Type="eREST_MOBILIARIOS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_PERMISOS" Member="eREST_PERMISOS">
+    <Type Name="eREST_PERMISOS">
+      <Column Name="PRM_PK_PERMISO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRM_NOMBRE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="PRM_DESCRIPCION" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PRM_ESTADO" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="eREST_PERMISOS_eREST_PERMISOS_MODULOS" Member="eREST_PERMISOS_MODULOS" ThisKey="PRM_PK_PERMISO" OtherKey="PRM_PK_PERMISO" Type="eREST_PERMISOS_MODULOS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_PERMISOS_MODULOS" Member="eREST_PERMISOS_MODULOS">
+    <Type Name="eREST_PERMISOS_MODULOS">
+      <Column Name="MOD_PK_MODULO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRM_PK_PERMISO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ROL_PK_ROL" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="eREST_MODULOS_eREST_PERMISOS_MODULOS" Member="eREST_MODULOS" ThisKey="MOD_PK_MODULO" OtherKey="MOD_PK_MODULO" Type="eREST_MODULOS" IsForeignKey="true" />
+      <Association Name="eREST_PERMISOS_eREST_PERMISOS_MODULOS" Member="eREST_PERMISOS" ThisKey="PRM_PK_PERMISO" OtherKey="PRM_PK_PERMISO" Type="eREST_PERMISOS" IsForeignKey="true" />
+      <Association Name="eREST_ROLES_eREST_PERMISOS_MODULOS" Member="eREST_ROLES" ThisKey="ROL_PK_ROL" OtherKey="ROL_PK_ROL" Type="eREST_ROLES" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_PERSONAS" Member="eREST_PERSONAS">
+    <Type Name="eREST_PERSONAS">
+      <Column Name="PER_CEDULA" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="PER_PNOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PER_ESTADO" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PER_HDELINCUENCIA" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PER_SNOMBRE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PER_PAPELLIDO" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PER_SAPELLIDO" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PER_GENERO" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PER_ESTADOCIVIL" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PER_NACIONALIDAD" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PER_PK_PERSONA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_PERSONAS_eREST_USUARIOS" Member="eREST_USUARIOS" ThisKey="PER_PK_PERSONA" OtherKey="USU_PFK_PERSONA" Type="eREST_USUARIOS" Cardinality="One" />
+      <Association Name="eREST_PERSONAS_eREST_CONTACTOS" Member="eREST_CONTACTOS" ThisKey="PER_PK_PERSONA" OtherKey="PTC_FK_PERSONA" Type="eREST_CONTACTOS" />
+      <Association Name="eREST_PERSONAS_eREST_EMPLEADOS" Member="eREST_EMPLEADOS" ThisKey="PER_PK_PERSONA" OtherKey="EMP_FK_PERSONA" Type="eREST_EMPLEADOS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_PRODUCTOS" Member="eREST_PRODUCTOS">
+    <Type Name="eREST_PRODUCTOS">
+      <Column Name="PRO_NOMBRE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_PRECIO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRO_FK_SUBCATEGORIA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_FK_RECETA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRO_PK_PRODUCTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PRO_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_IMAGEN" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="eREST_PRODUCTOS_eREST_DETALLEFACTURAS" Member="eREST_DETALLEFACTURAS" ThisKey="PRO_PK_PRODUCTO" OtherKey="DFAC_FK_PRODUCTO" Type="eREST_DETALLEFACTURAS" />
+      <Association Name="eREST_PRODUCTOS_eREST_DETALLEORDENES" Member="eREST_DETALLEORDENES" ThisKey="PRO_PK_PRODUCTO" OtherKey="DOR_FK_PRODUCTO" Type="eREST_DETALLEORDENES" />
+      <Association Name="eREST_RECETAS_eREST_PRODUCTOS" Member="eREST_RECETAS" ThisKey="PRO_FK_RECETA" OtherKey="REC_PK_RECETA" Type="eREST_RECETAS" IsForeignKey="true" />
+      <Association Name="eREST_SUBCATEGORIAS_eREST_PRODUCTOS" Member="eREST_SUBCATEGORIAS" ThisKey="PRO_FK_SUBCATEGORIA" OtherKey="SCA_PK_SUBCATEGORIA" Type="eREST_SUBCATEGORIAS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_PROVINCIAS" Member="eREST_PROVINCIAS">
+    <Type Name="eREST_PROVINCIAS">
+      <Column Name="PRO_PROVINCIA" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_PK_PROVINCIA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_PROVINCIAS_eREST_CANTONES" Member="eREST_CANTONES" ThisKey="PRO_PK_PROVINCIA" OtherKey="CAN_FK_PROVINCIA" Type="eREST_CANTONES" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_RECETAS" Member="eREST_RECETAS">
+    <Type Name="eREST_RECETAS">
+      <Column Name="REC_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="REC_PK_RECETA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_RECETAS_eREST_DETRECETAS" Member="eREST_DETRECETAS" ThisKey="REC_PK_RECETA" OtherKey="DRE_FK_RECETA" Type="eREST_DETRECETAS" />
+      <Association Name="eREST_RECETAS_eREST_PRODUCTOS" Member="eREST_PRODUCTOS" ThisKey="REC_PK_RECETA" OtherKey="PRO_FK_RECETA" Type="eREST_PRODUCTOS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_ROLES" Member="eREST_ROLES">
+    <Type Name="eREST_ROLES">
+      <Column Name="ROL_PK_ROL" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ROL_DESCRIPCION" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ROL_ESTADO" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="eREST_ROLES_eREST_USUARIOS" Member="eREST_USUARIOS" ThisKey="ROL_PK_ROL" OtherKey="USU_FK_ROL" Type="eREST_USUARIOS" />
+      <Association Name="eREST_ROLES_eREST_PERMISOS_MODULOS" Member="eREST_PERMISOS_MODULOS" ThisKey="ROL_PK_ROL" OtherKey="ROL_PK_ROL" Type="eREST_PERMISOS_MODULOS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_SECTORES" Member="eREST_SECTORES">
+    <Type Name="eREST_SECTORES">
+      <Column Name="SEC_PK_SECTOR" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SEC_NOMBRE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SEC_FK_EMPRESA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SEC_DESCRIPCION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="eREST_SECTORES_eREST_MOBILIARIOS" Member="eREST_MOBILIARIOS" ThisKey="SEC_PK_SECTOR" OtherKey="MOB_FK_SECTOR" Type="eREST_MOBILIARIOS" />
+      <Association Name="eREST_EMPRESAS_eREST_SECTORES" Member="eREST_EMPRESAS" ThisKey="SEC_FK_EMPRESA" OtherKey="EMP_PK_EMPRESA" Type="eREST_EMPRESAS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_SUBBODEGAS" Member="eREST_SUBBODEGAS">
+    <Type Name="eREST_SUBBODEGAS">
+      <Column Name="SBO_FECHA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SBO_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SBO_FK_BODEGA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SBO_PK_SUBBODEGA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_SUBBODEGAS_eREST_DETBODEGAS" Member="eREST_DETBODEGAS" ThisKey="SBO_PK_SUBBODEGA" OtherKey="DB_FK_SUBBODEGA" Type="eREST_DETBODEGAS" />
+      <Association Name="eREST_BODEGAS_eREST_SUBBODEGAS" Member="eREST_BODEGAS" ThisKey="SBO_FK_BODEGA" OtherKey="BOD_PK_BODEGA" Type="eREST_BODEGAS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_SUBCATEGORIAS" Member="eREST_SUBCATEGORIAS">
+    <Type Name="eREST_SUBCATEGORIAS">
+      <Column Name="SCA_NOMBRE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SCA_FK_CATEGORIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SCA_PK_SUBCATEGORIA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_SUBCATEGORIAS_eREST_PRODUCTOS" Member="eREST_PRODUCTOS" ThisKey="SCA_PK_SUBCATEGORIA" OtherKey="PRO_FK_SUBCATEGORIA" Type="eREST_PRODUCTOS" />
+      <Association Name="eREST_CATEGORIAS_eREST_SUBCATEGORIAS" Member="eREST_CATEGORIAS" ThisKey="SCA_FK_CATEGORIA" OtherKey="CAT_PK_CATEGORIA" Type="eREST_CATEGORIAS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_TIPOBODEGAS" Member="eREST_TIPOBODEGAS">
+    <Type Name="eREST_TIPOBODEGAS">
+      <Column Name="TBO_NOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="TBO_PK_TIPOBODEGA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_TIPOBODEGAS_eREST_BODEGAS" Member="eREST_BODEGAS" ThisKey="TBO_PK_TIPOBODEGA" OtherKey="BOD_FK_TIPOBODEGA" Type="eREST_BODEGAS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_TIPOCONTACTOS" Member="eREST_TIPOCONTACTOS">
+    <Type Name="eREST_TIPOCONTACTOS">
+      <Column Name="TIP_NOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="TIP_PK_TIPOCONTACTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="eREST_TIPOCONTACTOS_eREST_CONTACTOS" Member="eREST_CONTACTOS" ThisKey="TIP_PK_TIPOCONTACTO" OtherKey="PTC_FK_TIPOCONTACTO" Type="eREST_CONTACTOS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_TIPOEMPLEADOS" Member="eREST_TIPOEMPLEADOS">
+    <Type Name="eREST_TIPOEMPLEADOS">
+      <Column Name="TEM_PK_TIPOEMPLEADO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TEM_NOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="eREST_TIPOEMPLEADOS_eREST_EMPLEADOS" Member="eREST_EMPLEADOS" ThisKey="TEM_PK_TIPOEMPLEADO" OtherKey="EMP_FK_TIPOEMPLEADO" Type="eREST_EMPLEADOS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eREST_TIPOMOBILIARIOS" Member="eREST_TIPOMOBILIARIOS">
+    <Type Name="eREST_TIPOMOBILIARIOS">
+      <Column Name="TMO_PK_TIPOMOBILIARIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TMO_NOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="TMO_IMAGEN" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="TMO_DESCRIPCION" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="eREST_TIPOMOBILIARIOS_eREST_MOBILIARIOS" Member="eREST_MOBILIARIOS" ThisKey="TMO_PK_TIPOMOBILIARIO" OtherKey="MOB_FK_TIPOMOBILIARIO" Type="eREST_MOBILIARIOS" />
+    </Type>
+  </Table>
+  <Function Name="dbo.eREST_spDirecciones" Method="eREST_spDirecciones">
+    <Parameter Name="PK" Parameter="pK" Type="System.Int32" DbType="Int" />
+    <ElementType Name="eREST_spDireccionesResult">
+      <Column Name="DIR_FK_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIS_PK_DISTRITO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DIR_PK_DIRECCION" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CAN_PK_CANTON" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_PK_PROVINCIA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DIRECCION" Type="System.String" DbType="VarChar(196) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eREST_spListarProductos" Method="eREST_spListarProductos">
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="SubCategoria" Parameter="subCategoria" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="eREST_spListarProductosResult">
+      <Column Name="PRO_PK_PRODUCTO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_NOMBRE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_IMAGEN" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+      <Column Name="PRO_PRECIO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRO_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="REC_PK_RECETA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="REC_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SCA_PK_SUBCATEGORIA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SCA_NOMBRE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CAT_NOMBRE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eREST_spEmpleados" Method="eREST_spEmpleados">
+    <ElementType Name="eREST_spEmpleadosResult">
+      <Column Name="PER_PK_PERSONA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_PK_EMPLEADO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TEM_PK_TIPOEMPLEADO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PER_CEDULA" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(92) NOT NULL" CanBeNull="false" />
+      <Column Name="TEM_NOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eREST_spListarBodegas" Method="eREST_spListarBodegas">
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="eREST_spListarBodegasResult">
+      <Column Name="BOD_PK_BODEGA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BOD_LOCALIDAD" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BOD_NOMBRE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="BOD_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TBO_NOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eREST_spListarIngredientes" Method="eREST_spListarIngredientes">
+    <Parameter Name="idReceta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="eREST_spListarIngredientesResult">
+      <Column Name="DRE_PK_DETRECETA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DRE_CANTIDAD" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DRE_UMEDIDA" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_PK_INSUMO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="INS_NOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DRE_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eREST_spListarInsumos" Method="eREST_spListarInsumos">
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="eREST_spListarInsumosResult">
+      <Column Name="INS_DESCRIPCION" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="INS_NOMBRE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_PK_INSUMO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="INS_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DB_CANTIDAD" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DB_UMEDIDA" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="BOD_ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BOD_NOMBRE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="BOD_PK_BODEGA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DB_PK_DETBODEGA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

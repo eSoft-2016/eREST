@@ -1,0 +1,49 @@
+﻿<Window  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:CustomControls="clr-namespace:eREST.CustomControls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+     mc:Ignorable="d"  x:Class="eREST.ModalWindows.MaintenanceWindows.wmSeletSector"
+         Height="730" Width="1366" Background="#7FFFFFFF" AllowsTransparency="True"
+           WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+
+    </Window.Resources>
+
+    <Grid Background="White" Margin="533,220,534,350">
+
+
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="8" BlurRadius="3" RenderingBias="Quality" Opacity="0.5"/>
+        </Grid.Effect>
+ 
+
+        <Rectangle Stroke="{StaticResource MediumColor}" StrokeThickness="1.5"/>
+
+        <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="0.7" Margin="10,38,0,0" VerticalAlignment="Top" Width="280"/>
+        <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="1" Margin="10,106,0,0" VerticalAlignment="Top" Width="280"/>
+
+        <CustomControls:ccMaintenanceButton x:Name="btnSave" HorizontalAlignment="Left" Height="40" Margin="210,110,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/save.png" Style="{DynamicResource stMaintenanceButton}" Click="btnSave_Click" IsEnabled="False" />
+        <CustomControls:ccMaintenanceButton x:Name="btnCancel" HorizontalAlignment="Left" Height="40" Margin="250,110,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/cancel.png" Style="{DynamicResource stMaintenanceButton}" Click="btnCancel_Click"/>
+
+        <TextBlock  Foreground="{StaticResource TextColor}"  HorizontalAlignment="Left" Margin="10,3,0,0" TextWrapping="Wrap" Text="Sector" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="22" />
+
+        <ComboBox x:Name="cbSector" HorizontalAlignment="Left" Margin="135,55,0,0" VerticalAlignment="Top" Width="127" SelectionChanged="cbSector_SelectionChanged"  Style="{DynamicResource stComboBox}"/>
+
+        <Grid x:Name="gridUser" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Content="Sector:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,-33,0,39" VerticalAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+
+    </Grid>
+</Window>

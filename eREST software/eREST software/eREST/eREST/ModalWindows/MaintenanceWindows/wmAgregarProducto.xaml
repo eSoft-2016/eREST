@@ -1,0 +1,76 @@
+﻿<Window x:Class="eREST.ModalWindows.MaintenanceWindows.wmAgregarProducto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:eREST.ModalWindows.MaintenanceWindows"
+        xmlns:CustomControls="clr-namespace:eREST.CustomControls"
+        mc:Ignorable="d"
+        Title="Ingrediente" Height="275.188" Width="374.436" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,3,0,0" TextWrapping="Wrap" Text="Ingrediente:" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="22" Foreground="{StaticResource DarkColor}"/>
+        <CustomControls:ccMaintenanceButton x:Name="btnSave" HorizontalAlignment="Left" Margin="276,194,0,0" Width="40" Icon="/eREST;component/Icons/Maintenance/save.png" Style="{DynamicResource stMaintenanceButton}"  Height="40" VerticalAlignment="Top"  IsEnabled="True" Click="btnSave_Click"/>
+        <CustomControls:ccMaintenanceButton x:Name="btnCancel" HorizontalAlignment="Left" Height="40" Margin="316,194,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/cancel.png" Style="{DynamicResource stMaintenanceButton}" Click="btnCancel_Click" />
+        <Grid x:Name="gDetInsumo"  HorizontalAlignment="Left" Margin="30,126,0,0" VerticalAlignment="Top" Height="80" Width="317" Opacity="1">
+
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="39"/>
+                <RowDefinition Height="54"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Cantidad:"  Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,5" Grid.Row="0" VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" FontWeight="Bold"/>
+
+            <Label Content="Unidad de medida"  FontWeight="Bold" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,0,0,8" Grid.Row="6" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtCantidad" PreviewTextInput="txtCantidad_PreviewTextInput"  BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="20" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="3,9,-32,9" Grid.Row="0" 
+        		VerticalAlignment="Center" Width="162" TextAlignment="Right" />
+            <ComboBox x:Name="cmbUniMedida" BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" FontFamily="Segoe UI Light" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="6,5,-31,10" Grid.Row="6"
+        		VerticalAlignment="Center" Width="159" SelectedIndex="0" />
+            
+
+        </Grid>
+        <Grid x:Name="gInsumo"  HorizontalAlignment="Left" Margin="30,37,0,0" VerticalAlignment="Top" Height="89" Width="317" Opacity="1">
+
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="39"/>
+                <RowDefinition Height="54"/>
+            </Grid.RowDefinitions>
+            <Label Content="Descripcion:"  FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" Grid.Column="0" Margin="3,8,0,8" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="102"/>
+
+            <Label Content="Nombre:"  Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,4" Grid.Row="0" VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" FontWeight="Bold"/>
+            <TextBox x:Name="txtDescripcion" IsEnabled="False" Foreground="{StaticResource TextColor}" BorderBrush="{StaticResource LightColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="100" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="3,4,-31,3" Grid.Row="2"  
+        		VerticalAlignment="Center" Width="159" />
+            <TextBox x:Name="nombreTextBox" IsEnabled="False" BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" FontFamily="Segoe UI Light" FontSize="16" MaxLength="20" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="3,9,-31,9" Grid.Row="0" 
+        		VerticalAlignment="Center" Width="159" />
+
+        </Grid>
+
+
+
+    </Grid>
+</Window>

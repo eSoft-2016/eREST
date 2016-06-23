@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="eREST.UserControls.ucProducto"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:eREST.UserControls"
+             mc:Ignorable="d" Height="40" Width="445">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="445"/>
+        <Rectangle Fill="{StaticResource LightColor}" HorizontalAlignment="Left" Height="39" Margin="153,0,0,0" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBlock x:Name="txtNombre" TextWrapping="Wrap" FontFamily="Segoe UI Light" FontSize="16" Text="TextBlock" Width="150" Margin="2,0,298,0" VerticalAlignment="Center"/>
+        <TextBlock x:Name="txtCantidad" TextWrapping="Wrap" FontFamily="Segoe UI Light" FontSize="16" Text="TextBlock" Width="100" Margin="0,10,188,8" VerticalAlignment="Center" HorizontalAlignment="Right" TextAlignment="Right"/>
+        <Rectangle Fill="{StaticResource LightColor}" HorizontalAlignment="Left" Height="40" Margin="259,0,0,0" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBlock x:Name="txtUniMedida" TextWrapping="Wrap" FontFamily="Segoe UI Light" FontSize="16" Text="kg" Margin="262,10,150,8" VerticalAlignment="Center"/>
+        <Button x:Name="btnEliminar" Width="Auto"  Height="Auto" Style="{StaticResource btnDelete}" Margin="409,1,0,0" />
+        <Button x:Name="btnEditar" Style="{StaticResource btnSelectItem}" Margin="375,0,36,0" />
+        <Rectangle Fill="{StaticResource LightColor}" HorizontalAlignment="Left" Height="38" Margin="297,1,0,0" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="{StaticResource LightColor}" HorizontalAlignment="Left" Height="38" Margin="409,1,0,0" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="{StaticResource LightColor}" HorizontalAlignment="Left" Height="38" Margin="373,2,0,0" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBlock x:Name="txtEstado" TextWrapping="Wrap" FontFamily="Segoe UI Light" FontSize="16" Text="kg" Margin="300,10,75,8" VerticalAlignment="Center" Height="22"/>
+    </Grid>
+
+</UserControl>

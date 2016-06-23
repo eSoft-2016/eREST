@@ -1,0 +1,57 @@
+﻿<Window x:Class="eREST.ModalWindows.MaintenanceWindows.wmEmpleado"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:CustomControls="clr-namespace:eREST.CustomControls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d"
+        Height="727.9" Width="1366" Background="#7FFFFFFF" AllowsTransparency="True"
+        WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+
+    </Window.Resources>
+    <Grid Background="White" Margin="533,134,395,76">
+
+
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="8" BlurRadius="3" RenderingBias="Quality" Opacity="0.5"/>
+        </Grid.Effect>
+
+
+
+        <Rectangle Stroke="{StaticResource MediumColor}" StrokeThickness="1.5" Margin="0,3,0,-3"/>
+
+        <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="1" Margin="10,38,0,0" VerticalAlignment="Top" Width="418"/>
+        <Rectangle Fill="#FF3184CF" HorizontalAlignment="Left" Height="1" Margin="13,466,0,0" VerticalAlignment="Top" Width="399"/>
+
+        <CustomControls:ccMaintenanceButton x:Name="btnSave" HorizontalAlignment="Left" Height="40" Margin="325,472,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/save.png" Style="{DynamicResource stMaintenanceButton}" Click="btnSave_Click" />
+        <CustomControls:ccMaintenanceButton x:Name="btnCancel" HorizontalAlignment="Left" Height="40" Margin="365,472,0,0" VerticalAlignment="Top" Width="40" Icon="/eREST;component/Icons/Maintenance/cancel.png" Style="{DynamicResource stMaintenanceButton}" Click="btnCancel_Click"/>
+
+        <TextBlock  Foreground="{StaticResource TextColor}"  HorizontalAlignment="Left" Margin="10,3,0,0" TextWrapping="Wrap" Text="Mantenimiento de Empleado" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="22" />
+        <Grid x:Name="gridPersona" HorizontalAlignment="Left" Margin="7,21,0,0" VerticalAlignment="Top">
+            <ComboBox x:Name="cbEstadoCivil" HorizontalAlignment="Left" Margin="186,270,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold" Height="25"/>
+            <ComboBox x:Name="cbGenero" HorizontalAlignment="Left" Margin="186,309,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold" Height="25"/>
+            <Label x:Name="lbCedula" Content="Cédula" HorizontalAlignment="Left" Margin="25,58,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}"  FontWeight="Bold"/>
+            <Label x:Name="lbPNombre" Content="Primer Nombre" HorizontalAlignment="Left" Margin="22,100,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}"  FontWeight="Bold"/>
+            <Label x:Name="lbSNombre" Content="Segundo Nombre" HorizontalAlignment="Left" Margin="25,136,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}"  />
+            <Label x:Name="lbPApellido" Content="Primer Apellido" HorizontalAlignment="Left" Margin="22,180,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}"  FontWeight="Bold"/>
+            <Label x:Name="lbSApellido" Content="Segundo Apellido" HorizontalAlignment="Left" Margin="22,233,0,0" VerticalAlignment="Top"  FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" />
+            <Label FontWeight="Bold" x:Name="lbEstadoCivil" Content="Estado Civil" HorizontalAlignment="Left" Margin="25,270,0,0" VerticalAlignment="Top" FontFamily="Segoe UI"  FontSize="16" Foreground="{StaticResource MediumColor}" />
+            <Label FontWeight="Bold" x:Name="lbGenero" Content="Género" HorizontalAlignment="Left" Margin="25,309,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" />
+            <CheckBox x:Name="chHistorialDelictivo" Content="Historial delictivo" HorizontalAlignment="Left" Margin="22,408,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="{StaticResource MediumColor}"/>
+            <CheckBox x:Name="chNacional" Content="Nacional" HorizontalAlignment="Left" Margin="325,408,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="{StaticResource MediumColor}"/>
+            <TextBox x:Name="CedulaTextBox" HorizontalAlignment="Left" Height="26" Margin="186,63,0,408" Grid.Row="0" 
+            	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" Text="{Binding PER_CEDULA, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" />
+            <TextBox x:Name="PNombreTextBox" HorizontalAlignment="Left" Height="25" Margin="186,100,0,372" Grid.Row="0" 
+            	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" Text="{Binding PER_PNOMBRE, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" />
+            <TextBox x:Name="SNombreTextBox" HorizontalAlignment="Left" Height="25" Margin="186,142,0,330" Grid.Row="0" 
+            	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" Text="{Binding PER_SNOMBRE, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" />
+            <TextBox x:Name="PApellidoTextBox" HorizontalAlignment="Left" Height="25" Margin="186,186,0,286" Grid.Row="0" 
+            	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" Text="{Binding PER_PAPELLIDO, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" />
+            <TextBox x:Name="SApellidoTextBox" HorizontalAlignment="Left" Height="25" Margin="186,233,0,239" Grid.Row="0" 
+            	 BorderBrush="{StaticResource LightColor}" Foreground="{StaticResource TextColor}" VerticalAlignment="Center" Width="226" Text="{Binding PER_SAPELLIDO, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" />
+            <ComboBox x:Name="cbPuesto" HorizontalAlignment="Left" Margin="186,345,0,0" VerticalAlignment="Top" Width="226" Style="{DynamicResource stComboBox}" FontSize="16" FontWeight="Bold" Height="25"/>
+            <Label FontWeight="Bold" x:Name="lbGenero_Copy" Content="Puesto" HorizontalAlignment="Left" Margin="25,345,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" Foreground="{StaticResource MediumColor}" />
+        </Grid>
+    </Grid>
+</Window>
